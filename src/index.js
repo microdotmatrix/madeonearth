@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const client = Client.buildClient({
+  domain: 'https://madeonearthapparel.myshopify.com/',
+  storefrontAccessToken: 'ACCESS_TOKEN'
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
