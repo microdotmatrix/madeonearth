@@ -80,14 +80,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Made on Earth</h1>
-        </header>
-        <Cart
-          checkout={ this.state.checkout }
-          isCartOpen={ this.state.isCartOpen }
-          handleCartClose={ this.handleCartClose }
-          updateQuantityInCart={ this.updateQuantityInCart }
-          removeLineItemInCart={ this.removeLineItemInCart }
-        />
+          <Cart
+            checkout={ this.state.checkout }
+            isCartOpen={ this.state.isCartOpen }
+            handleCartClose={ this.handleCartClose }
+            updateQuantityInCart={ this.updateQuantityInCart }
+            removeLineItemInCart={ this.removeLineItemInCart }
+          />
+        </header> 
         {/* <Products /> */}
       </div>
     )
