@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Client from 'shopify-buy';
+import { Provider } from 'react-redux';
+import store from './store';
+
 import * as serviceWorker from './serviceWorker';
 
 const client = Client.buildClient({
@@ -11,7 +14,9 @@ const client = Client.buildClient({
 });
 
 ReactDOM.render(
-    <App client={ client } />,
+  <Provider store={ store } >
+    <App client={ client } />
+  </Provider>,
   document.getElementById('root')
 );
 
