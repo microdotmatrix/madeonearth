@@ -6,7 +6,7 @@ import Client from 'shopify-buy';
 import * as serviceWorker from './serviceWorker';
 
 const client = Client.buildClient({
-  domain: 'https://madeonearthapparel.myshopify.com/',
+  domain: 'madeonearthapparel.myshopify.com/',
   storefrontAccessToken: `${process.env.REACT_APP_ACCESS_TOKEN}`
 });
 
