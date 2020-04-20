@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Products from '../shopify/Products';
+import { connect } from 'react-redux';
+import store from '../../store/Store';
 
-import Products from '../products/Products';
+const Merchandise = ({ addVariantToCart }) => {
+  const state = store.getState(); 
 
-
-class Merchandise extends Component {
-
-  render() {
-    return (
-      <div>
-        <Products />
-      </div>
-    )
-  }
+  
+  return (
+    <div>
+      <Products 
+        products={ state.products }
+        client={ state.client }
+        addVariantToCart={ addVariantToCart }
+      />
+    </div>
+  )
 }
 
-export default Merchandise;
+export default connect((state) => state)(Merchandise);
