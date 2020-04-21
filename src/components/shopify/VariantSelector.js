@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+  import React, {Component} from 'react';
 
 class VariantSelector extends Component {
   render() {
