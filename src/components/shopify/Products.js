@@ -9,10 +9,10 @@ class Products extends Component {
       products = this.props.products.map((product) => {
         return (
           <Product
-            addVariantToCart={this.props.addVariantToCart}
-            client={this.props.client}
-            key={product.id.toString()}
-            product={product}
+            addVariantToCart={ this.props.addVariantToCart }
+            client={ this.props.client } 
+            key={ product.id.toString() }
+            product={ product }
           />
         );
       });
@@ -22,7 +22,7 @@ class Products extends Component {
     products.reverse(); 
     return (
       <div className="Product-wrapper">
-        {products}
+        { products } 
       </div>
     );
   }

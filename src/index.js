@@ -11,18 +11,7 @@ const client = Client.buildClient({
   domain: 'madeonearthapparel.myshopify.com/',
   storefrontAccessToken: `${process.env.REACT_APP_ACCESS_TOKEN}`
 });
-store.dispatch({type: 'CLIENT_CREATED', payload: client})
-
-
-// client.product.fetchAll().then((res) => {
-//   store.dispatch({type: 'PRODUCTS_FOUND', payload: res});
-// });
-// client.checkout.create().then((res) => {
-//   store.dispatch({type: 'CHECKOUT_FOUND', payload: res});
-// });
-// client.shop.fetchInfo().then((res) => {
-//   store.dispatch({type: 'SHOP_FOUND', payload: res});
-// });
+store.dispatch({ type: 'CLIENT_CREATED', payload: client })
 
 ReactDOM.render(
   <Provider store={ store } >
