@@ -7,22 +7,18 @@ class Product extends Component {
 
     let defaultOptionValues = {};
     this.props.product.options.forEach((selector) => {
-      console.log(selector)
       defaultOptionValues[selector.name] = selector.values[0].value;
     });
     this.state = { 
       selectedOptions: defaultOptionValues 
     };
-
   }
 
   findImage = (images, variantId) => {
     const primary = images[0];
-
     const image = images.filter(function (image) {
       return image.variant_ids.includes(variantId);
     })[0];
-
     return (image || primary).src;
   }
 
@@ -30,7 +26,6 @@ class Product extends Component {
     const target = event.target
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[target.name] = target.value;
-
     const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
 
     this.setState({
@@ -60,7 +55,7 @@ class Product extends Component {
     });
     return (
       <div className="Product">
-        { this.props.product.images.length ? <img src={variantImage.src} alt={`${this.props.product.title} product shot`}/> : null }
+        { this.props.product.images.length ? <img src={ variantImage.src } alt={ `${this.props.product.title} product shot` }/> : null }
         <h5 className="Product__title">{ this.props.product.title }</h5>
         <span className="Product__price">${ variant.price }</span>
         { variantSelectors }

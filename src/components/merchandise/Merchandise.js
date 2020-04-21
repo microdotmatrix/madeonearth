@@ -7,10 +7,10 @@ class Merchandise extends Component {
 
   addVariantToCart = (variantId, quantity) => {
     const state = store.getState();
-    const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}]
+    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
     const checkoutId = state.checkout.id
     state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: {isCartOpen: true, checkout: res}});
+      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { sCartOpen: true, checkout: res }});
     });
   }
 
