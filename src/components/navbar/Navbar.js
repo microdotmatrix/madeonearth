@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Navbar = ({ handleCartOpen }) => {
+const Navbar = (props) => {
   return (
     <div>
-      <button onClick={ handleCartOpen }>Cart</button>
+      <button onClick={ props.handleCartOpen }>Cart</button>
     </div>
   )
 };

@@ -6,6 +6,7 @@ import Merchandise from './components/merchandise/Merchandise';
 
 import { connect } from 'react-redux';
 import store from './store/Store';
+import './styles/Shopify.css';
 
 class App extends Component {
   constructor(props) {
@@ -17,83 +18,42 @@ class App extends Component {
       shop: {}
     }
   }
-
-  // componentDidMount() {
-  //   this.props.client.checkout.create().then((res) => {
-  //     this.setState({
-  //       checkout: res,
-  //     });
-  //   });
-  //   this.props.client.product.fetchAll().then((res) => {
-  //     console.log(res)
-  //     this.setState({
-  //       products: res,
-  //     });
-  //   });
-  //   this.props.client.shop.fetchInfo().then((res) => {
-  //     this.setState({
-  //       shop: res,
-  //     });
-  //   });
-  // }
-
-  addVariantToCart = (variantId, quantity) => {
-    const state = store.getState();
-    const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}]
-    const checkoutId = this.state.checkout.id
-
-    state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: {isCartOpen: true, checkout: res}});
+  
+  componentDidMount() {
+    this.props.client.checkout.create().then((res) => {
+      store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
     });
-
-    // return this.props.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-    //   this.setState({
-    //     checkout: res,
-    //   });
-    // });
+    this.props.client.product.fetchAll().then((res) => {
+      store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
+    });
+    this.props.client.shop.fetchInfo().then((res) => {
+      store.dispatch({ type: 'SHOP_FOUND', payload: res})
+    });
   }
 
   updateQuantityInCart = (lineItemId, quantity) => {
     const state = store.getState();
-    const checkoutId = this.state.checkout.id
+    const checkoutId = state.checkout.id
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
-
     state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
       store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: res}});
     });
-
-    // return this.props.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
-    //   this.setState({
-    //     checkout: res,
-    //   });
-    // });
   }
 
   removeLineItemInCart = (lineItemId) => {
     const state = store.getState();
-    const checkoutId = this.state.checkout.id
-
+    const checkoutId = state.checkout.id
     state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
       store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: {checkout: res}});
     });
-
-    // return this.props.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
-    //   this.setState({
-    //     checkout: res,
-    //   });
-    // });
   }
 
   handleCartClose = () => {
     store.dispatch({type: 'CLOSE_CART'});
-    
-    // this.setState({
-    //   isCartOpen: false,
-    // });
   }
 
   handleCartOpen = () => {
-    store.dispatch({type: 'CART_OPEN'});
+    store.dispatch({type: 'OPEN_CART'});
   }
 
   render() {
@@ -101,21 +61,18 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <Navbar handleCartOpen={ this.handleCartOpen } />
           <h1>Made on Earth</h1>
-          <Navbar 
-            handleCartOpen={ this.handleCartOpen }
-          />
         </header> 
-          <Cart
-            checkout={ this.state.checkout }
-            isCartOpen={ this.state.isCartOpen }
-            handleCartClose={ this.handleCartClose }
-            updateQuantityInCart={ this.updateQuantityInCart }
-            removeLineItemInCart={ this.removeLineItemInCart }
-          />
-        
+        <Cart
+          checkout={ state.checkout }
+          isCartOpen={ state.isCartOpen }
+          handleCartClose={ this.handleCartClose }
+          updateQuantityInCart={ this.updateQuantityInCart }
+          removeLineItemInCart={ this.removeLineItemInCart }
+        />
         <Merchandise 
-          addVariantToCart={ this.addVariantToCart }
+          // addVariantToCart={ this.addVariantToCart } 
         />
       </div>
     )

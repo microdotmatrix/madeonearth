@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-class LineItem extends Component {
+class LineItems extends Component {
   constructor(props) {
     super(props);
-
   }
 
   decrementQuantity = (lineItemId) => {
@@ -48,4 +47,4 @@ class LineItem extends Component {
   }
 }
 
-export default LineItem;
+export default LineItems;

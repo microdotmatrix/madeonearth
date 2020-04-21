@@ -5,7 +5,6 @@ import App from './App';
 import Client from 'shopify-buy';
 import { Provider } from 'react-redux';
 import store from './store/Store';
-
 import * as serviceWorker from './serviceWorker';
 
 const client = Client.buildClient({
@@ -15,15 +14,15 @@ const client = Client.buildClient({
 store.dispatch({type: 'CLIENT_CREATED', payload: client})
 
 
-client.product.fetchAll().then((res) => {
-  store.dispatch({type: 'PRODUCTS_FOUND', payload: res});
-});
-client.checkout.create().then((res) => {
-  store.dispatch({type: 'CHECKOUT_FOUND', payload: res});
-});
-client.shop.fetchInfo().then((res) => {
-  store.dispatch({type: 'SHOP_FOUND', payload: res});
-});
+// client.product.fetchAll().then((res) => {
+//   store.dispatch({type: 'PRODUCTS_FOUND', payload: res});
+// });
+// client.checkout.create().then((res) => {
+//   store.dispatch({type: 'CHECKOUT_FOUND', payload: res});
+// });
+// client.shop.fetchInfo().then((res) => {
+//   store.dispatch({type: 'SHOP_FOUND', payload: res});
+// });
 
 ReactDOM.render(
   <Provider store={ store } >

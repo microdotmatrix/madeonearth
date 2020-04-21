@@ -4,6 +4,7 @@ const initState = {
   products: [],
   shop: {}
 }
+
 // actions
 const CLIENT_CREATED = 'CLIENT_CREATED'
 const PRODUCTS_FOUND = 'PRODUCTS_FOUND'
@@ -15,8 +16,7 @@ const REMOVE_LINE_ITEM_IN_CART = 'REMOVE_LINE_ITEM_IN_CART'
 const OPEN_CART = 'OPEN_CART'
 const CLOSE_CART = 'CLOSE_CART'
 
-
-// reducers
+// reducer
 export default (state = initState, action) => {
   switch (action.type) {
     case CLIENT_CREATED:
