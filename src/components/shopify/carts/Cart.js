@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import LineItems from './LineItems';
+import LineItems from '../LineItems';
+import './Carts.css';
 
 class Cart extends Component {
   constructor(props) {
@@ -32,10 +33,9 @@ class Cart extends Component {
         <header className="Cart__header">
           <h2>Your cart</h2>
           <button
+            className="Cart__close"
             onClick={ this.props.handleCartClose }
-            className="Cart__close">
-            ×
-          </button>
+          >×</button>
         </header>
         <ul className="Cart__line-items">
           { line_items }

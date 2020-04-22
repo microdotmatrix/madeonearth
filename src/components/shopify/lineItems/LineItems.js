@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './LineItems.css';
 
 class LineItems extends Component {
   constructor(props) {

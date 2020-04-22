@@ -1,38 +1,109 @@
-.App {
+/* .App {
+  text-align: center;
+} */
+
+.App__header {
+  background-color: #222;
+  background-image: url('https://unsplash.it/1000/300?image=823');
+  background-size: cover;
+  color: white;
+  padding: 10px 10px;
+}
+
+.App__nav{
+  width: 100%;
+  list-style: none;
+}
+
+.App__customer-actions {
+  float: left;
+  padding: 10px;
+}
+
+.App__title {
+  padding: 80px 20px;
   text-align: center;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App__view-cart-wrapper {
+  float: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App__view-cart {
+  font-size: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  background-color: #1A1B2A;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 17px;
+  cursor: pointer;
+  transition: 0.5s;
+  border: solid #1A1B2A 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.button:hover,
+.button:focus {
+  color: #1A1B2A;
+  background-color: white;
+  
+  transition: 0.5s;
+}
+
+.button:disabled {
+  background: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.login {
+  font-size: 1.2rem;
+  color: #b8b8b8;
+  cursor: pointer;
+}
+
+.login:hover {
+  color: white;
+}
+
+.Flash__message-wrapper {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 227;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Flash__message {
+  background: rgba(0,0,0,0.88);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: #ffffff;
+  cursor: default;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: none;
+  pointer-events: auto;
+  position: relative;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.Flash__message--open {
+  display: flex;
+}
