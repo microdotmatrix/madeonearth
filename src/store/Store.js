@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from '../reducers/cartsReducer';
+import reducer from '../actionReducer/carts';
 
 
 export default createStore(reducer);

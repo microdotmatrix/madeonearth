@@ -1,0 +1,11 @@
+.cartCheckout {
+  width: 100%; 
+  display: flex; 
+  justify-content: flex-end;
+  padding: 3px 5px;
+}
+.cartButton {
+  border-style: none;
+  font-size: 3rem;
+  cursor: pointer;
+}

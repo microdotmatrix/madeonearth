@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+// import Logo from './asset/IMG_1131.gif';
 import Navbar from './components/navbar/Navbar';
-import Cart from './components/shopify/Cart';
+import Cart from './components/shopify/cart/Cart';
 import Merchandise from './components/merchandise/Merchandise';
 
 import { connect } from 'react-redux';
 import store from './store/Store';
-import './styles/Shopify.css';
+// import './styles/Shopify.css';
 
 class App extends Component {
   constructor(props) {
@@ -59,10 +60,11 @@ class App extends Component {
   render() {
     const state = store.getState();
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="app">
+        <header className="appHeader">
           <Navbar handleCartOpen={ this.handleCartOpen } />
           <h1>Made on Earth</h1>
+          {/* <img src={ Logo } /> */}
         </header> 
         <Cart
           checkout={ state.checkout }

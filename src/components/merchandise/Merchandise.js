@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Products from '../shopify/Products';
+import Products from '../shopify/products/Products';
 import { connect } from 'react-redux';
 import store from '../../store/Store';
 

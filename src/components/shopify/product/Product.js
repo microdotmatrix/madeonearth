@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Product.css';
+// import './Product.css';
 import VariantSelector from '../VariantSelector';
 
 class Product extends Component {

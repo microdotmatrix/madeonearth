@@ -1,9 +1,15 @@
 import React from 'react';
+import './Navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 
 const Navbar = (props) => {
   return (
-    <div>
-      <button onClick={ props.handleCartOpen }>Cart</button>
+    <div className='cartCheckout'>
+      <button className='cartButton' onClick={ props.handleCartOpen }>
+        <FontAwesomeIcon icon={ faShoppingCart} size='30%' />
+      </button>
     </div>
   )
 };
