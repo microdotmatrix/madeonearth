@@ -20,7 +20,7 @@ class VariantSelector extends Component {
       </select> */}
 
       <div
-        className="productOption"
+        className='productOption'
         name={ this.props.option.name }
         key={ this.props.option.name }
         // onChange={ this.props.handleOptionChange }
