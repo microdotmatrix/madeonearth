@@ -8,7 +8,7 @@ const Navbar = (props) => {
   return (
     <div className='cartCheckout'>
       <button className='cartButton' onClick={ props.handleCartOpen }>
-        <FontAwesomeIcon icon={ faShoppingCart} size='30%' />
+        <FontAwesomeIcon icon={ faShoppingCart} size='1x' />
       </button>
     </div>
   )

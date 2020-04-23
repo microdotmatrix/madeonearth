@@ -1,7 +1,8 @@
 .Product-wrapper {
-  max-width: 900px;
-  margin: 40px auto 0;
+  max-width: 25vw;
+  /* margin: 40px auto 0; */
+  margin: 5% 3%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+
 }

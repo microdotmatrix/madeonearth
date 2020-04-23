@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './Products.css';
+import './Products.css';
 import Product from '../product/Product';
 
 class Products extends Component {
@@ -22,7 +22,7 @@ class Products extends Component {
     }
     products.reverse(); 
     return (
-      <div className="Product-wrapper">
+      <div className="Product-wrapper" >
         { products } 
       </div>
     );

@@ -73,9 +73,7 @@ class App extends Component {
           updateQuantityInCart={ this.updateQuantityInCart }
           removeLineItemInCart={ this.removeLineItemInCart }
         />
-        <Merchandise 
-          // addVariantToCart={ this.addVariantToCart } 
-        />
+        <Merchandise />
       </div>
     )
   }
