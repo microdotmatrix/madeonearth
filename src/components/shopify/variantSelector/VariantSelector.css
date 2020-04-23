@@ -1,0 +1,25 @@
+.productOption {
+  display: flex; 
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.optionButton {
+  height: 2.5rem;
+  font-size: 90%;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
+}
+.hover:hover {
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.active:active {
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* .active::after {
+  color: rgb(0, 0, 0); 
+  background-color: white;
+} */
