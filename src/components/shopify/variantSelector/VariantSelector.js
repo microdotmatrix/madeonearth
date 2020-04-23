@@ -28,7 +28,7 @@ class VariantSelector extends Component {
         { this.props.option.values.map((value) => {
           return (
             <button 
-              className='optionButton hover'
+              className='optionButton hover active'
               value={ value } 
               key={ `${ this.props.option.name }-${ value }`} 
               onChange={ this.props.handleOptionChange }  

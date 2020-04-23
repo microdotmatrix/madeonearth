@@ -17,15 +17,17 @@
   max-height: 100%;
 }
 .productTitle {
-  font-size: 200%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 .productPrice {
-  font-size: 170%;
-  font-weight: 500;
-  opacity: 0.5;
+  font-size: 120%;
+  font-weight: 600;
+  /* opacity: 0.5; */
   margin-bottom: 2%;
 }
 .productQuantity {
@@ -37,13 +39,14 @@
 }
 .productQuantity p {
   margin: 0;
-  font-size: 140%;
+  font-size: 100%;
   font-weight: 500;
 }
 .productQuantity input {  
   height: 4%; 
   width: 25%;
-  font-size: 130%;
+  min-width: 20%;
+  font-size: 100%;
   padding-left: 5px;
 }
 input[type=number]::-webkit-inner-spin-button, 
@@ -54,8 +57,8 @@ input[type=number] {
   margin: 0;
 }
 .button{
-  height: 2.5rem;
-  font-size: 130%;
+  height: 2rem;
+  font-size: 100%;
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0);
   border-style: outset;
@@ -64,7 +67,8 @@ input[type=number] {
   /* color: white; */
   transform: translateY(-1px);
   box-shadow: 02px 2px 6px rgba(0, 0, 0, 0.5);
-  background-color: rgba(169, 169, 169, 0.4);
+  /* background-color: rgba(169, 169, 169, 0.4); */
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .button:active {
   transform: translateY(1px);

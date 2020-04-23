@@ -24,8 +24,9 @@ class Product extends Component {
     })[0];
     return (image || primary).src;
   }
-
+  // THIS METHOD IS NOT CONNECTED....
   handleOptionChange = (event) => {
+    console.log(`CLICKED`, event)
     const target = event.target
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[target.name] = target.value;
@@ -66,7 +67,7 @@ class Product extends Component {
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         <span className='productPrice'>${ variant.price }</span>
         { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors }
-        <label className='productQuantity' for='quantity'>
+        <label className='productQuantity' htmlFor='quantity'>
           <p>Quantity</p>
           <input type='number' name='quantity' min='1' defaultValue={ variantQuantity } onChange={ this.handleQuantityChange }></input>
         </label>
