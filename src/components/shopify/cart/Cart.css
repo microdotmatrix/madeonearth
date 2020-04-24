@@ -1,4 +1,4 @@
-.Cart {
+.cart {
   z-index: 9999;
   position: fixed;
   top: 0;
@@ -13,72 +13,86 @@
   transition: transform 0.15s ease-in-out;
 }
 
-@media (pointer:coarse) { // for all phones and tablets, take up full width (leave desktop with 350px)
+@media (pointer:coarse) {
   .Cart {
     width: 100%;
   }
 }
-
-.Cart--open {
+.cartOpen {
   transform: translateX(0);
 }
-
-.Cart__close {
-  position: absolute;
-  right: 9px;
-  top: 8px;
-  font-size: 35px;
+.cartClose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 175%;
+  padding: 0;
   color: #999;
   border: none;
   background: transparent;
   transition: transform 100ms ease;
   cursor: pointer;
 }
-
-.Cart__header {
-  padding: 20px;
-  border-bottom: 1px solid #e5e5e5;
-  flex: 0 0 auto;
-  display: inline-block;
+.cartHeader {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 3%;
+  border-bottom: 2px solid #e5e5e5;
 }
-
-.Cart__line-items {
+.cartLineItems {
   flex: 1 0 auto;
   margin: 0;
-  padding: 20px;
+  padding: 3%;
 }
-
-.Cart__footer {
-  padding: 20px;
-  border-top: 1px solid #e5e5e5;
-  flex: 0 0 auto;
+.cartFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  border-top: 2px solid #e5e5e5;
 }
-
-.Cart__checkout {
-  margin-top: 20px;
-  display: block;
+.cartInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
   width: 100%;
 }
-
-.Cart-info {
-  padding: 15px 20px 10px;
-}
-
-.Cart-info__total {
-  float: left;
+.cartTotal {
+  font-size: 60%;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.Cart-info__small {
-  font-size: 11px;
-}
-
-.Cart-info__pricing {
-  float: right;
-}
-
 .pricing {
-  margin-left: 5px;
-  font-size: 16px;
+  font-size: 80%;
+  font-weight: 500;
   color: black;
+}
+.cartCheckout {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  /* border: 1px #e5e5e5; */
+  margin-top: 4%;
+}
+.button{
+  height: 2rem;
+  width: 100%;
+  font-size: 100%;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px outset white;
+}
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.button:active {
+  transform: translateY(2px);
+  background-color: rgba(255, 255, 255, 0.7);
 }

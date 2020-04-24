@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './LineItems.css';
+import './LineItems.css';
 
 class LineItems extends Component {
   constructor(props) {
@@ -18,20 +18,28 @@ class LineItems extends Component {
 
   render() {
     return (
-      <li className="Line-item">
-        <div className="Line-item__img">
+      <li className='lineItem'>
+        <div className='itemImg'>
           { this.props.line_item.variant.image ? <img src={this.props.line_item.variant.image.src} alt={`${this.props.line_item.title} product shot`}/> : null } 
         </div>
-        <div className="Line-item__content">
-          <div className="Line-item__content-row">
-            <div className="Line-item__variant-title">
+
+
+
+
+
+
+        <div className='itemContent'>
+          <div className='itemContent-upper'>
+            <div className='itemVariantTitle'>
               { this.props.line_item.variant.title }
             </div>
-            <span className="Line-item__title">
+            <span className='itemTitle'>
               { this.props.line_item.title }
             </span>
           </div>
-          <div className="Line-item__content-row">
+
+
+          <div className="itemContent-lower">
             <div className="Line-item__quantity-container">
               <button className="Line-item__quantity-update" onClick={ () => this.decrementQuantity(this.props.line_item.id) }>-</button>
               <span className="Line-item__quantity">{ this.props.line_item.quantity }</span>
@@ -42,6 +50,7 @@ class LineItems extends Component {
             </span>
             <button className="Line-item__remove" onClick={ ()=> this.props.removeLineItemInCart(this.props.line_item.id) }>×</button>
           </div>
+
         </div>
       </li>
     );
