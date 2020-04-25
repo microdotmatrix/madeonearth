@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Product.css';
 import VariantSelector from '../variantSelector/VariantSelector';
+import Modal from '../../modal/Modal';
 
 const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 
@@ -13,7 +14,8 @@ class Product extends Component {
       defaultOptionValues[selector.name] = selector.values[0].value;
     });
     this.state = { 
-      selectedOptions: defaultOptionValues 
+      selectedOptions: defaultOptionValues,
+      showModal: false 
     };
   }
 
@@ -26,7 +28,6 @@ class Product extends Component {
   }
   // THIS METHOD IS NOT CONNECTED....
   handleOptionChange = (event) => {
-    console.log(`CLICKED`, event)
     const target = event.target
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[target.name] = target.value;
@@ -44,9 +45,22 @@ class Product extends Component {
     });
   }
 
+  handleModalOpen = () => {
+    this.setState({
+      showModal: true
+    })
+  }
+  handleModalClose = () => {
+    this.setState({
+      showModal: false
+    })
+  }
+
+
   render() {
     let optionNames = [];
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
+    // console.log(variantImage.src)
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.options.map((option) => {
@@ -60,10 +74,25 @@ class Product extends Component {
       );
     });
     let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
-    
+    console.log(this.state.showModal)
     return (
       <div className='product'>
-        { this.props.product.images.length ? <img src={ variantImage.src } alt={ `${this.props.product.title} product shot` }/> : null }
+        {/* { this.props.product.images.length ? <img src={ variantImage.src } alt={ `${this.props.product.title} product shot` } /> : null } */}
+        { this.state.showModal === true && this.props.product.images.length 
+          ? <Modal 
+            open={ this.state.showModal } 
+            close={ this.handleModalClose } 
+            image={ variantImage.src } 
+            alt={ `${this.props.product.title} product shot` } 
+            style={{ visibility: 'hidden' }} 
+            />
+          : <img 
+              src={ variantImage.src } 
+              alt={ `${this.props.product.title} product shot` } 
+              onClick={ this.handleModalOpen } 
+              // style={{ visibility: 'hidden'}}
+            /> 
+        }        
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         <span className='productPrice'>${ variant.price }</span>
         { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors }

@@ -1,0 +1,28 @@
+.modal {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  position: fixed;
+  height: 100%; 
+  width: 100%; 
+  top: 0; 
+  left: 0;
+  background-image: url(../../asset/BackgroundIMG.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  visibility: visible;
+  z-index: 1;
+}
+.modal img {
+  height: 90%; 
+  width: auto; 
+}
+.modalClose {
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  font-size: 100%;
+  border: none; 
+  background-color: transparent;
+}
