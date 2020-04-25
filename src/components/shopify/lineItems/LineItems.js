@@ -22,12 +22,6 @@ class LineItems extends Component {
         <div className='itemImg'>
           { this.props.line_item.variant.image ? <img src={this.props.line_item.variant.image.src} alt={`${this.props.line_item.title} product shot`}/> : null } 
         </div>
-
-
-
-
-
-
         <div className='itemContent'>
           <div className='itemContent-upper'>
             <div className='itemVariantTitle'>
@@ -38,17 +32,16 @@ class LineItems extends Component {
             </span>
           </div>
 
-
-          <div className="itemContent-lower">
-            <div className="Line-item__quantity-container">
-              <button className="Line-item__quantity-update" onClick={ () => this.decrementQuantity(this.props.line_item.id) }>-</button>
-              <span className="Line-item__quantity">{ this.props.line_item.quantity }</span>
-              <button className="Line-item__quantity-update" onClick={ () => this.incrementQuantity(this.props.line_item.id) }>+</button>
+          <div className='itemContent-lower'>
+            <div className='itemQuantityContainer'>
+              <button className='itemQauntityUpdate' onClick={ () => this.decrementQuantity(this.props.line_item.id) }>-</button>
+              <span className='itemQuantity'>{ this.props.line_item.quantity }</span>
+              <button className='itemQuantityUpdate' onClick={ () => this.incrementQuantity(this.props.line_item.id) }>+</button>
             </div>
-            <span className="Line-item__price">
+            <span className='itemPrice'>
               $ { (this.props.line_item.quantity * this.props.line_item.variant.price).toFixed(2) }
             </span>
-            <button className="Line-item__remove" onClick={ ()=> this.props.removeLineItemInCart(this.props.line_item.id) }>×</button>
+            <button className='itemRemove' onClick={ ()=> this.props.removeLineItemInCart(this.props.line_item.id) }>×</button>
           </div>
 
         </div>
