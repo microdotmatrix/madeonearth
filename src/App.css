@@ -7,18 +7,6 @@
   background-position: center;
   background-attachment: fixed;
 }
-.appHeader {  
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-}
-.appHeader h1 {
-  display: flex; 
-  justify-content: center;
-  /* width: 30%; */
-  margin: 0;
-}
-
 
 
 

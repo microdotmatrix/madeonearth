@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 // import Logo from './asset/IMG_1131.gif';
-import Navbar from './components/navbar/Navbar';
+import Header from './components/header/Header';
 import Cart from './components/shopify/cart/Cart';
 import Merchandise from './components/merchandise/Merchandise';
 
@@ -16,7 +16,8 @@ class App extends Component {
       isCartOpen: false,
       checkout: { lineItems: [] },
       products: [],
-      shop: {}
+      shop: {},
+      playing: true
     }
   }
   
@@ -61,11 +62,14 @@ class App extends Component {
     const state = store.getState();
     return (
       <div className="app">
-        <header className="appHeader">
-          <Navbar handleCartOpen={ this.handleCartOpen } />
-          <h1>Made on Earth</h1>
+        {/* <header className="header"> */}
+          <Header 
+            handleCartOpen={ this.handleCartOpen } 
+            playing={ this.state.playing }
+          />
+          {/* <h1>Made on Earth</h1> */}
           {/* <img src={ Logo } /> */}
-        </header> 
+        {/* </header>  */}
         <Cart
           checkout={ state.checkout }
           isCartOpen={ state.isCartOpen }

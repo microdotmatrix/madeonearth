@@ -1,0 +1,30 @@
+.header {  
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+/* .header h1 {
+  display: flex; 
+  justify-content: center;
+  width: 30%;
+  margin: 0;
+} */
+.cartIcon {
+  width: 100%; 
+  display: flex; 
+  justify-content: flex-end;
+  padding: 3px 5px;
+}
+.cartButton {
+  border-style: none;
+  font-size: 3rem;
+  cursor: pointer;
+  background-color: rgba(225, 225, 225, 0);
+}
+/* .logo {
+  height: 20%;
+  width: auto;
+} */
+.gif_player {
+  background-color: transparent;
+}
