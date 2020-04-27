@@ -1,8 +1,35 @@
-.Product-wrapper {
-  max-width: 25vw;
+.productWrapper {
+  width: 25vw;
   /* margin: 40px auto 0; */
   margin: 5% 3%;
   display: flex;
   flex-direction: column;
 
 }
+
+
+
+
+/* ===== Media Queries ===== */
+@media screen and (max-width: 992px) {
+  .productWrapper {
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .productWrapper {
+    width: 45vw;
+  }
+}
+
+@media screen and (max-width: 660px ) {
+  .productWrapper {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .productWrapper {
+    width: 75vw;
+  }
+};
