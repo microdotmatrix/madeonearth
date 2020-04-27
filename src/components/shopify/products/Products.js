@@ -22,7 +22,7 @@ class Products extends Component {
     }
     products.reverse(); 
     return (
-      <div className="Product-wrapper" >
+      <div className='productWrapper' >
         { products } 
       </div>
     );
