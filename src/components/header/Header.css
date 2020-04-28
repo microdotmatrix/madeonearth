@@ -21,10 +21,35 @@
   cursor: pointer;
   background-color: rgba(225, 225, 225, 0);
 }
-/* .logo {
-  height: 20%;
+.logo {
+  display: flex; 
+  justify-content: center;
+  height: auto; 
+  width: 100%;
+}
+.logoImg {
+  height: 8rem;
   width: auto;
+}
+
+/* ===== Media Queries ===== */
+/* @media screen and (max-width: 992px) {
+  .logoImg {
+
+  }
 } */
-.gif_player {
-  background-color: transparent;
+@media screen and (max-width: 800px) {
+  .logoImg {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .logoImg {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 425px) {
+  .logoImg {
+    width: 85vw;
+  }
 }

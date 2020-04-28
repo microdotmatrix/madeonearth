@@ -20,7 +20,7 @@ class Header extends Component {
           </button>
         </div>
         <div className='logo'>
-          <img src={ Logo } />
+          <img className='logoImg' src={ Logo } />
         </div>
       </div>
     )
