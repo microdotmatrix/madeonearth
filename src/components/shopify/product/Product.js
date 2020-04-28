@@ -26,7 +26,7 @@ class Product extends Component {
     })[0];
     return (image || primary).src;
   }
-  // THIS METHOD IS NOT CONNECTED....
+
   handleOptionChange = (event) => {
     const target = event.target
     let selectedOptions = this.state.selectedOptions;
@@ -60,7 +60,6 @@ class Product extends Component {
   render() {
     let optionNames = [];
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
-    // console.log(variantImage.src)
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.options.map((option) => {
@@ -74,7 +73,6 @@ class Product extends Component {
       );
     });
     let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
-    console.log(this.state.showModal)
     return (
       <div className='product'>
         {/* { this.props.product.images.length ? <img src={ variantImage.src } alt={ `${this.props.product.title} product shot` } /> : null } */}
@@ -90,7 +88,6 @@ class Product extends Component {
               src={ variantImage.src } 
               alt={ `${this.props.product.title} product shot` } 
               onClick={ this.handleModalOpen } 
-              // style={{ visibility: 'hidden'}}
             /> 
         }        
         <h3 className='productTitle'>{ this.props.product.title }</h3>
