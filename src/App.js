@@ -17,7 +17,6 @@ class App extends Component {
       checkout: { lineItems: [] },
       products: [],
       shop: {},
-      playing: true
     }
   }
   
@@ -62,14 +61,7 @@ class App extends Component {
     const state = store.getState();
     return (
       <div className="app">
-        {/* <header className="header"> */}
-          <Header 
-            handleCartOpen={ this.handleCartOpen } 
-            playing={ this.state.playing }
-          />
-          {/* <h1>Made on Earth</h1> */}
-          {/* <img src={ Logo } /> */}
-        {/* </header>  */}
+        <Header handleCartOpen={ this.handleCartOpen } />
         <Cart
           checkout={ state.checkout }
           isCartOpen={ state.isCartOpen }
