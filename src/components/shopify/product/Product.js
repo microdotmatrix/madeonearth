@@ -15,7 +15,7 @@ class Product extends Component {
     });
     this.state = { 
       selectedOptions: defaultOptionValues,
-      showModal: false 
+      showModal: false
     };
   }
 
@@ -59,6 +59,7 @@ class Product extends Component {
 
   render() {
     let optionNames = [];
+    let productAvailable = this.props.product.availableForSale
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
@@ -91,13 +92,20 @@ class Product extends Component {
             /> 
         }        
         <h3 className='productTitle'>{ this.props.product.title }</h3>
+
         <span className='productPrice'>${ variant.price }</span>
+
         { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors }
+
         <label className='productQuantity' htmlFor='quantity'>
           <p>Quantity</p>
           <input type='number' name='quantity' min='1' defaultValue={ variantQuantity } onChange={ this.handleQuantityChange }></input>
         </label>
-        <button className='button' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button>
+
+        { productAvailable === true ? 
+          <button className='button' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
+          <div className='btnDisable' >Sold Out</div>
+        }
       </div>
     );
   }
