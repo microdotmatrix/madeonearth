@@ -32,22 +32,20 @@
 }
 .productQuantity {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  width: 40%;
+  width: 50%;
   margin-bottom: 10px;
 }
 .productQuantity p {
-  margin: 0;
-  font-size: 100%;
+  margin: 0 10px;
+  font-size: 90%;
   font-weight: 600;
 }
 .productQuantity input {  
-  height: 4%; 
-  width: 25%;
+  width: 20%;
   min-width: 20%;
-  font-size: 100%;
-  padding-left: 5px;
+  font-size: 90%;
+  padding-left: 8px;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button,
@@ -56,7 +54,7 @@ input[type=number] {
   -webkit-appearance: none;
   margin: 0;
 }
-.button{
+.button {
   height: 2rem;
   width: 100%;
   font-size: 100%;
@@ -72,4 +70,33 @@ input[type=number] {
 .button:active {
   transform: translateY(2px);
   background-color: rgba(255, 255, 255, 0.7);
+}
+.btnDisable {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 2rem;
+  width: 100%;
+  font-size: 100%;
+  font-weight: 900;
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px outset white;
+}
+
+@media screen and (max-width: 425px) {
+  .button {
+    background-color: none;
+  }
+  .button:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: none;
+  }
+  .button:active {
+    transform: none;
+    background-color: none;
+  }
+  .btnDisable {
+    background-color: none;
+  }
 }
