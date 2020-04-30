@@ -34,7 +34,7 @@ class LineItems extends Component {
 
           <div className='itemContent-lower'>
             <div className='itemQuantityContainer'>
-              <button className='itemQauntityUpdate' onClick={ () => this.decrementQuantity(this.props.line_item.id) }>-</button>
+              <button className='itemQuantityUpdate' onClick={ () => this.decrementQuantity(this.props.line_item.id) }>-</button>
               <span className='itemQuantity'>{ this.props.line_item.quantity }</span>
               <button className='itemQuantityUpdate' onClick={ () => this.incrementQuantity(this.props.line_item.id) }>+</button>
             </div>
