@@ -97,10 +97,10 @@ class Product extends Component {
 
         { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors }
 
-        <label className='productQuantity' htmlFor='quantity'>
+        {/* <label className='productQuantity' htmlFor='quantity'>
           <p>Quantity</p>
           <input type='number' name='quantity' min='1' defaultValue={ variantQuantity } onChange={ this.handleQuantityChange }></input>
-        </label>
+        </label> */}
 
         { productAvailable === true ? 
           <button className='button' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
