@@ -12,7 +12,7 @@ class VariantSelector extends Component {
         { this.props.option.values.map((value) => {
           return (
             <button 
-              className='optionButton hover active'
+              className='optionButton'
               name={ this.props.option.name }
               value={ value } 
               key={ `${ this.props.option.name }-${ value }`} 

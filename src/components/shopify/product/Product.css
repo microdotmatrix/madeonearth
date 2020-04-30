@@ -72,3 +72,17 @@ input[type=number] {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+@media screen and (max-width: 425px) {
+  .button {
+    background-color: none;
+  }
+  .button:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: none;
+  }
+  .button:active {
+    transform: none;
+    background-color: none;
+  }
+}
