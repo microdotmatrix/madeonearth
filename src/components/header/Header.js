@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Cart from '../../asset/cartLogo.png';
 import Logo from '../../asset/Logo_nm.gif';
 
 class Header extends Component {
@@ -16,7 +15,7 @@ class Header extends Component {
       <div className='header'>
         <div className='cartIcon'>
           <button className='cartButton' onClick={ this.props.handleCartOpen }>
-            <FontAwesomeIcon icon={ faShoppingCart} size='sm' />
+            <img src={ Cart } alt='cart icon' />
           </button>
         </div>
         <div className='logo'>
