@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './LineItems.css';
 
 class LineItems extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   decrementQuantity = (lineItemId) => {
     const updatedQuantity = this.props.line_item.quantity - 1
