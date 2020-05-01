@@ -1,0 +1,34 @@
+.productOption {
+  display: flex; 
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.optionButton {
+  height: 2.5rem;
+  font-size: 90%;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
+}
+.optionButton:hover {
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.optionButton:active {
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* .active::after {
+  color: rgb(0, 0, 0); 
+  background-color: white;
+} */
+
+
+
+@media screen and (max-width: 425px) {
+  .optionButton {
+    font-size: 75%;
+    padding: 3%;
+  }
+};
