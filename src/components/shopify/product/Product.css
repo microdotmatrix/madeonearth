@@ -57,16 +57,19 @@ input[type=number] {
   width: 75%;
   font-size: 100%;
   font-weight: 600;
+  /* color: white; */
   background-color: rgba(255, 255, 255, 0);
-  border: 2px outset white;
+  border: 2px solid black;
 }
 .addToCart:hover {
-  transform: translateY(-1px);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* transform: translateY(-1px); */
+  color: black;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  border: 2px rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.7);
 }
 .addToCart:active {
-  transform: translateY(2px);
+  /* transform: translateY(2px); */
   background-color: rgba(255, 255, 255, 0.7);
 }
 .btnDisable {
@@ -76,9 +79,15 @@ input[type=number] {
   height: 2rem;
   width: 75%;
   font-size: 100%;
-  font-weight: 900;
+  font-weight: 700;
   background-color: rgba(255, 255, 255, 0);
-  border: 2px outset white;
+  border: 2px solid white;
+}
+.btnDisable:hover {
+  color: black;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  border: 2px rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 @media screen and (max-width: 425px) {
