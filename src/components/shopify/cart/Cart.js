@@ -39,7 +39,7 @@ class Cart extends Component {
         </ul>
 
         <footer className='cartFooter'>
-          <div className='cartInfo'>
+          {/* <div className='cartInfo'>
             <div className='cartTotal'>Subtotal</div>
             { this.props.checkout && <div className='cartPricing'>
               <span className='pricing'>$ { this.props.checkout.subtotalPrice }</span>
@@ -62,7 +62,7 @@ class Cart extends Component {
             { this.props.checkout && <div className='cartPricing'>
               <span className='pricing'>~$ { (this.props.checkout.totalPrice * .35).toFixed(2) }</span>
             </div> }
-          </div>
+          </div> */}
           <button className='cartCheckout button' onClick={this.openCheckout}>Checkout</button>
         </footer>
       </div>
