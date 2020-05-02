@@ -103,7 +103,7 @@ class Product extends Component {
         </label> */}
 
         { productAvailable === true ? 
-          <button className='button' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
+          <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
           <div className='btnDisable' >Sold Out</div>
         }
       </div>
