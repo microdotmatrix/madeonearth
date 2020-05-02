@@ -1,11 +1,10 @@
 .productOption {
   display: flex; 
   justify-content: center;
-  width: 100%;
+  min-width: 100%;
   margin-bottom: 10px;
 }
 .optionButton {
-  height: 2.5rem;
   font-size: 90%;
   font-weight: 700;
   background-color: rgba(255, 255, 255, 0);
@@ -28,7 +27,12 @@
 
 @media screen and (max-width: 425px) {
   .optionButton {
-    font-size: 75%;
-    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80%;
+    font-weight: 900;
+    min-width: 15vw;
+    min-height: 4vh;
   }
 };
