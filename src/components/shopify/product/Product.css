@@ -16,7 +16,7 @@
 .productTitle {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 101%;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
 }
@@ -82,6 +82,9 @@ input[type=number] {
 }
 
 @media screen and (max-width: 425px) {
+  .productTitle {
+    width: 100vw;
+  }
   .product img {
     width: 90%;
     height: auto;
