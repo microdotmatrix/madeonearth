@@ -26,7 +26,28 @@
   border: none; 
   background-color: transparent;
 }
-
+@media screen and (min-width: 426px) {
+  .modal {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    height: 100vh; 
+    width: 100vw; 
+    top: 0; 
+    left: 0;
+    background-image: url('../../asset/BackgroundIMG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    visibility: visible;
+    z-index: 1;
+  }
+  .modal img {
+    height: 100%; 
+    width: auto; 
+  }Q
+}
 @media screen and (max-width: 425px) {
   .modal {
     display: flex; 
@@ -45,7 +66,7 @@
     z-index: 1;
   }
   .modal img {
-    height: 550px; 
+    height: 430px; 
     width: auto;
   }
 }
