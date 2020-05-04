@@ -3,7 +3,7 @@ import './Product.css';
 import VariantSelector from '../variantSelector/VariantSelector';
 import Modal from '../../modal/Modal';
 
-const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
+// const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 
 class Product extends Component {
   constructor(props) {
@@ -73,7 +73,7 @@ class Product extends Component {
         />
       );
     });
-    let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
+    // let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
     return (
       <div className='product'>
         {/* { this.props.product.images.length ? <img src={ variantImage.src } alt={ `${this.props.product.title} product shot` } /> : null } */}

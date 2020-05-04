@@ -25,12 +25,12 @@
 }
 .addToCart {
   height: 2rem;
-  width: 100%;
-  font-size: 100%;
+  width: 90%;
+  font-size: 120%;
   font-weight: 600;
-  /* color: white; */
+  color: white;
   background-color: rgba(255, 255, 255, 0);
-  border: 2px solid black;
+  border: 2px solid white;
 }
 .addToCart:hover {
   /* transform: translateY(-1px); */
@@ -55,7 +55,7 @@
   border: 2px solid white;
 }
 .btnDisable:hover {
-  color: black;
+  color: white;
   /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
   border: 2px rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.7);
