@@ -32,13 +32,6 @@ h1 {
   font-size: 3rem;
 }
 
-h2 {
-  font-weight: 300;
-  margin: 0;
-  font-size: 2rem;
-}
-
-
 /* ===== NOTE TO SELF ===== */
 /* Display background image:fixed for mobile */
 @media screen and (max-width: 425px ) {
