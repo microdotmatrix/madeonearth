@@ -12,17 +12,6 @@
   transform: translateX(100%);
   transition: transform 0.15s ease-in-out;
 }
-.cartHeader h2 {
-  font-weight: 300;
-  margin: 0;
-  font-size: 2rem;
-  color: #999;
-}
-@media (pointer:coarse) {
-  .Cart {
-    width: 100%;
-  }
-}
 .cartOpen {
   transform: translateX(0);
 }
@@ -45,6 +34,12 @@
   padding: 3%;
   border-bottom: 2px solid #e5e5e5;
 }
+.cartHeader h2 {
+  font-weight: 300;
+  margin: 0;
+  font-size: 2rem;
+  color: #999;
+}
 .cartLineItems {
   flex: 1 0 auto;
   margin: 0;
@@ -58,25 +53,6 @@
   height: 150px;
   padding: 5%;
 }
-/* .cartInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px;
-  width: 100%;
-}
-.cartTotal {
-  font-size: 60%;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pricing {
-  font-size: 80%;
-  font-weight: 500;
-  color: black;
-} */
 .cartCheckout {
   display: flex; 
   justify-content: center;
@@ -100,15 +76,23 @@
   border: 2px outset white;
 }
 
+@media (pointer:coarse) {
+  .Cart {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 425px) {
   .cart {
     width: 100vw;
-    color: white;
     background: url('../../../asset/BackgroundIMG.jpg') no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+  }
+  .cartHeader h2 {
+    color: white;
+    font-weight: 600;
   }
   .cartClose {
     color: white;

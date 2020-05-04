@@ -25,7 +25,7 @@
 }
 .addToCart {
   height: 2rem;
-  width: 100%;
+  width: 90%;
   font-size: 120%;
   font-weight: 600;
   color: white;
@@ -48,7 +48,7 @@
   justify-content: center;
   align-items: center; 
   height: 2rem;
-  width: 100%;
+  width: 90%;
   font-size: 100%;
   font-weight: 700;
   background-color: rgba(255, 255, 255, 0);
@@ -108,6 +108,7 @@
   }
   .addToCart {
     background-color: none;
+    width: 90%;
   }
   .addToCart:hover {
     transform: none;
