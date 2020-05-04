@@ -62,6 +62,7 @@ class Product extends Component {
     let productAvailable = this.props.product.availableForSale
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
     let variant = this.state.selectedVariant || this.props.product.variants[0]
+    console.log(Math.trunc(variant.price))
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.options.map((option) => {
       optionNames.push(option.name);
@@ -92,7 +93,7 @@ class Product extends Component {
             /> 
         }        
         <h3 className='productTitle'>{ this.props.product.title }</h3>
-        <span className='productPrice'>${ variant.price }</span>
+        <span className='productPrice'>${ Math.trunc(variant.price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
         { variantSelectors }
         { productAvailable === true ? 
