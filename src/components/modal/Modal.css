@@ -26,6 +26,8 @@
   border: none; 
   background-color: transparent;
 }
+
+
 @media screen and (min-width: 426px) {
   .modal {
     display: flex; 
@@ -66,7 +68,7 @@
     z-index: 1;
   }
   .modal img {
-    height: 430px; 
+    height: 550px; 
     width: auto;
   }
 }

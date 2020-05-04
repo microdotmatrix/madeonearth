@@ -66,9 +66,7 @@
     flex: 0 1 98%;
   }
 }
-@media screen and (min-width: 991px) {
-  
-}
+@media
 @media screen and (max-width: 992px) {
   .product {
     display: flex;
