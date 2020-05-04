@@ -9,6 +9,7 @@
   font-weight: 700;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
+  color: white;
 }
 .optionButton:hover {
   color: rgb(0, 0, 0); 
@@ -18,12 +19,6 @@
   color: rgb(0, 0, 0); 
   background-color: rgba(255, 255, 255, 0.7);
 }
-/* .active::after {
-  color: rgb(0, 0, 0); 
-  background-color: white;
-} */
-
-
 
 @media screen and (max-width: 425px) {
   .optionButton {
