@@ -26,7 +26,7 @@
   border: none; 
   background-color: transparent;
 }
-@media screen and (min-width: 426px) {
+/* @media screen and (min-width: 426px) {
   .modal {
     display: flex; 
     justify-content: center; 
@@ -47,8 +47,7 @@
     height: 100%; 
     width: auto; 
   }
-}
-
+} */
 
 @media screen and (max-width: 425px) {
   .modal {
