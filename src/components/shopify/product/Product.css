@@ -23,6 +23,15 @@
   font-weight: 600;
   margin-bottom: 2%;
 }
+.productDesctiption {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1%;
+  font-size: 80%;
+  font-weight: 600;
+}
 .addToCart {
   height: 2rem;
   width: 90%;
