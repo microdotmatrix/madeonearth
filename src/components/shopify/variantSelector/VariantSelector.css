@@ -1,31 +1,47 @@
 .productOption {
   display: flex; 
   justify-content: center;
-  min-width: 100%;
   margin-bottom: 10px;
 }
-.availble {
+.available {
   font-size: 90%;
   font-weight: 700;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
   color: white;
+  padding: 2px;
+}
+.available:hover {
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.available:active {
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .notAvailable {
   font-size: 90%;
-  font-weight: 700;
+  font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
   color: white;
-  text-decoration: line-through;
+  /* text-decoration: line-through red; */
 }
-.btn:hover {
-  color: rgb(0, 0, 0); 
-  background-color: rgba(255, 255, 255, 0.7);
+.strikeout {
+  line-height: 1em;
+  position: relative;
 }
-.btn:active {
-  color: rgb(0, 0, 0); 
-  background-color: rgba(255, 255, 255, 0.7);
+.strikeout::after {
+  border-bottom: 0.2em solid red;
+  content: "";
+  left: 0;
+  margin-top: calc(0.125em / 2 * -1);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
 }
 
 @media screen and (max-width: 425px) {

@@ -58,9 +58,8 @@ class Product extends Component {
 
 
   render() {
-    let optionNames = [];
+    // let optionNames = [];
     let product = this.props.product
-    console.log(product)
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
@@ -70,7 +69,7 @@ class Product extends Component {
       return (
         <VariantSelector
           handleOptionChange={ this.handleOptionChange }
-          // key={option.id.toString()}
+          key={variantOptions.id.toString()}
           product={ product }
           variantOptions={ variantOptions }
         />
@@ -98,12 +97,9 @@ class Product extends Component {
         <span className='productPrice'>${ Math.trunc(variant.price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
         { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
-        { variantSelectors }
-        {/* <VariantSelector
-          handleOptionChange={ this.handleOptionChange }
-          // key={option.id.toString()}
-          product={ variantSelectors } 
-        /> */}
+        <div className='productBtn'>
+          { variantSelectors }
+        </div>
         { productAvailable === true ? 
           <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
           <div className='btnDisable' >Sold Out</div>
