@@ -3,25 +3,38 @@
 
 class VariantSelector extends Component {
   render() {
+    console.log(this.props.variantOptions)
+    let options = this.props.variantOptions
     return (
       <div
         className='productOption'
-        name={ this.props.option.name }
-        key={ this.props.option.name }
+        name={ this.props.product.title }
+        key={ this.props.product.id }
       >
-        { this.props.option.values.map((value) => {
-          return (
-            <button 
-              className='optionButton'
-              name={ this.props.option.name }
-              value={ value } 
-              key={ `${ this.props.option.name }-${ value }`} 
-              onClick={ this.props.handleOptionChange }  
-            > 
-              { `${ value }` } 
-            </button>
-          )
-        }) }  
+        { options.selectedOptions.map((variant) => {
+            return (
+              options.available === true ? 
+              <button 
+                className='btn available'
+                name={ variant.name }
+                value={ variant.value}
+                key={ `${ variant.name }-${ variant.value}` }
+                onClick={ this.props.handleOptionChange }
+              >
+                { `${ variant.value }` } 
+              </button> :
+              <button 
+                className='btn notAvailable'
+                name={ variant.name }
+                value={ variant.value }
+                key={ `${ variant.name }-${ variant.value }` }
+                // onClick={ this.props.handleOptionChange }
+              >
+                { `${ variant.value }` } 
+              </button>
+            )
+          })
+        }  
       </div>
     );
   }
