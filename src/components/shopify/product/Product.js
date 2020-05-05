@@ -58,25 +58,27 @@ class Product extends Component {
 
 
   render() {
-    let optionNames = [];
+    // let optionNames = [];
+    let product = this.props.product
     let productAvailable = this.props.product.availableForSale
+    let productDescription = this.props.product.description
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
-    let variantSelectors = this.props.product.options.map((option) => {
-      optionNames.push(option.name);
+    let variantSelectors = this.props.product.variants.map((variantOptions) => {
       return (
         <VariantSelector
           handleOptionChange={ this.handleOptionChange }
-          key={option.id.toString()}
-          option={ option }
+          key={variantOptions.id.toString()}
+          product={ product }
+          variantOptions={ variantOptions }
         />
       );
     });
+
     // let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
     return (
       <div className='product'>
-        {/* { this.props.product.images.length ? <img src={ variantImage.src } alt={ `${this.props.product.title} product shot` } /> : null } */}
         { this.state.showModal === true && this.props.product.images.length 
           ? <Modal 
             open={ this.state.showModal } 
@@ -94,7 +96,10 @@ class Product extends Component {
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         <span className='productPrice'>${ Math.trunc(variant.price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
-        { variantSelectors }
+        { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
+        <div className='productBtn'>
+          { variantSelectors }
+        </div>
         { productAvailable === true ? 
           <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
           <div className='btnDisable' >Sold Out</div>
