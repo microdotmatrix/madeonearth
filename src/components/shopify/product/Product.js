@@ -15,16 +15,10 @@ class Product extends Component {
     });
     this.state = { 
       selectedOptions: defaultOptionValues,
-      showModal: false
+      showModal: false,
+      images: this.props.product.images,
+      imgSlide: 0
     };
-  }
-
-  findImage = (images, variantId) => {
-    const primary = images[0];
-    const image = images.filter(function (image) {
-      return image.variant_ids.includes(variantId);
-    })[0];
-    return (image || primary).src;
   }
 
   handleOptionChange = (event) => {
@@ -32,6 +26,7 @@ class Product extends Component {
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[target.name] = target.value;
     const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
+    console.log(selectedVariant.attrs.image)
 
     this.setState({
       selectedVariant: selectedVariant,
@@ -43,7 +38,7 @@ class Product extends Component {
     this.setState({
       selectedVariantQuantity: event.target.value
     });
-  }
+  } 
 
   handleModalOpen = () => {
     this.setState({
@@ -56,10 +51,28 @@ class Product extends Component {
     })
   }
 
+  nextSlide = () => {
+    const newIndex = this.state.imgSlide + 1;
+    this.setState({
+      images: this.props.product.images[newIndex],
+      imgSlide: newIndex
+    })
+  }
+  prevSlide = () =>{
+    const newIndex = this.state.imgSlide - 1;
+    this.setState({
+      images: this.props.product.images[newIndex],
+      imgSlide: newIndex
+    })
+  }
+
+
 
   render() {
     // let optionNames = [];
     let product = this.props.product
+    console.log(`images arr;`, this.state.images)
+    console.log(`imgSlide:`, this.state.imgSlide)
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
@@ -92,7 +105,22 @@ class Product extends Component {
               alt={ `${this.props.product.title} product shot` } 
               onClick={ this.handleModalOpen } 
             /> 
-        }        
+        }      
+
+        <div>
+          <button
+            onClick={ () => this.prevSlide() }
+            disabled={ this.state.imgSlide === 0 }
+            >prev</button>
+          <img 
+
+          />
+          <button
+            onClick={ () => this.nextSlide() } 
+            disabled={ this.state.imgSlide === this.props.product.images.length -1}
+            >next</button>
+        </div>
+
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         <span className='productPrice'>${ Math.trunc(variant.price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
