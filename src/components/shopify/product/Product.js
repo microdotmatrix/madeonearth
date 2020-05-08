@@ -16,7 +16,7 @@ class Product extends Component {
     this.state = { 
       selectedOptions: defaultOptionValues,
       showModal: false,
-      images: this.props.product.images,
+      images: this.props.product.images[0],
       imgSlide: 0
     };
   }
@@ -26,11 +26,10 @@ class Product extends Component {
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[target.name] = target.value;
     const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
-    console.log(selectedVariant.attrs.image)
-
+    // console.log(selectedVariant.attrs.image)
     this.setState({
       selectedVariant: selectedVariant,
-      selectedVariantImage: selectedVariant.attrs.image
+      // selectedVariantImage: selectedVariant.attrs.image
     });
   }
 
@@ -71,11 +70,11 @@ class Product extends Component {
   render() {
     // let optionNames = [];
     let product = this.props.product
-    console.log(`images arr;`, this.state.images)
-    console.log(`imgSlide:`, this.state.imgSlide)
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
-    let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
+    let variantImage = this.state.images
+    // console.log(variantImage)
+    console.log(this.props.product.images.length)
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
@@ -92,34 +91,53 @@ class Product extends Component {
     // let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
     return (
       <div className='product'>
-        { this.state.showModal === true && this.props.product.images.length 
-          ? <Modal 
-            open={ this.state.showModal } 
-            close={ this.handleModalClose } 
-            image={ variantImage.src } 
-            alt={ `${this.props.product.title} product shot` } 
-            style={{ visibility: 'hidden' }} 
-            />
-          : <img 
-              src={ variantImage.src } 
+        { this.state.showModal === true ?
+            <Modal 
+              open={ this.state.showModal } 
+              close={ this.handleModalClose } 
+              image={ this.state.images.src } 
               alt={ `${this.props.product.title} product shot` } 
-              onClick={ this.handleModalOpen } 
+              style={{ visibility: 'hidden' }} 
             /> 
+          : product.images.length >= 2 ?
+            <div>
+              <button
+                onClick={ () => this.prevSlide() }
+                disabled={ this.state.imgSlide === 0 }
+                >prev</button>
+              <img 
+                src={ this.state.images.src } 
+                alt={ `${this.props.product.title} product shot` } 
+                onClick={ this.handleModalOpen } 
+              />
+              <button
+                onClick={ () => this.nextSlide() } 
+                disabled={ this.state.imgSlide === this.props.product.images.length -1}
+                >next</button>
+            </div> 
+          :             <img 
+          src={ variantImage.src } 
+          alt={ `${this.props.product.title} product shot` } 
+          onClick={ this.handleModalOpen } 
+        /> 
+ 
         }      
 
-        <div>
+        {/* <div>
           <button
             onClick={ () => this.prevSlide() }
             disabled={ this.state.imgSlide === 0 }
             >prev</button>
           <img 
-
+            src={ variantImage.src } 
+            alt={ `${this.props.product.title} product shot` } 
+            onClick={ this.handleModalOpen } 
           />
           <button
             onClick={ () => this.nextSlide() } 
             disabled={ this.state.imgSlide === this.props.product.images.length -1}
             >next</button>
-        </div>
+        </div> */}
 
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         <span className='productPrice'>${ Math.trunc(variant.price) }</span>
