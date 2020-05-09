@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Product.css';
 import VariantSelector from '../variantSelector/VariantSelector';
 import Modal from '../../modal/Modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 // const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 
@@ -101,7 +103,9 @@ class Product extends Component {
                 className='prevNext'
                 onClick={ () => this.prevSlide() }
                 disabled={ this.state.imgSlide === 0 }
-              ><p>{ prev }</p></button>
+              >
+                <p><FontAwesomeIcon icon={ faChevronLeft } /></p>
+              </button>
               <img 
                 src={ variantImage.src } 
                 alt={ `${this.props.product.title} product shot` } 
@@ -111,7 +115,9 @@ class Product extends Component {
                 className='prevNext'
                 onClick={ () => this.nextSlide() } 
                 disabled={ this.state.imgSlide === this.props.product.images.length -1}
-              ><p>{ next }</p></button>
+              >
+                <p><FontAwesomeIcon icon={ faChevronRight } /></p>
+              </button>
             </div> 
           : <img 
               src={ variantImage.src } 
