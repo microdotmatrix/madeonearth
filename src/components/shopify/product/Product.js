@@ -26,10 +26,8 @@ class Product extends Component {
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[target.name] = target.value;
     const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
-    // console.log(selectedVariant.attrs.image)
     this.setState({
-      selectedVariant: selectedVariant,
-      // selectedVariantImage: selectedVariant.attrs.image
+      selectedVariant: selectedVariant
     });
   }
 
@@ -65,16 +63,12 @@ class Product extends Component {
     })
   }
 
-
-
   render() {
     // let optionNames = [];
     let product = this.props.product
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
     let variantImage = this.state.images
-    // console.log(variantImage)
-    console.log(this.props.product.images.length)
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
@@ -87,6 +81,8 @@ class Product extends Component {
         />
       );
     });
+    const prev = this.props.prev
+    const next = this.props.next
 
     // let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
     return (
@@ -95,50 +91,34 @@ class Product extends Component {
             <Modal 
               open={ this.state.showModal } 
               close={ this.handleModalClose } 
-              image={ this.state.images.src } 
+              image={ variantImage.src } 
               alt={ `${this.props.product.title} product shot` } 
               style={{ visibility: 'hidden' }} 
             /> 
           : product.images.length >= 2 ?
-            <div>
+            <div className='productSlides'>
               <button
+                className='prevNext'
                 onClick={ () => this.prevSlide() }
                 disabled={ this.state.imgSlide === 0 }
-                >prev</button>
+              ><p>{ prev }</p></button>
               <img 
-                src={ this.state.images.src } 
+                src={ variantImage.src } 
                 alt={ `${this.props.product.title} product shot` } 
                 onClick={ this.handleModalOpen } 
               />
               <button
+                className='prevNext'
                 onClick={ () => this.nextSlide() } 
                 disabled={ this.state.imgSlide === this.props.product.images.length -1}
-                >next</button>
+              ><p>{ next }</p></button>
             </div> 
-          :             <img 
-          src={ variantImage.src } 
-          alt={ `${this.props.product.title} product shot` } 
-          onClick={ this.handleModalOpen } 
-        /> 
- 
+          : <img 
+              src={ variantImage.src } 
+              alt={ `${this.props.product.title} product shot` } 
+              onClick={ this.handleModalOpen } 
+            /> 
         }      
-
-        {/* <div>
-          <button
-            onClick={ () => this.prevSlide() }
-            disabled={ this.state.imgSlide === 0 }
-            >prev</button>
-          <img 
-            src={ variantImage.src } 
-            alt={ `${this.props.product.title} product shot` } 
-            onClick={ this.handleModalOpen } 
-          />
-          <button
-            onClick={ () => this.nextSlide() } 
-            disabled={ this.state.imgSlide === this.props.product.images.length -1}
-            >next</button>
-        </div> */}
-
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         <span className='productPrice'>${ Math.trunc(variant.price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
