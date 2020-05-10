@@ -104,35 +104,17 @@
   }
 }
 @media screen and (max-width: 992px) {
-  /* .product {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-  } */
+ 
 }
 @media screen and (max-width: 800px) {
-  /* .product {
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-  } */
+
 }
 @media screen and (max-width: 660px) {
-  .product {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-  }
   .prevNext {
     height: 45px;
   }
 }
 @media screen and (max-width: 425px) {
-  .product {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-  }
   .prevNext {
     background-color: rgba(255, 255, 255, 0.7);
   }
