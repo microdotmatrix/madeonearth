@@ -83,8 +83,6 @@ class Product extends Component {
         />
       );
     });
-    const prev = this.props.prev
-    const next = this.props.next
 
     // let ShowOneSizeFitsMost = (variantSelectors.length === 1 && optionNames[0] === 'Title');
     return (
@@ -95,7 +93,11 @@ class Product extends Component {
               close={ this.handleModalClose } 
               image={ variantImage.src } 
               alt={ `${this.props.product.title} product shot` } 
+              product={ product }
               style={{ visibility: 'hidden' }} 
+              handlePrev={ () => {this.prevSlide()} }
+              handleNext={ () => {this.nextSlide()} }
+              currentSlide={ this.state.imgSlide }
             /> 
           : product.images.length >= 2 ?
             <div className='productSlides'>
@@ -114,7 +116,7 @@ class Product extends Component {
               <button
                 className='prevNext'
                 onClick={ () => this.nextSlide() } 
-                disabled={ this.state.imgSlide === this.props.product.images.length -1}
+                disabled={ this.state.imgSlide === product.images.length -1}
               >
                 <p><FontAwesomeIcon icon={ faChevronRight } /></p>
               </button>
@@ -133,8 +135,8 @@ class Product extends Component {
           { variantSelectors }
         </div>
         { productAvailable === true ? 
-          <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> :
-          <div className='btnDisable' >Sold Out</div>
+            <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> 
+          : <div className='btnDisable' >Sold Out</div>
         }
       </div>
     );

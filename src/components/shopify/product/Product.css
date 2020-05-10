@@ -14,12 +14,15 @@
   align-items: center;
 }
 .prevNext {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   border: none;
-  /* color: rgb(255, 255, 255); */
   height: 50px;
 } 
+/* .prevNext:hover {
+  border: 2px rgba(255, 255, 255);
+  background-color: rgba(255, 255, 255);
+}  */
 .prevNext p {
   display: flex; 
   justify-content: center;
@@ -129,6 +132,9 @@
     display: flex; 
     flex-direction: column; 
     align-items: center;
+  }
+  .prevNext {
+    background-color: rgba(255, 255, 255, 0.7);
   }
   .product img {
     width: 85%;
