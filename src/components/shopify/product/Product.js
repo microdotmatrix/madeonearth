@@ -88,17 +88,17 @@ class Product extends Component {
     return (
       <div className='product'>
         { this.state.showModal === true ?
-            <Modal 
-              open={ this.state.showModal } 
-              close={ this.handleModalClose } 
-              image={ variantImage.src } 
-              alt={ `${this.props.product.title} product shot` } 
-              product={ product }
-              style={{ visibility: 'hidden' }} 
-              handlePrev={ () => {this.prevSlide()} }
-              handleNext={ () => {this.nextSlide()} }
-              currentSlide={ this.state.imgSlide }
-            /> 
+          <Modal 
+            open={ this.state.showModal } 
+            close={ this.handleModalClose } 
+            image={ variantImage.src } 
+            alt={ `${this.props.product.title} product shot` } 
+            product={ product }
+            style={{ visibility: 'hidden' }} 
+            handlePrev={ () => {this.prevSlide()} }
+            handleNext={ () => {this.nextSlide()} }
+            currentSlide={ this.state.imgSlide }
+          /> 
           : product.images.length >= 2 ?
             <div className='productSlides'>
               <button

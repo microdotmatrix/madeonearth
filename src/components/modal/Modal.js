@@ -4,11 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ close, image, alt, product, handlePrev, handleNext, currentSlide }) => {
- 
+// FIX STYLING OF MODAL WITH MOBILE
   return (
     <div className='modal' > 
+      <div className='modalClose' onClick={ close }>
+        <FontAwesomeIcon icon={ faTimes } />
+      </div>
       { product.images.length >= 2 ? 
-          <div className='modalSlide'>
+        <div className='modalSlide'>
+          <img src={ image } alt={ alt } />
+          <div className='modalSlideBtns'>
             <button 
               className='slideBtn'
               onClick={ handlePrev }
@@ -16,7 +21,6 @@ const Modal = ({ close, image, alt, product, handlePrev, handleNext, currentSlid
             >
               <FontAwesomeIcon icon={ faChevronLeft } />
             </button>
-              <img src={ image } alt={ alt } />
             <button 
               className='slideBtn'
               onClick={ handleNext }
@@ -24,16 +28,12 @@ const Modal = ({ close, image, alt, product, handlePrev, handleNext, currentSlid
             >
               <FontAwesomeIcon icon={ faChevronRight } />
             </button>
-          </div>          
+          </div>
+        </div>    
         : <img src={ image } alt={ alt } />
-      }
-      <div 
-        className='modalClose'
-        onClick={ close }
-      >
-        <FontAwesomeIcon icon={ faTimes } />
-      </div>
+      } 
     </div>
+      
   )
   
 };
