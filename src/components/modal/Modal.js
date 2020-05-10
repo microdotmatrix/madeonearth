@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ close, image, alt, product, handlePrev, handleNext, currentSlide }) => {
-// FIX STYLING OF MODAL WITH MOBILE
+
   return (
     <div className='modal' > 
       <div className='modalClose' onClick={ close }>
