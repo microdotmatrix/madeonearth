@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './Product.css';
 import VariantSelector from '../variantSelector/VariantSelector';
 import Modal from '../../modal/Modal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 
 // const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 
@@ -17,9 +16,7 @@ class Product extends Component {
     });
     this.state = { 
       selectedOptions: defaultOptionValues,
-      showModal: false,
-      images: this.props.product.images[0],
-      imgSlide: 0
+      showModal: false
     };
   }
 
@@ -50,27 +47,13 @@ class Product extends Component {
     })
   }
 
-  nextSlide = () => {
-    const newIndex = this.state.imgSlide + 1;
-    this.setState({
-      images: this.props.product.images[newIndex],
-      imgSlide: newIndex
-    })
-  }
-  prevSlide = () =>{
-    const newIndex = this.state.imgSlide - 1;
-    this.setState({
-      images: this.props.product.images[newIndex],
-      imgSlide: newIndex
-    })
-  }
-
   render() {
     // let optionNames = [];
     let product = this.props.product
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
-    let variantImage = this.state.images
+    let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
+    console.log(variantImage)
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
@@ -95,32 +78,7 @@ class Product extends Component {
             alt={ `${this.props.product.title} product shot` } 
             product={ product }
             style={{ visibility: 'hidden' }} 
-            handlePrev={ () => {this.prevSlide()} }
-            handleNext={ () => {this.nextSlide()} }
-            currentSlide={ this.state.imgSlide }
           /> 
-          : product.images.length >= 2 ?
-            <div className='productSlides'>
-              <button
-                className='prevNext'
-                onClick={ () => this.prevSlide() }
-                disabled={ this.state.imgSlide === 0 }
-              >
-                <p><FontAwesomeIcon icon={ faChevronLeft } /></p>
-              </button>
-              <img 
-                src={ variantImage.src } 
-                alt={ `${this.props.product.title} product shot` } 
-                onClick={ this.handleModalOpen } 
-              />
-              <button
-                className='prevNext'
-                onClick={ () => this.nextSlide() } 
-                disabled={ this.state.imgSlide === product.images.length -1}
-              >
-                <p><FontAwesomeIcon icon={ faChevronRight } /></p>
-              </button>
-            </div> 
           : <img 
               src={ variantImage.src } 
               alt={ `${this.props.product.title} product shot` } 
