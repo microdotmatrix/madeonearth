@@ -53,7 +53,6 @@ class Product extends Component {
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
-    console.log(variantImage)
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
