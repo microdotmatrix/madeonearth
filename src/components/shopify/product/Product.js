@@ -29,10 +29,11 @@ class Product extends Component {
       selectedVariant: selectedVariant
     });
   }
-
-  handleQuantityChange = (event) => {
+  // FIGURE OUT HOW TO RESET SELECTEDVARIANT STATE
+  handleVariantReset = (event) => {
+    console.log(event)
     this.setState({
-      selectedVariantQuantity: event.target.value
+      selectedVariant: undefined
     });
   } 
 
@@ -53,7 +54,9 @@ class Product extends Component {
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
+
     let variant = this.state.selectedVariant || this.props.product.variants[0]
+    console.log(this.state.selectedVariant)
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
       return (
@@ -70,14 +73,14 @@ class Product extends Component {
     return (
       <div className='product'>
         { this.state.showModal === true ?
-          <Modal 
-            open={ this.state.showModal } 
-            close={ this.handleModalClose } 
-            image={ variantImage.src } 
-            alt={ `${this.props.product.title} product shot` } 
-            product={ product }
-            style={{ visibility: 'hidden' }} 
-          /> 
+            <Modal 
+              open={ this.state.showModal } 
+              close={ this.handleModalClose } 
+              image={ variantImage.src } 
+              alt={ `${this.props.product.title} product shot` } 
+              product={ product }
+              style={{ visibility: 'hidden' }} 
+            /> 
           : <img 
               src={ variantImage.src } 
               alt={ `${this.props.product.title} product shot` } 
@@ -91,9 +94,11 @@ class Product extends Component {
         <div className='productBtn'>
           { variantSelectors }
         </div>
-        { productAvailable === true ? 
-            <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button> 
-          : <div className='btnDisable' >Sold Out</div>
+        { productAvailable === false ? 
+            <div className='btnDisable' >Sold Out</div>
+          : this.state.selectedVariant !== undefined ?
+            <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button>
+          : <button className='addToCart'>Add to Cart</button>
         }
       </div>
     );
