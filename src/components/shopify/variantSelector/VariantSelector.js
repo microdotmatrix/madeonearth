@@ -2,37 +2,96 @@
   import './VariantSelector.css';
 
 class VariantSelector extends Component {
-  render() {
-    let options = this.props.variantOptions
-    let optionSelector = options.selectedOptions.map((variant) => {
-      return (
-        options.available === true ? 
-        <button 
-          className='available'
-          name={ variant.name }
-          value={ variant.value}
-          key={ `${ variant.name }-${ variant.value}` }
-          onClick={ this.props.handleOptionChange }
-        >
-          { `${ variant.value }` } 
-        </button> :
-        <button 
-          className='notAvailable strikeout'
-          name={ variant.name }
-          value={ variant.value }
-          key={ `${ variant.name }-${ variant.value }` }
-        >
-          { `${ variant.value }` } 
-        </button>
-      )
+  constructor(props) {
+    super(props); 
+    this.state = {
+      active: false
+    }
+  }
+
+  btnActivate = () => {
+    this.setState({
+      active: true
     })
+  }
+
+  render() {
+    let variant = this.props.variantOptions
+    // console.log(variant.selectedOptions[0].value)
+    console.log(this.props.active)
+    console.log(this.props.eventTargetValue)
+    let activeVariant = this.props.active
+    // console.log(`active:`, activeVariant.Size)
+    // let optionSelector = options.selectedOptions.map((variant) => {
+    //   return (
+    //     options.available === false ? 
+    //       <button 
+    //         className='notAvailable strikeout'
+    //         name={ variant.name }
+    //         value={ variant.value }
+    //         key={ `${ variant.name }-${ variant.value }` }
+    //       >
+    //         { `${ variant.value }` } 
+    //       </button>
+    //     : this.props.variantId === <button data-select></button> ?
+    //       <button 
+    //         className='available active'
+    //         name={ variant.name }
+    //         value={ variant.value}
+    //         key={ `${ variant.name }-${ variant.value}` }
+    //         onClick={ this.props.handleOptionChange }
+    //       >
+    //         { `${ variant.value }` } 
+    //       </button> 
+    //     : <button 
+    //         className='available  ' 
+    //         name={ variant.name }
+    //         value={ variant.value}
+    //         key={ `${ variant.name }-${ variant.value}` }
+    //         onClick={ this.props.handleOptionChange }
+    //       >
+    //         { `${ variant.value }` } 
+    //       </button> 
+    //   )
+    // })
     return (
       <div
         className='productOption'
-        name={ this.props.product.title }
-        key={ this.props.product.id }
+        // key={ variant.id }
+        onClick={ this.btnActivate }
       >
-        { optionSelector }
+      { variant.available === false ?
+          <button
+            className='notAvailable strikeOut'
+            name={ variant.selectedOptions[0].name }
+            value={ variant.title }
+            // key={ variant.id }
+          >
+            { variant.title }
+          </button>
+        : this.props.eventTargetValue === variant.selectedOptions[0].value ?
+          <button
+          className='available active'
+          name={ variant.selectedOptions[0].name }
+          value={ variant.title }
+          // key={ variant.id }
+          style={ this.props.activeStyle }
+          onClick={ this.props.handleOptionChange }
+          >
+            { variant.title }
+          </button>  
+        : <button
+            className='available'
+            name={ variant.selectedOptions[0].name }
+            value={ variant.title }
+            // key={ variant.id }
+            style={ this.props.activeStyle }
+            onClick={ this.props.handleOptionChange }
+          >
+            { variant.title }
+          </button> 
+          // {/* { optionSelector } */}
+      }
       </div>
     );
   }

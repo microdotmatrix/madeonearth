@@ -1,7 +1,6 @@
 .productOption {
   display: flex; 
   justify-content: center;
-  margin-bottom: 10px;
 }
 .available {
   font-size: 90%;
@@ -15,23 +14,26 @@
   color: rgb(0, 0, 0); 
   background-color: rgba(255, 255, 255, 0.7);
 }
-.available:active {
-  color: rgb(0, 0, 0); 
-  background-color: rgba(255, 255, 255, 0.7);
-}
 .notAvailable {
   font-size: 90%;
   font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
   color: white;
-  /* text-decoration: line-through red; */
 }
-.strikeout {
+.active {
+  /* font-size: 90%;
+  font-weight: 700;
+  border-style: none;
+  padding: 2px; */
+  color: rgb(0, 0, 0); 
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.strikeOut {
   line-height: 1em;
   position: relative;
 }
-.strikeout::after {
+.strikeOut::after {
   border-bottom: 0.2em solid red;
   content: "";
   left: 0;

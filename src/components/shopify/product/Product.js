@@ -9,13 +9,10 @@ import Modal from '../../modal/Modal';
 class Product extends Component {
   constructor(props) {
     super(props);
-
-    let defaultOptionValues = {};
-    this.props.product.options.forEach((selector) => {
-      defaultOptionValues[selector.name] = selector.values[0].value;
-    });
     this.state = { 
-      selectedOptions: defaultOptionValues,
+      selectedOptions: {},
+      // variantId: '',
+      eventTargetValue: null,
       showModal: false
     };
   }
@@ -23,19 +20,17 @@ class Product extends Component {
   handleOptionChange = (event) => {
     const target = event.target
     let selectedOptions = this.state.selectedOptions;
+    console.log(target)
     selectedOptions[target.name] = target.value;
+    console.log(selectedOptions)
     const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
+    // console.log(`selected variant:`,selectedVariant)
     this.setState({
-      selectedVariant: selectedVariant
+      selectedVariant: selectedVariant,
+      eventTargetValue: target.value
+      // variantId: selectedVariant.id
     });
   }
-  // FIGURE OUT HOW TO RESET SELECTEDVARIANT STATE
-  handleVariantReset = (event) => {
-    console.log(event)
-    this.setState({
-      selectedVariant: undefined
-    });
-  } 
 
   handleModalOpen = () => {
     this.setState({
@@ -50,21 +45,30 @@ class Product extends Component {
 
   render() {
     // let optionNames = [];
+    const activeStyle={
+      color: 'yellow'
+    }
+    console.log(this.state.eventTargetValue)
+    // console.log(this.state.selectedOptions)
     let product = this.props.product
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
-    let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
-
-    let variant = this.state.selectedVariant || this.props.product.variants[0]
-    console.log(this.state.selectedVariant)
-    let variantQuantity = this.state.selectedVariantQuantity || 1
+    let variantImage = this.props.product.images[0]
+    let variant = this.state.selectedVariant
+    // console.log(`variant:`,variant)
+    let price = this.props.product.variants[0].price 
+    let variantQuantity = 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
+      // console.log(variantOptions)
       return (
         <VariantSelector
           handleOptionChange={ this.handleOptionChange }
           key={variantOptions.id.toString()}
-          product={ product }
           variantOptions={ variantOptions }
+          active={ this.state.selectedOptions }
+          // variantId = { this.state.variantId }
+          eventTargetValue={ this.state.eventTargetValue }
+          style={ activeStyle }
         />
       );
     });
@@ -88,7 +92,7 @@ class Product extends Component {
             /> 
         }      
         <h3 className='productTitle'>{ this.props.product.title }</h3>
-        <span className='productPrice'>${ Math.trunc(variant.price) }</span>
+        <span className='productPrice'>${ Math.trunc(price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
         { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
         <div className='productBtn'>
