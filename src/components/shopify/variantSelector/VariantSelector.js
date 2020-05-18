@@ -2,37 +2,37 @@
   import './VariantSelector.css';
 
 class VariantSelector extends Component {
+
   render() {
-    let options = this.props.variantOptions
-    let optionSelector = options.selectedOptions.map((variant) => {
-      return (
-        options.available === true ? 
-        <button 
-          className='available'
-          name={ variant.name }
-          value={ variant.value}
-          key={ `${ variant.name }-${ variant.value}` }
-          onClick={ this.props.handleOptionChange }
-        >
-          { `${ variant.value }` } 
-        </button> :
-        <button 
-          className='notAvailable strikeout'
-          name={ variant.name }
-          value={ variant.value }
-          key={ `${ variant.name }-${ variant.value }` }
-        >
-          { `${ variant.value }` } 
-        </button>
-      )
-    })
+    let variant = this.props.variantOptions
     return (
-      <div
-        className='productOption'
-        name={ this.props.product.title }
-        key={ this.props.product.id }
-      >
-        { optionSelector }
+      <div className='productOption'>
+      { variant.available === false ?
+          <button
+            className='notAvailable strikeOut'
+            name={ variant.selectedOptions[0].name }
+            value={ variant.title }
+          >
+            { variant.title }
+          </button>
+        : this.props.eventTargetValue === variant.selectedOptions[0].value ?
+          <button
+            className='available active'
+            name={ variant.selectedOptions[0].name }
+            value={ variant.title }
+            onClick={ this.props.handleOptionChange }
+          >
+            { variant.title }
+          </button>  
+        : <button
+            className='available'
+            name={ variant.selectedOptions[0].name }
+            value={ variant.title }
+            onClick={ this.props.handleOptionChange }
+          >
+            { variant.title }
+          </button> 
+      }
       </div>
     );
   }
