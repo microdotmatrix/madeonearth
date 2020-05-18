@@ -8,11 +8,12 @@
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
   color: white;
-  padding: 2px;
+  padding: 3px;
 }
 .available:hover {
   color: rgb(0, 0, 0); 
   background-color: rgba(255, 255, 255, 0.7);
+  transition: ease-in-out .2s;
 }
 .notAvailable {
   font-size: 90%;
@@ -22,10 +23,6 @@
   color: white;
 }
 .active {
-  /* font-size: 90%;
-  font-weight: 700;
-  border-style: none;
-  padding: 2px; */
   color: rgb(0, 0, 0); 
   background-color: rgba(255, 255, 255, 0.7);
 }

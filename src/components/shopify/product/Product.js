@@ -3,7 +3,6 @@ import './Product.css';
 import VariantSelector from '../variantSelector/VariantSelector';
 import Modal from '../../modal/Modal';
 
-
 // const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 
 class Product extends Component {
@@ -11,7 +10,6 @@ class Product extends Component {
     super(props);
     this.state = { 
       selectedOptions: {},
-      // variantId: '',
       eventTargetValue: null,
       showModal: false
     };
@@ -20,15 +18,11 @@ class Product extends Component {
   handleOptionChange = (event) => {
     const target = event.target
     let selectedOptions = this.state.selectedOptions;
-    console.log(target)
     selectedOptions[target.name] = target.value;
-    console.log(selectedOptions)
     const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
-    // console.log(`selected variant:`,selectedVariant)
     this.setState({
       selectedVariant: selectedVariant,
       eventTargetValue: target.value
-      // variantId: selectedVariant.id
     });
   }
 
@@ -45,30 +39,20 @@ class Product extends Component {
 
   render() {
     // let optionNames = [];
-    const activeStyle={
-      color: 'yellow'
-    }
-    console.log(this.state.eventTargetValue)
-    // console.log(this.state.selectedOptions)
     let product = this.props.product
     let productAvailable = this.props.product.availableForSale
     let productDescription = this.props.product.description
     let variantImage = this.props.product.images[0]
     let variant = this.state.selectedVariant
-    // console.log(`variant:`,variant)
     let price = this.props.product.variants[0].price 
     let variantQuantity = 1
     let variantSelectors = this.props.product.variants.map((variantOptions) => {
-      // console.log(variantOptions)
       return (
         <VariantSelector
           handleOptionChange={ this.handleOptionChange }
           key={variantOptions.id.toString()}
           variantOptions={ variantOptions }
-          active={ this.state.selectedOptions }
-          // variantId = { this.state.variantId }
           eventTargetValue={ this.state.eventTargetValue }
-          style={ activeStyle }
         />
       );
     });
