@@ -15,6 +15,17 @@
   margin-top: 1rem;
   margin-bottom: 0.4rem;
 }
+.productDescription {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1%;
+  margin: 8px 0;
+  font-size: 90%;
+  font-weight: 600;
+  color: yellow;
+}
 .productPrice {
   display: flex;
   justify-content: center;
@@ -29,15 +40,6 @@
   align-items: center;
   width: 100%;
   margin-bottom: 10px;
-}
-.productDesctiption {
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 1%;
-  font-size: 80%;
-  font-weight: 600;
 }
 .addToCart {
   height: 2rem;
