@@ -13,8 +13,8 @@ class Header extends Component {
   render() {
     return (
       <div className='header'>
-        <div className='cartIcon'>
-          <button className='cartButton' onClick={ this.props.handleCartOpen }>
+        <div className='iconBar'>
+          <button className='cartIcon' onClick={ this.props.handleCartOpen }>
             <img src={ Cart } alt='cart icon' />
           </button>
         </div>
