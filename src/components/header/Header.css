@@ -9,6 +9,9 @@
   justify-content: flex-end;
   padding: 3px 5px;
 }
+.igIcon {
+  width: 20%;
+}
 .cartIcon {
   border-style: none;
   cursor: pointer;
