@@ -18,8 +18,12 @@ class Header extends Component {
         <div className='iconBar'>
           <a
             className='igIcon'
+            title='Made On Earth on Instagram'
+            href='//www.instagram.com/_madeonearth/'
+            rel='noopener me'
+            target='_blank'
           >
-            <FontAwesomeIcon icon={faInstagram} />
+            <span className='FAI' ><FontAwesomeIcon icon={faInstagram} /></span>
           </a>
           <button className='cartIcon' onClick={ this.props.handleCartOpen }>
             <img src={ Cart } alt='cart icon' />
