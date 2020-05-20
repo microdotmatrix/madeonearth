@@ -76,9 +76,9 @@ class Product extends Component {
             /> 
         }      
         <h3 className='productTitle'>{ this.props.product.title }</h3>
+        { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
         <span className='productPrice'>${ Math.trunc(price) }</span>
         {/* { ShowOneSizeFitsMost ? <h5 className='productTitle'>{ ONE_SIZE_FITS_MOST }</h5> : variantSelectors } */}
-        { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
         <div className='productBtn'>
           { variantSelectors }
         </div>
