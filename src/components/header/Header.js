@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
-import Cart from '../../asset/cartLogo.png';
+// import Cart from '../../asset/cartLogo.png';
+import Cart from '../../asset/cart2.png';
 import Logo from '../../asset/Logo_nm.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
