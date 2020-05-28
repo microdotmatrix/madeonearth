@@ -10,7 +10,7 @@ class Cart extends Component {
 
   render() {
     let line_items;
-    // console.log(this.props.checkout) 
+    console.log(this.props.checkout) 
     if (this.props.checkout) {
     // this.props.checkout.lineItems is undefined. Might need to update state...
     line_items = this.props.checkout.lineItems.map((line_item) => {

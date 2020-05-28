@@ -21,54 +21,56 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.props.client.checkout.create()
+
+    if (sessionStorage.getItem('cartItems')) {
+      const cartItems =  JSON.parse(sessionStorage.getItem('cartItems'));
+      this.updateCheckout(cartItems)
+    } else {  
+      this.props.client.checkout.create()
       .then((res) => {
+        console.log(res)
         store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
       });
-    this.props.client.product.fetchAll()
+      this.props.client.product.fetchAll()
       .then((res) => {
         store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
       });
-    this.props.client.shop.fetchInfo()
+      this.props.client.shop.fetchInfo()
       .then((res) => {
         store.dispatch({ type: 'SHOP_FOUND', payload: res})
       });
-    // this.getStateWithSessionStorage();
+    }
+
   }
 
-  // getStateWithSessionStorage = () => {
-  //   const cartItem = JSON.parse(sessionStorage.getItem('cartItem')) 
-  //   // console.log(`CART ITEMS:`, cartItem)
-  //   if (!cartItem) {
-  //     this.props.client.checkout.create()
-  //     .then((res) => {
-  //       store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
-  //     });
-  //   this.props.client.product.fetchAll()
-  //     .then((res) => {
-  //       store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
-  //     });
-  //   this.props.client.shop.fetchInfo()
-  //     .then((res) => {
-  //       store.dispatch({ type: 'SHOP_FOUND', payload: res})
-  //     });
-  //   } else {
-  //     this.setState ({
-  //       checkout: cartItem
-  //     })
-  //   }
-  //   // const state = store.getState()
-  //   // store.dispatch({type: 'CHECKOUT_FOUND', payload: { isCartOpen: true, checkout: cartItem }});
-  // }
+  updateCheckout = (cartItems) => {
+    // Update store from retrieved sessionStorage
+    console.log(cartItems)
+    // const store = store.getState();
+    // const checkoutId = cartItems.id
+    // const variantId = cartItems.lineItems.map((item) => {
+    //   return item.id
+    // })
+    // const quantity = cartItems.lineItems.map((items) => {
+    //   return items.quantity
+    // })
+    // console.log(quantity)
+    // const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+    // console.log(lineItemsToAdd)
+    store.dispatch({ type: 'UPDATE_CHECKOUT', payload: { checkout: cartItems }});
+    
+  }
 
   addVariantToCart = (variantId, quantity) => {
     const state = store.getState();
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+    console.log(lineItemsToAdd)
     const checkoutId = state.checkout.id
+    console.log(checkoutId)
     state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      // console.log(res)
+      console.log(res)
       store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
-      // sessionStorage.setItem('cartItem', JSON.stringify(res))
+      sessionStorage.setItem('cartItems', JSON.stringify(res))
     });
   }
 
@@ -77,7 +79,7 @@ class App extends Component {
     const checkoutId = state.checkout.id
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
     state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
-      // sessionStorage.setItem('cartItem', JSON.stringify(res))
+      // sessionStorage.setItem('cartItems', JSON.stringify(res))
       store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: { checkout: res }});
     });
   }
@@ -86,7 +88,7 @@ class App extends Component {
     const state = store.getState();
     const checkoutId = state.checkout.id
     state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
-      // sessionStorage.setItem('cartItem', JSON.stringify(res))
+      // sessionStorage.setItem('cartItems', JSON.stringify(res))
       store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: { checkout: res }});
     });
   }
@@ -102,7 +104,7 @@ class App extends Component {
   render() {
     const state = store.getState();
     const { checkout } = this.state;
-    // console.log(checkout)
+    console.log(state.checkout)
     return (
       <div className="app">
         <Header handleCartOpen={ this.handleCartOpen } />
