@@ -7,7 +7,6 @@ import Merchandise from './components/merchandise/Merchandise';
 
 import { connect } from 'react-redux';
 import store from './store/Store';
-// import './styles/Shopify.css';
 
 class App extends Component {
   constructor(props) {
@@ -44,21 +43,8 @@ class App extends Component {
   }
 
   updateCheckout = (cartItems) => {
-    // Update store from retrieved sessionStorage
     console.log(cartItems)
-    // const store = store.getState();
-    // const checkoutId = cartItems.id
-    // const variantId = cartItems.lineItems.map((item) => {
-    //   return item.id
-    // })
-    // const quantity = cartItems.lineItems.map((items) => {
-    //   return items.quantity
-    // })
-    // console.log(quantity)
-    // const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
-    // console.log(lineItemsToAdd)
     store.dispatch({ type: 'UPDATE_CHECKOUT', payload: { checkout: cartItems }});
-    
   }
 
   addVariantToCart = (variantId, quantity) => {
@@ -88,7 +74,7 @@ class App extends Component {
     const state = store.getState();
     const checkoutId = state.checkout.id
     state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
-      // sessionStorage.setItem('cartItems', JSON.stringify(res))
+      sessionStorage.removeItem('cartItems')
       store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: { checkout: res }});
     });
   }
