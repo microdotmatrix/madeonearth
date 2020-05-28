@@ -79,7 +79,7 @@ class App extends Component {
     const checkoutId = state.checkout.id
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
     state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
-      // sessionStorage.setItem('cartItems', JSON.stringify(res))
+      sessionStorage.setItem('cartItems', JSON.stringify(res))
       store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: { checkout: res }});
     });
   }
