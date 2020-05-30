@@ -21,7 +21,7 @@ class Header extends Component {
             className='igIcon'
             title='Made On Earth on Instagram'
             href='//www.instagram.com/_madeonearth/'
-            rel='noopener me'
+            rel='noopener noreferrer'
             target='_blank'
           >
             <span className='FAI' ><FontAwesomeIcon icon={faInstagram} /></span>
