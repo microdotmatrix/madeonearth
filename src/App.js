@@ -7,7 +7,6 @@ import Merchandise from './components/merchandise/Merchandise';
 
 import { connect } from 'react-redux';
 import store from './store/Store';
-// import './styles/Shopify.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +20,49 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.props.client.checkout.create().then((res) => {
-      store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
-    });
-    this.props.client.product.fetchAll().then((res) => {
+    if (sessionStorage.getItem('cartItems')) {
+      const cartItems =  JSON.parse(sessionStorage.getItem('cartItems'));
+      this.updateCheckout(cartItems)
+
+    } else {  
+      this.clientInitialization()
+    }
+  }
+
+  updateCheckout = (cartItems) => {
+    store.dispatch({ type: 'CHECKOUT_FOUND', payload: cartItems });
+    this.props.client.product.fetchAll()
+    .then((res) => {
       store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
     });
-    this.props.client.shop.fetchInfo().then((res) => {
+    this.props.client.shop.fetchInfo()
+    .then((res) => {
       store.dispatch({ type: 'SHOP_FOUND', payload: res})
+    });
+  }
+
+  clientInitialization = () => {
+    this.props.client.checkout.create()
+    .then((res) => {
+      store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
+    });
+    this.props.client.product.fetchAll()
+    .then((res) => {
+      store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
+    });
+    this.props.client.shop.fetchInfo()
+    .then((res) => {
+      store.dispatch({ type: 'SHOP_FOUND', payload: res})
+    });
+  }
+
+  addVariantToCart = (variantId, quantity) => {
+    const state = store.getState();
+    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+    const checkoutId = state.checkout.id
+    state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
+      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
+      sessionStorage.setItem('cartItems', JSON.stringify(res))
     });
   }
 
@@ -37,6 +71,7 @@ class App extends Component {
     const checkoutId = state.checkout.id
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
     state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
+      sessionStorage.setItem('cartItems', JSON.stringify(res))
       store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: { checkout: res }});
     });
   }
@@ -45,6 +80,7 @@ class App extends Component {
     const state = store.getState();
     const checkoutId = state.checkout.id
     state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
+      sessionStorage.removeItem('cartItems')
       store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: { checkout: res }});
     });
   }
@@ -69,7 +105,7 @@ class App extends Component {
           updateQuantityInCart={ this.updateQuantityInCart }
           removeLineItemInCart={ this.removeLineItemInCart }
         />
-        <Merchandise />
+        <Merchandise addVariantToCart={ this.addVariantToCart} />
       </div>
     )
   }
