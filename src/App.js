@@ -20,41 +20,47 @@ class App extends Component {
   }
   
   componentDidMount() {
-
     if (sessionStorage.getItem('cartItems')) {
       const cartItems =  JSON.parse(sessionStorage.getItem('cartItems'));
       this.updateCheckout(cartItems)
-    } else {  
-      this.props.client.checkout.create()
-      .then((res) => {
-        console.log(res)
-        store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
-      });
-      this.props.client.product.fetchAll()
-      .then((res) => {
-        store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
-      });
-      this.props.client.shop.fetchInfo()
-      .then((res) => {
-        store.dispatch({ type: 'SHOP_FOUND', payload: res})
-      });
-    }
 
+    } else {  
+      this.clientInitialization()
+    }
   }
 
   updateCheckout = (cartItems) => {
-    console.log(cartItems)
-    store.dispatch({ type: 'UPDATE_CHECKOUT', payload: { checkout: cartItems }});
+    store.dispatch({ type: 'CHECKOUT_FOUND', payload: cartItems });
+    this.props.client.product.fetchAll()
+    .then((res) => {
+      store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
+    });
+    this.props.client.shop.fetchInfo()
+    .then((res) => {
+      store.dispatch({ type: 'SHOP_FOUND', payload: res})
+    });
+  }
+
+  clientInitialization = () => {
+    this.props.client.checkout.create()
+    .then((res) => {
+      store.dispatch({ type: 'CHECKOUT_FOUND', payload: res }) 
+    });
+    this.props.client.product.fetchAll()
+    .then((res) => {
+      store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
+    });
+    this.props.client.shop.fetchInfo()
+    .then((res) => {
+      store.dispatch({ type: 'SHOP_FOUND', payload: res})
+    });
   }
 
   addVariantToCart = (variantId, quantity) => {
     const state = store.getState();
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
-    console.log(lineItemsToAdd)
     const checkoutId = state.checkout.id
-    console.log(checkoutId)
     state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      console.log(res)
       store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
       sessionStorage.setItem('cartItems', JSON.stringify(res))
     });
@@ -89,8 +95,6 @@ class App extends Component {
 
   render() {
     const state = store.getState();
-    const { checkout } = this.state;
-    console.log(state.checkout)
     return (
       <div className="app">
         <Header handleCartOpen={ this.handleCartOpen } />

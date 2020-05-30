@@ -9,7 +9,6 @@ const initState = {
 const CLIENT_CREATED = 'CLIENT_CREATED'
 const PRODUCTS_FOUND = 'PRODUCTS_FOUND'
 const CHECKOUT_FOUND = 'CHECKOUT_FOUND'
-const UPDATE_CHECKOUT = 'UPDATE_CHECKOUT'
 const SHOP_FOUND = 'SHOP_FOUND'
 const ADD_VARIANT_TO_CART = 'ADD_VARIANT_TO_CART'
 const UPDATE_QUANTITY_IN_CART = 'UPDATE_QUANTITY_IN_CART'
@@ -19,8 +18,6 @@ const CLOSE_CART = 'CLOSE_CART'
 
 // reducer
 export default (state = initState, action) => {
-  // console.log(state)
-  console.log(action)
   switch (action.type) {
     case CLIENT_CREATED:
       return {...state, client: action.payload}
@@ -28,8 +25,6 @@ export default (state = initState, action) => {
       return {...state, products: action.payload}
     case CHECKOUT_FOUND:
       return {...state, checkout: action.payload}
-    case UPDATE_CHECKOUT: 
-      return {...state, checkout: action.payload.checkout}
     case SHOP_FOUND:
       return {...state, shop: action.payload}
     case ADD_VARIANT_TO_CART:
