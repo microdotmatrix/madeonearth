@@ -10,17 +10,17 @@
 /* ===== Media Queries ===== */
 @media screen and (max-width: 992px) {
   .productWrapper {
-    width: 40vw;
+    width: 80vw;
   }
 }
 @media screen and (max-width: 800px) {
   .productWrapper {
-    width: 45vw;
+    width: 80vw;
   }
 }
 @media screen and (max-width: 660px ) {
   .productWrapper {
-    width: 50vw;
+    width: 80vw;
   }
 }
 @media screen and (max-width: 425px) {
