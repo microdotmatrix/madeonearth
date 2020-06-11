@@ -122,6 +122,9 @@
 }
 
 @media screen and (max-width: 425px) {
+  .product {
+    justify-content: space-evenly;
+  }
   .product img {
     width: 90%;
     height: auto;
