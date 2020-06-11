@@ -1,6 +1,8 @@
 .productOption {
   display: flex; 
   justify-content: center;
+  height: 100%;
+  width: 15%;
 }
 .available {
   font-size: 90%;
@@ -14,6 +16,7 @@
   color: rgb(0, 0, 0); 
   background-color: white; 
   transition: ease-in-out .2s;
+  width: 100%;
 }
 .notAvailable {
   font-size: 90%;
@@ -25,6 +28,7 @@
 .active {
   color: rgb(0, 0, 0); 
   background-color: white; 
+  width: 100%;
 }
 .strikeOut {
   line-height: 1em;
@@ -43,14 +47,39 @@
   top: 50%;
 }
 
+@media screen and (max-width: 800px ) {
+  .available {
+    font-size: 85%;
+  }
+  .notAvailable {
+    font-size: 85%;
+  }
+}
+@media screen and (max-width: 660px) {
+  .available {
+    font-size: 75%;
+  }
+  .notAvailable {
+    font-size: 75%;
+  }
+}
 @media screen and (max-width: 425px) {
-  .optionButton {
+  .productOption {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 80%;
     font-weight: 900;
-    min-width: 15vw;
-    min-height: 4vh;
+    min-width: 15%;
+    min-height: 3vh;
+  }
+  .available {
+    font-size: 100%;
+  }
+  .active {
+    min-width: 50%;
+  }
+  .notAvailable {
+    font-size: 100%;
   }
 }
