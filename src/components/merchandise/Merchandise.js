@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Products from '../shopify/products/Products';
+import Collections from '../shopify/collections/Collections';
 import { connect } from 'react-redux';
 import store from '../../store/Store';
 
@@ -19,10 +20,15 @@ class Merchandise extends Component {
       >
         <Products 
           products={ state.products }
-          collection={ state.collections }
           client={ state.client }
           addVariantToCart={ this.props.addVariantToCart }
         />
+        <Collections 
+          collections={ state.collections }
+          client={ state.client }
+          addVariantToCart={ this.props.addVariantToCart }
+        />
+
       </div>
     )
   }
