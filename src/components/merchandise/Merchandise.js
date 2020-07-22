@@ -19,6 +19,7 @@ class Merchandise extends Component {
       >
         <Products 
           products={ state.products }
+          collection={ state.collections }
           client={ state.client }
           addVariantToCart={ this.props.addVariantToCart }
         />
