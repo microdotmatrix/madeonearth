@@ -8,6 +8,7 @@ const initState = {
 // actions
 const CLIENT_CREATED = 'CLIENT_CREATED'
 const PRODUCTS_FOUND = 'PRODUCTS_FOUND'
+const COLLECTIONS_FOUND = 'COLLECTIONS_FOUND'
 const CHECKOUT_FOUND = 'CHECKOUT_FOUND'
 const SHOP_FOUND = 'SHOP_FOUND'
 const ADD_VARIANT_TO_CART = 'ADD_VARIANT_TO_CART'
@@ -23,6 +24,8 @@ export default (state = initState, action) => {
       return {...state, client: action.payload}
     case PRODUCTS_FOUND:
       return {...state, products: action.payload}
+    case COLLECTIONS_FOUND:
+      return {...state, collections: action.payload}
     case CHECKOUT_FOUND:
       return {...state, checkout: action.payload}
     case SHOP_FOUND:

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Products from '../shopify/products/Products';
+// import Products from '../shopify/products/Products';
+import Collections from '../shopify/collections/Collections';
 import { connect } from 'react-redux';
 import store from '../../store/Store';
 
 class Merchandise extends Component {
 
   render() {
-    const state = store.getState(); 
+    const state = store.getState();
+
     return (
       <div 
         className='merchandise' 
@@ -17,8 +19,14 @@ class Merchandise extends Component {
           heigth: '100%'
         }}
       >
-        <Products 
+        {/* <Products 
           products={ state.products }
+          client={ state.client }
+          addVariantToCart={ this.props.addVariantToCart }
+        /> */}
+
+        <Collections 
+          collections={ state.collections }
           client={ state.client }
           addVariantToCart={ this.props.addVariantToCart }
         />
