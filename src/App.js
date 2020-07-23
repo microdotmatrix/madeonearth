@@ -35,6 +35,10 @@ class App extends Component {
     .then((res) => {
       store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
     });
+    this.props.client.collection.fetchAllWithProducts()
+    .then((res) => {
+      store.dispatch({ type: 'COLLECTIONS_FOUND', payload: res })
+    });
     this.props.client.shop.fetchInfo()
     .then((res) => {
       store.dispatch({ type: 'SHOP_FOUND', payload: res})
@@ -50,6 +54,12 @@ class App extends Component {
     .then((res) => {
       store.dispatch({ type: 'PRODUCTS_FOUND', payload: res })
     });
+
+    this.props.client.collection.fetchAllWithProducts()
+    .then((res) => {
+      store.dispatch({ type: 'COLLECTIONS_FOUND', payload: res })
+    });
+
     this.props.client.shop.fetchInfo()
     .then((res) => {
       store.dispatch({ type: 'SHOP_FOUND', payload: res})
