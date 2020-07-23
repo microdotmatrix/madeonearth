@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import SiteDown from './components/underConstruction/UnderConstruction';
 import Client from 'shopify-buy';
 import { Provider } from 'react-redux';
