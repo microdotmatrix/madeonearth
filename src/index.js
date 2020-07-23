@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
+import SiteDown from './components/underConstruction/UnderConstruction';
 import Client from 'shopify-buy';
 import { Provider } from 'react-redux';
 import store from './store/Store';
@@ -15,7 +16,8 @@ store.dispatch({ type: 'CLIENT_CREATED', payload: client })
 
 ReactDOM.render(
   <Provider store={ store } >
-    <App client={ client } />
+    {/* <App client={ client } /> */}
+    <SiteDown />
   </Provider>,
   document.getElementById('root')
 );
