@@ -1,0 +1,32 @@
+.productWrapper {
+  width: 75vw;
+  margin: 5% 1%;
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+
+
+/* ===== Media Queries ===== */
+@media screen and (max-width: 992px) {
+  .productWrapper {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .productWrapper {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 660px ) {
+  .productWrapper {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 425px) {
+  .productWrapper {
+    width: 100vw;
+    margin: 0;
+    padding: 2%;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-// import './Collections.css';
+import './Collections.css';
 import Product from '../product/Product';
 
 class Collections extends Component {
