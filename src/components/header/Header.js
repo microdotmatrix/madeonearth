@@ -20,7 +20,7 @@ class Header extends Component {
           <a
             className='igIcon'
             title='Made On Earth on Instagram'
-            href='//www.instagram.com/wearemadeonearth/'
+            href='//www.instagram.com/madeonearthapparel/'
             rel='noopener noreferrer'
             target='_blank'
           >
