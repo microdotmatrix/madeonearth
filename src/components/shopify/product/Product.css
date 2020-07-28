@@ -7,7 +7,7 @@
 }
 .product img {
   width: 50%;
-  height: 100%;
+  height: auto;
 }
 .productTitle {
   display: flex;
