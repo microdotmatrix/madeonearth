@@ -3,7 +3,7 @@ import './App.css';
 // import Logo from './asset/IMG_1131.gif';
 import Header from './components/header/Header';
 import Cart from './components/shopify/cart/Cart';
-import Merchandise from './components/merchandise/Merchandise';
+import Main from './components/main/Main';
 
 import { connect } from 'react-redux';
 import store from './store/Store';
@@ -115,7 +115,7 @@ class App extends Component {
           updateQuantityInCart={ this.updateQuantityInCart }
           removeLineItemInCart={ this.removeLineItemInCart }
         />
-        <Merchandise addVariantToCart={ this.addVariantToCart} />
+        <Main addVariantToCart={ this.addVariantToCart} />
       </div>
     )
   }

@@ -4,7 +4,7 @@ import Collections from '../shopify/collections/Collections';
 import { connect } from 'react-redux';
 import store from '../../store/Store';
 
-class Merchandise extends Component {
+class Main extends Component {
 
   render() {
     const state = store.getState();
@@ -35,4 +35,4 @@ class Merchandise extends Component {
   }
 }
 
-export default connect((state) => state)(Merchandise);
+export default connect((state) => state)(Main);
