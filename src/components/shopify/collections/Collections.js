@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import './Collections.css';
-import Product from '../product/Product';
+// import ProductPage from '../productPage/ProductPage';
+import ProductPage from '../pPage/PPage';
 
 class Collections extends Component {
 
@@ -9,7 +10,7 @@ class Collections extends Component {
     if (this.props.collections) {
       collections = this.props.collections[0].products.map((product) => {
         return (
-          <Product 
+          <ProductPage 
             addVariantToCart={ this.props.addVariantToCart }
             client={ this.props.client }
             key={ product.id.toString() }

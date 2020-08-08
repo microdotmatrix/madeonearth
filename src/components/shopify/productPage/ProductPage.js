@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Product.css';
+import './ProductPage.css';
 import VariantSelector from '../variantSelector/VariantSelector';
 import Modal from '../../modal/Modal';
 
 // const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 
-class Product extends Component {
+class ProductPage extends Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -93,4 +93,4 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default ProductPage;
