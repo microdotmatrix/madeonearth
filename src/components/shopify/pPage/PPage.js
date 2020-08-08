@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PPage.css';
 
-class ProductPage extends Component {
-
-  render() {
-    console.log(this.props.product)
-    const product = this.props.product
-    let variantImage = product.images[0]
-    return (
+const ProductPage = ({ product }) => {
+  let variantImage = product.images[0]
+  return (
       <div className='product'>
         <img 
           src={ variantImage.src }
@@ -15,9 +11,7 @@ class ProductPage extends Component {
         />
         <h3 className='productTitle'>{ product.title }</h3>
       </div>
-    )
-  }
-
+  )
 }
 
 export default ProductPage;
