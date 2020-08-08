@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
+// import React, { Suspense } from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+// import Routes from './routes/Routes';
+
 // import Logo from './asset/IMG_1131.gif';
 import Header from './components/header/Header';
 import Cart from './components/shopify/cart/Cart';
@@ -120,5 +124,17 @@ class App extends Component {
     )
   }
 }
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Suspense fallback={<p>Loading...</p>}>
+//         <div className='app'>
+//           <Routes />
+//         </div>
+//       </Suspense>
+//     </Router>
+//   )
+// };
 
 export default connect((state) => state)(App);
