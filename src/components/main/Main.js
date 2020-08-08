@@ -10,7 +10,7 @@ class Main extends Component {
 
     return (
       <div 
-        className='merchandise' 
+        className='main' 
         style={{
           display: 'flex', 
           justifyContent: 'center',

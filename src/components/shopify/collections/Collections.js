@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import './Collections.css';
-import ProductPage from '../productPage/ProductPage';
+// import ProductPage from '../productPage/ProductPage';
+import ProductPage from '../pPage/PPage';
 
 class Collections extends Component {
 
