@@ -5,6 +5,13 @@ import ProductPage from '../pPage/PPage';
 
 class Collections extends Component {
 
+  // TODO: 
+  // Change ProductPage name to Collection
+  // ProductPage component should end up being the actual product page. 
+  // Take this code base and move it to the new Collections
+
+  // Might be easier to leave this instead of changing names around and making it more confusing. Just recreate the products.js
+
   render() {
     let collections;
     if (this.props.collections) {
