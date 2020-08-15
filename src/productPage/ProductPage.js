@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ProductPage.css';
-import VariantSelector from '../variantSelector/VariantSelector';
-import Modal from '../../modal/Modal';
+import VariantSelector from '../components/shopify/variantSelector/VariantSelector';
+// import Modal from '../components/modal/Modal';
 
 // const ONE_SIZE_FITS_MOST = 'One Size Fits Most';
 

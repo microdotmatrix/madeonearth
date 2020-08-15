@@ -1,11 +1,15 @@
 import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import MadeOnEarth from '../components/merchContianer/MerchContainer';
+import MadeOnEarth from '../components/madeonearth/MadeOnEarth';
+
+const ProductPage = lazy((() => import('../components/productPage/ProductPage')));
+
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path ='/' exact component={ MadeonEarth } />
+      <Route exact path ='/' component={ MadeOnEarth } />
+      <Route exact path ='/productpage/:productId' component={ ProductPage } />
     </Switch>
   )
 };
