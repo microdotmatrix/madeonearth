@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './MadeOnEarth.css';
+
+import Header from '../header/Header';
+import Cart from '../shopify/cart/Cart';
 import Collections from '../shopify/collections/Collections';
 
-import Header from './components/header/Header';
-import Cart from './components/shopify/cart/Cart';
-import MadeOnEarth from './components/madeonearth/MadeOnEarth';
 import { connect } from 'react-redux';
 import store from '../../store/Store';
 
@@ -114,35 +115,13 @@ class MadeOnEarth extends Component {
           updateQuantityInCart={ this.updateQuantityInCart }
           removeLineItemInCart={ this.removeLineItemInCart }
         />
-        <MadeOnEarth addVariantToCart={ this.addVariantToCart} />
-        {/* <MadeOnEarth> will change to Collections.js */}
+        <Collections addVariantToCart={ this.addVariantToCart} />
+
       </div>
     )
   }
 
-  // TODO: 
-  // Change Collections component name to <Products> 
-  // render() {
-  //   const state = store.getState();
 
-  //   return (
-  //     <div 
-  //       className='main' 
-  //       style={{
-  //         display: 'flex', 
-  //         justifyContent: 'center',
-  //         width: '100%',
-  //         heigth: '100%'
-  //       }}
-  //     >
-  //       <Collections 
-  //         collections={ state.collections }
-  //         client={ state.client }
-  //         addVariantToCart={ this.props.addVariantToCart }
-  //       />
-  //     </div>
-  //   )
-  // }
 }
 
 export default connect((state) => state)(MadeOnEarth);

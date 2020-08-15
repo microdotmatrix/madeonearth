@@ -1,40 +1,36 @@
 import React, { Component }  from 'react';
 import './Collections.css';
-// import ProductPage from '../productPage/ProductPage';
-import ProductPage from '../pPage/PPage';
+import Product from '../product/Product';
+
+import { connect } from 'react-redux';
+import store from '../../../store/Store';
 
 class Collections extends Component {
 
-  // TODO: 
-  // Change ProductPage name to Collection
-  // ProductPage component should end up being the actual product page. 
-  // Take this code base and move it to the new Collections
-
-  // Might be easier to leave this instead of changing names around and making it more confusing. Just recreate the products.js
-
   render() {
-    let collections;
-    if (this.props.collections) {
-      collections = this.props.collections[0].products.map((product) => {
+    const state = store.getState()
+
+    let products;
+    if (state.collections) {
+      products = state.collections[0].products.map((product, i) => {
+        console.log(product)
+        let id = product.id
         return (
-          <ProductPage 
+          <Product 
             addVariantToCart={ this.props.addVariantToCart }
-            client={ this.props.client }
-            key={ product.id.toString() }
+            client={ state.client }
             product={ product }
           />
         )
       })
-    } 
-    else {
-      collections = <p>Loading...</p>
     }
+
     return (
       <div className='productWrapper'>
-        { collections }
+        { products }
       </div>
     )
   }
 }
 
-export default Collections; 
+export default connect((state) => state)(Collections); 
