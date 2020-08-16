@@ -4,12 +4,12 @@ import MadeOnEarth from '../components/madeonearth/MadeOnEarth';
 
 const ProductPage = lazy((() => import('../components/productPage/ProductPage')));
 
-
 const Routes = () => {
   return (
     <Switch>
       <Route exact path ='/' component={ MadeOnEarth } />
-      <Route exact path ='/productpage/:productId' component={ ProductPage } />
+      {/* <Route exact path ='/productpage/:productId' component={ ProductPage } /> */}
+      <Route exact path ='/productpage/:productId' render={(props) => <ProductPage {...props} />} />
     </Switch>
   )
 };

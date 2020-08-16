@@ -9,16 +9,16 @@ class Collections extends Component {
 
   render() {
     const state = store.getState()
-
+    console.log(state)
     let products;
     if (state.collections) {
       products = state.collections[0].products.map((product, i) => {
-        console.log(product)
         let id = product.id
         return (
           <Product 
             addVariantToCart={ this.props.addVariantToCart }
             client={ state.client }
+            key={ id }
             product={ product }
           />
         )

@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   let variantImage = product.images[0]
-  console.log(product)
-  let productId = product.id
+  let id = product.id
   return (
       <div className='product'>
-        <Link className='link' to={{ pathname: `/ProductPage/${ productId }` }}>
+        <Link 
+          className='link' 
+          to={{ pathname: `/productpage/${ id }` }}
+        >
           <img 
             src={ variantImage.src }
             alt={ `${product.title} product image` }
