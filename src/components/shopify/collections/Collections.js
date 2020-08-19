@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import { Link } from 'react-router-dom';
 import './Collections.css';
 import Product from '../product/Product';
 
@@ -13,14 +14,19 @@ class Collections extends Component {
     let products;
     if (state.collections) {
       products = state.collections[0].products.map((product, i) => {
-        console.log(product)
         let id = product.id
         return (
-          <Product 
-            addVariantToCart={ this.props.addVariantToCart }
-            client={ state.client }
-            product={ product }
-          />
+          <Link 
+            to={{ pathname: `/productpage/${ id }` }}
+            key={ id }
+          >
+            <Product 
+              addVariantToCart={ this.props.addVariantToCart }
+              client={ state.client }
+              key={ id }
+              product={ product }
+            />
+          </Link>
         )
       })
     }
