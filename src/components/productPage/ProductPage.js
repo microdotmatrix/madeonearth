@@ -6,6 +6,7 @@ import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
 import store from '../../store/Store';
+import Product from '../shopify/product/Product';
 
 class ProductPage extends Component {
   constructor(props) {
@@ -17,27 +18,6 @@ class ProductPage extends Component {
       product: {}
     };
   }
-
-  // componentDidMount() {
-  //   this.matchProductItem()
-  // }
-
-  // matchProductItem = () => {
-  //   let productItem = this.props.collections[0].products.map((product => {
-  //     if (product.id === this.props.match.params.productId) {
-  //       sessionStorage.setItem('selectedProduct', JSON.stringify(product))
-  //     }
-  //   }))
-  //   this.getProductItem()
-  //   return productItem
-  // }
-
-  // getProductItem = () => {
-  //   const productItem =  JSON.parse(sessionStorage.getItem('selectedProduct'))
-  //   this.setState({
-  //     product: productItem
-  //   });
-  // }
 
   variantSelector = () => {
     const { product } = this.state; 
@@ -88,25 +68,33 @@ class ProductPage extends Component {
   // }
 
   renderingProductItem = () => {
-    let selectedProduct = this.props.collections[0].products.map((product) => {
-      if (product.id === this.props.match.params.productId) {
-        let productItem = product;
-        sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
-        return ( 
-          <ProductDetail 
-            product={ productItem }
-          />
-        )
-      } else {
-        // redirect back to main page?
-      }
-    });  
-      
-    return (
-      <section className='productPage'>
-        { selectedProduct }
-      </section>
-    );
+    if (!this.props.collections) {
+      let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
+      // console.log(`sessions`)
+      return (
+        <ProductDetail 
+          product={ productItem }
+        />
+      )
+    } else {
+      let selectedProduct = this.props.collections[0].products.map((product) => {
+        // console.log(`props`)
+        if (product.id === this.props.match.params.productId) {
+          let productItem = product;
+          sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
+          return ( 
+            <ProductDetail 
+              product={ productItem }
+            />
+          )
+        }; 
+      }); 
+      return (
+        <section className='productPage'>
+          { selectedProduct }
+        </section>
+      )
+    };  
   }
 
   render() { 

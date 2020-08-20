@@ -7,9 +7,9 @@ const ProductDetail = ({ product }) => {
   // let variantQuantity = 1
   // let productAvailability = product.availableForSale
   // let productDescription = product.description
-  // let productImage = product.images[0]
+  let productImage = product.images[0]
   // let productVariant = this.state.selectedVariant
-  // let productPrice = product.variants[0].price
+  let productPrice = product.variants[0].price
   // return (
   //   <>
   //     <div>
