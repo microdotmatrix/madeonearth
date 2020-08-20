@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import './ProductPage.css';
+import ProductDetail from '../productDetail/productDetail';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 // import Modal from '../components/modal/Modal';
 
@@ -17,26 +18,26 @@ class ProductPage extends Component {
     };
   }
 
-  componentDidMount() {
-    this.matchProductItem()
-  }
+  // componentDidMount() {
+  //   this.matchProductItem()
+  // }
 
-  matchProductItem = () => {
-    let productItem = this.props.collections[0].products.map((product => {
-      if (product.id === this.props.match.params.productId) {
-        sessionStorage.setItem('selectedProduct', JSON.stringify(product))
-      }
-    }))
-    this.getProductItem()
-    return productItem
-  }
+  // matchProductItem = () => {
+  //   let productItem = this.props.collections[0].products.map((product => {
+  //     if (product.id === this.props.match.params.productId) {
+  //       sessionStorage.setItem('selectedProduct', JSON.stringify(product))
+  //     }
+  //   }))
+  //   this.getProductItem()
+  //   return productItem
+  // }
 
-  getProductItem = () => {
-    const productItem =  JSON.parse(sessionStorage.getItem('selectedProduct'))
-    this.setState({
-      product: productItem
-    });
-  }
+  // getProductItem = () => {
+  //   const productItem =  JSON.parse(sessionStorage.getItem('selectedProduct'))
+  //   this.setState({
+  //     product: productItem
+  //   });
+  // }
 
   variantSelector = () => {
     const { product } = this.state; 
@@ -86,55 +87,35 @@ class ProductPage extends Component {
   //   })
   // }
 
-  renderProductItem = () => {
-    const { product } = this.state
-    console.log(product)
-    let variantQuantity = 1
-    let productAvailability = product.availableForSale
-    let productDescription = product.description
-    let productImage = product.images[0]
-    let productVariant = this.state.selectedVariant
-    let productPrice = product.variants[0].price
-    return (
-      <>
-        <div>
-          <img 
-            src={ productImage.src } 
-            alt={ `${this.props.product.title} product shot` } 
-            onClick={ this.handleModalOpen } 
-          /> 
-        </div>
-        
-        <div>
-          <h1 className='productTitle'>{ this.props.product.title }</h1>
-          <span className='productPrice'>${ Math.trunc(productPrice) }</span>
-          { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
-          <div className='productBtn'>
-            { this.variantSelector() }
-          </div>
-
-          { productAvailability === false ? 
-              <div className='btnDisable' >Sold Out</div>
-            : productVariant !== undefined ?
-              <button className='addToCart' onClick={ () => this.props.addVariantToCart(productVariant.id, variantQuantity) } >Add to Cart</button>
-            : <button className='addToCart'>Add to Cart</button>
-          }
-
-        </div>
-      </>
-    )
-  }
-
-  render() {
-    const { product } = this.state; 
-    console.log(product)
+  renderingProductItem = () => {
+    let selectedProduct = this.props.collections[0].products.map((product) => {
+      if (product.id === this.props.match.params.productId) {
+        let productItem = product;
+        sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
+        return ( 
+          <ProductDetail 
+            product={ productItem }
+          />
+        )
+      } else {
+        // redirect back to main page?
+      }
+    });  
+      
     return (
       <section className='productPage'>
-    
-
+        { selectedProduct }
       </section>
     );
-  };  
+  }
+
+  render() { 
+    return (
+      <>
+      { this.renderingProductItem() }
+      </>
+    );
+  }  
 }
 
 export default connect((state) => state)(ProductPage);
