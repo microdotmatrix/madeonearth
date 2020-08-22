@@ -60,6 +60,7 @@ class ProductPage extends Component {
   }
 
   addVariantToCart = (variantId, quantity) => {
+    console.log(`addToCart`)
     const state = store.getState();
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
     const checkoutId = state.checkout.id
@@ -99,13 +100,6 @@ class ProductPage extends Component {
     const state = store.getState();
     return (
       <>
-      <Cart 
-        checkout={ state.checkout }
-        isCartOpen={ state.isCartOpen }
-        handleCartClose={ this.handleCartClose }
-        updateQuantityInCart={ this.updateQuantityInCart }
-        removeLineItemInCart={ this.removeLineItemInCart }J
-      />
       { this.renderingProductItem() }
       </>
     );

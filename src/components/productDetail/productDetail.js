@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Cart from '../../asset/cart2.png';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
@@ -47,12 +46,6 @@ class ProductDetail extends Component {
 
     return (
       <>
-        <div>
-          <button className='' onClick={ this.props.handleCartOpen }>
-            <img src={ Cart } alt='cart icon' />
-          </button>
-        </div>
-
         <div>
           <img 
             src={ productImage.src } 
