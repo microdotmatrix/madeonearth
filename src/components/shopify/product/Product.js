@@ -3,7 +3,6 @@ import './Product.css';
 
 const Product = ({ product }) => {
   let variantImage = product.images[0]
-  let id = product.id
   return (
       <div className='product'>
         <img 

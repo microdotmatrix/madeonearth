@@ -1,7 +1,6 @@
 import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MadeOnEarth from '../components/madeonearth/MadeOnEarth';
-import product from '../components/madeonearth/MadeOnEarth'; 
 
 
 const ProductPage = lazy((() => import('../components/productPage/ProductPage')));

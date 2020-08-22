@@ -11,15 +11,18 @@ class ProductPage extends Component {
     super(props);
     this.state = { 
       showModal: false,
-      product: {}
+      product: {},
+      isNotification: false
     };
   }
 
   renderingProductItem = () => {
+    console.log(this.state.isNotification)
     if (!this.props.collections) {
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
         <ProductDetail 
+          notification={ this.state.isNotification }
           key={ productItem.id }
           product={ productItem }
           availability={ productItem.availableForSale }
@@ -32,11 +35,13 @@ class ProductPage extends Component {
       )
     } else {
       let selectedProduct = this.props.collections[0].products.map((product) => {
+        let productItem; 
         if (product.id === this.props.match.params.productId) {
-          let productItem = product;
+          productItem = product;
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
             <ProductDetail 
+              notification={ this.state.isNotification }
               key={ productItem.id}
               product={ productItem }  
               availability={ productItem.availableForSale }
@@ -48,6 +53,7 @@ class ProductPage extends Component {
             />
           )
         }; 
+        return productItem;
       }); 
       return (
         <section className='productPage'>
@@ -57,17 +63,23 @@ class ProductPage extends Component {
     };  
   }
 
-  addVariantToCart = (variantId, quantity) => {
+  addVariantToCart = (product, variantId, quantity) => {
     const state = store.getState();
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+    // Checkout id is lost on productDetail component after refreshing screen...
     const checkoutId = state.checkout.id
     state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
+      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { checkout: res }});
       sessionStorage.setItem('cartItems', JSON.stringify(res))
+      this.setState({
+        isNotification: true
+      })
     });
   }
+
   updateQuantityInCart = (lineItemId, quantity) => {
     const state = store.getState();
+    console.log(state)
     const checkoutId = state.checkout.id
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
     state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
@@ -97,13 +109,6 @@ class ProductPage extends Component {
     const state = store.getState();
     return (
       <>
-      <Cart 
-        checkout={ state.checkout }
-        isCartOpen={ state.isCartOpen }
-        handleCartClose={ this.handleCartClose }
-        updateQuantityInCart={ this.updateQuantityInCart }
-        removeLineItemInCart={ this.removeLineItemInCart }J
-      />
       { this.renderingProductItem() }
       </>
     );

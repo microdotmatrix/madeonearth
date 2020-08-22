@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Cart from '../../asset/cart2.png';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
@@ -25,34 +24,40 @@ class ProductDetail extends Component {
     });
   }
 
+  handleCartNotification = () => {
+    let notification = this.props.notification;
+    let productTitle = this.props.product.title;
+    if (notification === true) {
+      return (
+        <section>
+          <div>{ `${ productTitle } has been added to cart!` }</div>
+        </section>
+      )
+    };
+  }
 
   render() {
-      let productImage = this.props.images
-      let productTitle = this.props.product.title
-      let productPrice = this.props.price
-      let productDescription = this.props.description
-      let productAvailability = this.props.availability
-      let productVariant = this.state.selectedVariant
-      let variantQuantity = 1
-      let variantSelectors = this.props.product.variants.map((variantOptions) => {
-        return (
-          <VariantSelector 
-            handleOptionChange={ this.handleOptionChange }
-            key={variantOptions.id.toString()}
-            variantOptions={ variantOptions }
-            eventTargetValue={ this.state.eventTargetValue }
-          />
-        )
-      }) 
+    let productImage = this.props.images
+    let productTitle = this.props.product.title
+    let productPrice = this.props.price
+    let productDescription = this.props.description
+    let productAvailability = this.props.availability
+    let productVariant = this.state.selectedVariant
+    let variantQuantity = 1
+    let variantSelectors = this.props.product.variants.map((variantOptions) => {
+      return (
+        <VariantSelector 
+          handleOptionChange={ this.handleOptionChange }
+          key={variantOptions.id.toString()}
+          variantOptions={ variantOptions }
+          eventTargetValue={ this.state.eventTargetValue }
+        />
+      )
+    }) 
 
     return (
       <>
-        <div>
-          <button className='' onClick={ this.props.handleCartOpen }>
-            <img src={ Cart } alt='cart icon' />
-          </button>
-        </div>
-
+        { this.handleCartNotification() }
         <div>
           <img 
             src={ productImage.src } 
@@ -70,7 +75,7 @@ class ProductDetail extends Component {
           { productAvailability === false ? 
               <div className='btnDisable' >Sold Out</div>
             : productVariant !== undefined ?
-              <button className='addToCart' onClick={ () => this.props.addVariantToCart(productVariant.id, variantQuantity) } >Add to Cart</button>
+              <button className='addToCart' onClick={ () => this.props.addVariantToCart(this.props.product, productVariant.id, variantQuantity) } >Add to Cart</button>
             : <button className='addToCart'>Add to Cart</button>
           }
         </div>
