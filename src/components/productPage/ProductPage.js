@@ -26,7 +26,8 @@ class ProductPage extends Component {
           description={ productItem.description }
           images={ productItem.images[0] }
           price={ productItem.variants[0].price }
-          handleCartOpen={this.handleCartOpen }
+          addVariantToCart={ this.addVariantToCart }
+          handleCartOpen={ this.handleCartOpen }
         />
       )
     } else {
@@ -42,7 +43,8 @@ class ProductPage extends Component {
               description={ productItem.description }
               images={ productItem.images[0] }
               price={ productItem.variants[0].price }
-              handleCartOpen={this.handleCartOpen }
+              addVariantToCart={ this.addVariantToCart }
+              handleCartOpen={ this.handleCartOpen }
             />
           )
         }; 
@@ -100,7 +102,7 @@ class ProductPage extends Component {
         isCartOpen={ state.isCartOpen }
         handleCartClose={ this.handleCartClose }
         updateQuantityInCart={ this.updateQuantityInCart }
-        removeLineItemInCart={ this.removeLineItemInCart }
+        removeLineItemInCart={ this.removeLineItemInCart }J
       />
       { this.renderingProductItem() }
       </>

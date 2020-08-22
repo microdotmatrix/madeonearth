@@ -3,7 +3,7 @@ import Cart from '../../asset/cart2.png';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
-import store from '../../store/Store';
+// import store from '../../store/Store';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class ProductDetail extends Component {
       let productPrice = this.props.price
       let productDescription = this.props.description
       let productAvailability = this.props.availability
-      let productVariant = this.props.variant
+      let productVariant = this.state.selectedVariant
       let variantQuantity = 1
       let variantSelectors = this.props.product.variants.map((variantOptions) => {
         return (
