@@ -65,7 +65,7 @@ class ProductPage extends Component {
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
     const checkoutId = state.checkout.id
     state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
+      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { checkout: res }});
       sessionStorage.setItem('cartItems', JSON.stringify(res))
     });
   }

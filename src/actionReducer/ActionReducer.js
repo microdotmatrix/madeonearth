@@ -31,7 +31,7 @@ export default (state = initState, action) => {
     case SHOP_FOUND:
       return {...state, shop: action.payload}
     case ADD_VARIANT_TO_CART:
-      return {...state, isCartOpen: action.payload.isCartOpen, checkout: action.payload.checkout}
+      return {...state, checkout: action.payload.checkout}
     case UPDATE_QUANTITY_IN_CART:
       return {...state, checkout: action.payload.checkout}
     case REMOVE_LINE_ITEM_IN_CART:
