@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import './ProductPage.css';
+import Cart from '../shopify/cart/Cart';
 import ProductDetail from '../productDetail/productDetail';
 
 import { connect } from 'react-redux';
@@ -19,11 +20,14 @@ class ProductPage extends Component {
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
         <ProductDetail 
+          key={ productItem.id }
           product={ productItem }
           availability={ productItem.availableForSale }
           description={ productItem.description }
           images={ productItem.images[0] }
           price={ productItem.variants[0].price }
+          addVariantToCart={ this.addVariantToCart }
+          handleCartOpen={ this.handleCartOpen }
         />
       )
     } else {
@@ -33,11 +37,14 @@ class ProductPage extends Component {
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
             <ProductDetail 
+              key={ productItem.id}
               product={ productItem }  
               availability={ productItem.availableForSale }
               description={ productItem.description }
               images={ productItem.images[0] }
               price={ productItem.variants[0].price }
+              addVariantToCart={ this.addVariantToCart }
+              handleCartOpen={ this.handleCartOpen }
             />
           )
         }; 
@@ -50,9 +57,53 @@ class ProductPage extends Component {
     };  
   }
 
+  addVariantToCart = (variantId, quantity) => {
+    const state = store.getState();
+    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+    const checkoutId = state.checkout.id
+    state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
+      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
+      sessionStorage.setItem('cartItems', JSON.stringify(res))
+    });
+  }
+  updateQuantityInCart = (lineItemId, quantity) => {
+    const state = store.getState();
+    const checkoutId = state.checkout.id
+    const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
+    state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
+      sessionStorage.setItem('cartItems', JSON.stringify(res))
+      store.dispatch({type: 'UPDATE_QUANTITY_IN_CART', payload: { checkout: res }});
+    });
+  }
+
+  removeLineItemInCart = (lineItemId) => {
+    const state = store.getState();
+    const checkoutId = state.checkout.id
+    state.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
+      sessionStorage.removeItem('cartItems')
+      store.dispatch({type: 'REMOVE_LINE_ITEM_IN_CART', payload: { checkout: res }});
+    });
+  }
+
+  handleCartClose = () => {
+    store.dispatch({ type: 'CLOSE_CART' });
+  }
+
+  handleCartOpen = () => {
+    store.dispatch({ type: 'OPEN_CART' });
+  }
+
   render() { 
+    const state = store.getState();
     return (
       <>
+      <Cart 
+        checkout={ state.checkout }
+        isCartOpen={ state.isCartOpen }
+        handleCartClose={ this.handleCartClose }
+        updateQuantityInCart={ this.updateQuantityInCart }
+        removeLineItemInCart={ this.removeLineItemInCart }J
+      />
       { this.renderingProductItem() }
       </>
     );

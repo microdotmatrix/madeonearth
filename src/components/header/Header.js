@@ -9,10 +9,9 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state=({
-      playing: true
-    })
   }
+
+  
   render() {
     return (
       <div className='header'>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Cart from '../../asset/cart2.png';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
-import store from '../../store/Store';
+// import store from '../../store/Store';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -24,15 +25,6 @@ class ProductDetail extends Component {
     });
   }
 
-  addVariantToCart = (variantId, quantity) => {
-    const state = store.getState();
-    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
-    const checkoutId = state.checkout.id
-    state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
-      sessionStorage.setItem('cartItems', JSON.stringify(res))
-    });
-  }
 
   render() {
       let productImage = this.props.images
@@ -40,7 +32,7 @@ class ProductDetail extends Component {
       let productPrice = this.props.price
       let productDescription = this.props.description
       let productAvailability = this.props.availability
-      let productVariant = this.props.variant
+      let productVariant = this.state.selectedVariant
       let variantQuantity = 1
       let variantSelectors = this.props.product.variants.map((variantOptions) => {
         return (
@@ -54,7 +46,13 @@ class ProductDetail extends Component {
       }) 
 
     return (
-      <section className='productPage'>
+      <>
+        <div>
+          <button className='' onClick={ this.props.handleCartOpen }>
+            <img src={ Cart } alt='cart icon' />
+          </button>
+        </div>
+
         <div>
           <img 
             src={ productImage.src } 
@@ -76,7 +74,7 @@ class ProductDetail extends Component {
             : <button className='addToCart'>Add to Cart</button>
           }
         </div>
-      </section>
+      </>
     )
   }
 }
