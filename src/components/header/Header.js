@@ -7,10 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   
   render() {
     return (

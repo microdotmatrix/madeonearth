@@ -32,8 +32,9 @@ class ProductPage extends Component {
       )
     } else {
       let selectedProduct = this.props.collections[0].products.map((product) => {
+        let productItem; 
         if (product.id === this.props.match.params.productId) {
-          let productItem = product;
+          productItem = product;
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
             <ProductDetail 
@@ -48,6 +49,7 @@ class ProductPage extends Component {
             />
           )
         }; 
+        return productItem;
       }); 
       return (
         <section className='productPage'>
