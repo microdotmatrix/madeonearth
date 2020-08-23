@@ -4,6 +4,13 @@
   display: flex;
   align-items: center; 
   flex-direction: column;
+  /* justify-content: space-between; */
+  padding: 1% 0;
+  outline: 1px solid red;
+}
+.productLink {
+  outline: 1px solid black;
+  width: 40vw;
 }
 
 
@@ -11,6 +18,9 @@
 @media screen and (max-width: 992px) {
   .productWrapper {
     width: 80vw;
+  }
+  .productLink {
+    width: 45vw;
   }
 }
 @media screen and (max-width: 800px) {
@@ -25,8 +35,8 @@
 }
 @media screen and (max-width: 425px) {
   .productWrapper {
-    width: 100vw;
+    width: 95vw;
     margin: 0;
-    padding: 2%;
+    padding: 4px;
   }
 }
