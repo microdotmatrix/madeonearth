@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2% 0;
+  /* margin: 2% 0; */
 }
 .product img {
   width: 100%;
@@ -15,12 +15,6 @@
   font-weight: 800;
   margin-top: 2%;
   margin-bottom: 1%;
-}
-
-.link {
-  display: flex; 
-  flex-direction: column;
-  align-items: center; 
 }
 
 @media (pointer:coarse) {
@@ -46,7 +40,7 @@
     justify-content: space-evenly;
   }
   .product img {
-    width: 90%;
+    width: 110%;
     height: auto;
   }
   .productTitle {

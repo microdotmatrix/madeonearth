@@ -95,19 +95,6 @@ a:active {
   .cartIcon img {
     width: 100%;
   }
-  a:link { 
-    width: 15%;
-    color: rgba(0, 0, 0, 0.8);
-  }
-  a:visited {
-    color: yellow;
-  }
-  a:hover {
-    color: yellow;
-  }
-  a:active {
-    color: yellow;
-  }
   .logoImg {
     width: 85vw;
   }
