@@ -41,9 +41,11 @@
   }
 }
 
-/* @media screen and (max-width: 660px ) {
-
-} */
+@media screen and (max-width: 660px ) {
+  .imageLink {
+    width: 70vw;
+  }
+}
 
 @media screen and (max-width: 425px) {
   .productTitle {
