@@ -2,13 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3% 0;
-  /* width: 45vw; */
+  margin: 4% 0;
 }
 .imageLink {
   /* outline: 1px solid black; */
   width: 40vw;
-  /* margin: 3% 0; */
 }
 .product img {
   width: 100%;
@@ -30,25 +28,37 @@
 }
 
 @media screen and (max-width: 992px) {
+  .product {
+    margin: 5% 0;
+  }
   .imageLink {
     width: 50vw;
   }
 }
 
 @media screen and (max-width: 800px) {
+  .product {
+    margin: 5% 0;
+  }
   .imageLink {
     width: 60vw;
   }
 }
 
 @media screen and (max-width: 660px ) {
+  .product {
+    margin: 7% 0;
+  }
   .imageLink {
     width: 70vw;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .productTitle {
-    font-size: 90%;
+  .product {
+    margin: 10% 0;
+  }
+  .imageLink {
+    width: 100vw;
   }
 }
