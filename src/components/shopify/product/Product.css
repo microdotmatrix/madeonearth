@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin: 3% 0;
+  /* width: 45vw; */
 }
 .imageLink {
   /* outline: 1px solid black; */
@@ -25,6 +26,12 @@
 @media (pointer:coarse) {
   .product {
     flex: 0 1 98%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .imageLink {
+    width: 50vw;
   }
 }
 
