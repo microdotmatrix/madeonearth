@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './ProductPage.css';
 import ProductDetail from '../productDetail/productDetail';
 
 import { connect } from 'react-redux';

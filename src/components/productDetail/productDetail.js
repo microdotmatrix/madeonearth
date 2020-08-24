@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ProductDetail.css';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
