@@ -5,13 +5,6 @@
   align-items: center; 
   flex-direction: column;
   padding: 1% 0;
-  /* outline: 1px solid red; */
-}
-
-.productLink {
-  /* outline: 1px solid black; */
-  width: 40vw;
-  margin: 3% 0;
 }
 
 a:link { 

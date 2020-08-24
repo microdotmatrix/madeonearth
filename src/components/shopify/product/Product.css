@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin: 2% 0; */
+  margin: 3% 0;
+}
+.imageLink {
+  /* outline: 1px solid black; */
+  width: 40vw;
+  /* margin: 3% 0; */
 }
 .product img {
   width: 100%;
@@ -13,7 +18,7 @@
   display: flex;
   justify-content: center;
   font-weight: 800;
-  margin-top: 0;
+  margin-top: 1%;
   margin-bottom: 3%;
 }
 
