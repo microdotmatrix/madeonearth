@@ -55,7 +55,7 @@ class ProductDetail extends Component {
     }) 
 
     return (
-      <>
+      <section className='productPage'>
         { this.handleCartNotification() }
         <div>
           <img 
@@ -78,7 +78,7 @@ class ProductDetail extends Component {
             : <button className='addToCart'>Add to Cart</button>
           }
         </div>
-      </>
+      </section>
     )
   }
 }
