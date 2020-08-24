@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
-// import store from '../../store/Store';
 
 class ProductDetail extends Component {
   constructor(props) {

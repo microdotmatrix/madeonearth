@@ -17,6 +17,7 @@ class Collections extends Component {
         let id = product.id
         return (
           <Link 
+            className='productLink'
             to={{ pathname: `/productpage/${ id }` }}
             key={ id }
           >

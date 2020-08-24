@@ -1,3 +1,9 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* ===== NOTE TO SELF ===== */
 /* Display background image for screen width larger than mobile */
 @media screen and (min-width: 425px ) {
