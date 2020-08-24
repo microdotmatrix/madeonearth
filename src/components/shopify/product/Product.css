@@ -23,28 +23,16 @@
   }
 }
 
-@media screen and (max-width: 800px) {
-  .productTitle {
-    /* font-size: 90%; */
-  }
-}
+/* @media screen and (max-width: 800px) {
 
-@media screen and (max-width: 660px ) {
-  .productTitle {
-    font-size: 80%;
-  }
-}
+} */
+
+/* @media screen and (max-width: 660px ) {
+
+} */
 
 @media screen and (max-width: 425px) {
-  .product {
-    justify-content: space-evenly;
-  }
-  .product img {
-    width: 110%;
-    height: auto;
-  }
   .productTitle {
-    font-size: 105%;
-    width: 100vw;
+    font-size: 90%;
   }
 }
