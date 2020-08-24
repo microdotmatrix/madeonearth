@@ -1,17 +1,17 @@
 .productWrapper {
   width: 75vw;
-  margin: 5% 1%;
+  margin: 0 1%;
   display: flex;
   align-items: center; 
   flex-direction: column;
   padding: 1% 0;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .productLink {
   outline: 1px solid black;
   width: 40vw;
-  margin: 5px 0;
+  margin: 3% 0;
 }
 
 a:link { 
@@ -40,6 +40,9 @@ a:active {
 @media screen and (max-width: 800px) {
   .productWrapper {
     width: 80vw;
+  }
+  .productLink {
+    width: 55vw;
   }
 }
 @media screen and (max-width: 660px ) {

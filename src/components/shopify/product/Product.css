@@ -13,8 +13,8 @@
   display: flex;
   justify-content: center;
   font-weight: 800;
-  margin-top: 2%;
-  margin-bottom: 1%;
+  margin-top: 0;
+  margin-bottom: 3%;
 }
 
 @media (pointer:coarse) {
@@ -25,7 +25,7 @@
 
 @media screen and (max-width: 800px) {
   .productTitle {
-    font-size: 90%;
+    /* font-size: 90%; */
   }
 }
 
