@@ -68,6 +68,7 @@
   margin: 2% 0;
   font-size: 90%;
   font-weight: 600;
+  text-align: center;
   color: yellow;
 }
 .productBtn {
@@ -162,23 +163,40 @@
   }
 }
 
-/* @media screen and (max-width: 660px ) {
+@media screen and (max-width: 660px ) {
+  .productContainer {
+    height: 80%;
+  }
+  .imageContent img {
+    height: 40%;
+  }
+  .infoContent {
+    height: 85%;
+  }
   .productTitle {
-    font-size: 80%;
+    font-size: 130%;
+    font-weight: 500;
+  }
+  .productPrice {
+    width: 30%; 
+  }
+  .productPrice p:first-child {
+    font-size: 75%;    
+  }
+  .productPrice p:last-child {
+    font-size: 90%; 
   }
   .productDescription {
     font-size: 70%;
   }
-  .productPrice {
-    font-size: 90%;
-  }
+
   .addToCart {
     font-size: 90%;
   }
   .btnDisable {
     font-size: 90%;
   }
-} */
+}
 
 /* @media screen and (max-width: 425px) {
   .product {
