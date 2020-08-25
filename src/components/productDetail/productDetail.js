@@ -58,26 +58,31 @@ class ProductDetail extends Component {
     return (
       <section className='productPage'>
         { this.handleCartNotification() }
-        <div>
-          <img 
-            src={ productImage.src } 
-            alt={ `${productTitle} product shot` } 
-          /> 
-        </div>
-          
-        <div>
-          <h1 className='productTitle'>{ productTitle }</h1>
-          <span className='productPrice'>${ Math.trunc(productPrice) }</span>
-          { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
-          <div className='productBtn'>
-            { variantSelectors }
+        <div className='productContainer'>
+          <div className='imageContent'>
+            <img 
+              src={ productImage.src } 
+              alt={ `${productTitle} product shot` } 
+              /> 
           </div>
-          { productAvailability === false ? 
-              <div className='btnDisable' >Sold Out</div>
-            : productVariant !== undefined ?
-              <button className='addToCart' onClick={ () => this.props.addVariantToCart(this.props.product, productVariant.id, variantQuantity) } >Add to Cart</button>
-            : <button className='addToCart'>Add to Cart</button>
-          }
+
+          <div className='infoContent'>
+            <h2 className='productTitle'>{ productTitle }</h2>
+            <span className='productPrice'>
+              <p>Price: </p>
+              <p>${ Math.trunc(productPrice) }</p>
+            </span>
+            { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
+            <div className='productBtn'>
+              { variantSelectors }
+            </div>
+            { productAvailability === false ? 
+                <div className='btnDisable' >Sold Out</div>
+                : productVariant !== undefined ?
+                <button className='addToCart' onClick={ () => this.props.addVariantToCart(this.props.product, productVariant.id, variantQuantity) } >Add to Cart</button>
+                : <button className='addToCart'>Add to Cart</button>
+              }
+          </div>
         </div>
       </section>
     )

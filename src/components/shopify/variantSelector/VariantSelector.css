@@ -5,12 +5,14 @@
   width: 15%;
 }
 .available {
-  font-size: 90%;
-  font-weight: 700;
+  font-size: 120%;
+  font-weight: 800;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
   color: white;
-  padding: 3px;
+  padding: 0;
+  text-shadow: 2px 2px 4px #000000;
 }
 .available:hover {
   color: rgb(0, 0, 0); 
@@ -19,7 +21,7 @@
   width: 100%;
 }
 .notAvailable {
-  font-size: 90%;
+  font-size: 120%;
   font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
