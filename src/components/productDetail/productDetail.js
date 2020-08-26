@@ -27,10 +27,11 @@ class ProductDetail extends Component {
   handleCartNotification = () => {
     let notification = this.props.notification;
     let productTitle = this.props.product.title;
+    let productSize = this.props.variantSize;
     if (notification === true) {
       return (
-        <section>
-          <div>{ `${ productTitle } has been added to cart!` }</div>
+        <section className='notify'>
+          <h3>{ `${ productTitle }( ${ productSize } ), HAS BEEN ADDED TO CART!` }</h3>
         </section>
       )
     };
@@ -79,7 +80,7 @@ class ProductDetail extends Component {
             { productAvailability === false ? 
                 <div className='btnDisable' >Sold Out</div>
                 : productVariant !== undefined ?
-                <button className='addToCart' onClick={ () => this.props.addVariantToCart(this.props.product, productVariant.id, variantQuantity) } >Add to Cart</button>
+                <button className='addToCart' onClick={ () => this.props.addVariantToCart(productVariant, variantQuantity) } >Add to Cart</button>
                 : <button className='addToCart'>Add to Cart</button>
               }
           </div>

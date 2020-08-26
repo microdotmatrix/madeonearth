@@ -7,9 +7,22 @@
   background-position: center; 
   background-attachment: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center; 
 }
+
+.nofity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 50%;
+}
+.notify h3 {
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .productContainer {
   display: flex; 
   justify-content: space-around;
