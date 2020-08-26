@@ -24,6 +24,11 @@ class ProductDetail extends Component {
     });
   }
 
+  // handleAlert = () => {
+  //   setTimeout(this.handleCartNotification, 3000)
+  //   (() => this.props.alert())
+  // }
+
   handleCartNotification = () => {
     let notification = this.props.notification;
     let productTitle = this.props.product.title;
@@ -59,6 +64,7 @@ class ProductDetail extends Component {
     return (
       <section className='productPage'>
         { this.handleCartNotification() }
+        {/* { this.handleAlert() } */}
         <div className='productContainer'>
           <div className='imageContent'>
             <img 

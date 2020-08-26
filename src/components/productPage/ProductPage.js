@@ -19,7 +19,8 @@ class ProductPage extends Component {
     if (!this.props.collections) {
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
-        <ProductDetail 
+        <ProductDetail
+          alert={ this.alert } 
           notification={ this.state.isNotification }
           variantSize={ this.state.variantSize }
           key={ productItem.id }
@@ -39,7 +40,8 @@ class ProductPage extends Component {
           productItem = product;
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
-            <ProductDetail 
+            <ProductDetail
+              alert={ this.alert } 
               notification={ this.state.isNotification }
               variantSize={ this.state.variantSize }
               key={ productItem.id}
@@ -62,6 +64,12 @@ class ProductPage extends Component {
       )
     };  
   }
+
+  // alert = () => {
+  //   this.setState({
+  //     isNotification: false
+  //   })
+  // }
 
   addVariantToCart = (variant, quantity) => {
     const state = store.getState();
