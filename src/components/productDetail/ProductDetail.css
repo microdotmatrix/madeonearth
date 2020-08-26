@@ -22,7 +22,6 @@
   justify-content: center;
   height: 100%;
   width: 50%;
-  /* outline: 1px solid blue; */
 }
 .imageContent img {
   height: 60%;
@@ -36,7 +35,6 @@
   height: 80%; 
   width: 50%;
   text-shadow: 2px 2px 4px #000000;
-  /* outline: 1px solid red; */
 }
 .productPrice {
   display: flex;
@@ -73,7 +71,7 @@
 }
 .productBtn {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 10%;
   width: 75%;
@@ -189,7 +187,6 @@
   .productDescription {
     font-size: 70%;
   }
-
   .addToCart {
     font-size: 90%;
   }
@@ -235,7 +232,6 @@
     font-size: 100%;
   }
   .productBtn {
-    justify-content: space-around;
     height: 10%;
     width: 100%;
   }
