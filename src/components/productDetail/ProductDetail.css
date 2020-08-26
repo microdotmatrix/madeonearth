@@ -22,7 +22,7 @@
   justify-content: center;
   height: 100%;
   width: 50%;
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
 }
 .imageContent img {
   height: 60%;
@@ -36,7 +36,7 @@
   height: 80%; 
   width: 50%;
   text-shadow: 2px 2px 4px #000000;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 .productPrice {
   display: flex;
@@ -198,46 +198,55 @@
   }
 }
 
-/* @media screen and (max-width: 425px) {
-  .product {
-    justify-content: space-evenly;
+@media screen and (max-width: 425px) {
+  .productContainer {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
   }
-  .product img {
-    width: 90%;
-    height: auto;
+  .imageContent {
+    height: 70%;
+    width: 100%;
+  }
+  .imageContent img {
+    height: 70%;
+    width: auto;
+  }
+  .infoContent {
+    height: 75%;
+    width: 100%;
   }
   .productTitle {
-    font-size: 105%;
-    width: 100vw;
-  }
-  .productDescription {
-    text-align: center;
-    font-size: 85%;
+    font-size: 125%;
     width: 100%;
   }
   .productPrice {
-    display: flex; 
-    justify-content: center;
-    font-size: 105%;
+    width: 30%;
+  }
+  .productPrice p:first-child {
+    font-size: 100%;
+  }
+  .productPrice p:last-child {
+    font-size: 110%;  
+  }
+  .productDescription {
+    text-align: center;
+    font-size: 100%;
   }
   .productBtn {
+    justify-content: space-around;
+    height: 10%;
     width: 100%;
   }
   .addToCart {
-    background-color: none;
+    height: 12%;
     width: 90%;
-  }
-  .addToCart:hover {
-    transform: none;
-    box-shadow: none;
-    background-color: none;
-  }
-  .addToCart:active {
-    transform: none;
-    background-color: none;
+    font-size: 110%;
   }
   .btnDisable {
-    background-color: none;
+    height: 12%;
     width: 90%;
+    font-size: 110%;
   }
-} */
+}
