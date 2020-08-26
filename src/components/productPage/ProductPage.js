@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import './ProductPage.css';
-import Cart from '../shopify/cart/Cart';
 import ProductDetail from '../productDetail/productDetail';
 
 import { connect } from 'react-redux';
@@ -56,9 +54,9 @@ class ProductPage extends Component {
         return productItem;
       }); 
       return (
-        <section className='productPage'>
+        <>
           { selectedProduct }
-        </section>
+        </>
       )
     };  
   }

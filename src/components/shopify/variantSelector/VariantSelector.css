@@ -5,12 +5,14 @@
   width: 15%;
 }
 .available {
-  font-size: 90%;
-  font-weight: 700;
+  font-size: 120%;
+  font-weight: 800;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
   color: white;
-  padding: 3px;
+  padding: 0;
+  text-shadow: 2px 2px 4px #000000;
 }
 .available:hover {
   color: rgb(0, 0, 0); 
@@ -19,7 +21,7 @@
   width: 100%;
 }
 .notAvailable {
-  font-size: 90%;
+  font-size: 120%;
   font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
   border-style: none;
@@ -28,6 +30,7 @@
 .active {
   color: rgb(0, 0, 0); 
   background-color: white; 
+  height: 100%;
   width: 100%;
 }
 .strikeOut {
@@ -65,13 +68,8 @@
 }
 @media screen and (max-width: 425px) {
   .productOption {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 80%;
-    font-weight: 900;
-    min-width: 15%;
-    min-height: 3vh;
+    height: 100%;
+    min-width: 8%;
   }
   .available {
     font-size: 100%;
