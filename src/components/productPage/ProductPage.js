@@ -10,17 +10,19 @@ class ProductPage extends Component {
     this.state = { 
       showModal: false,
       product: {},
-      isNotification: false
+      isNotification: false,
+      variantSize: ''
     };
   }
 
   renderingProductItem = () => {
-    console.log(this.state.isNotification)
     if (!this.props.collections) {
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
-        <ProductDetail 
+        <ProductDetail
+          alert={ this.alert } 
           notification={ this.state.isNotification }
+          variantSize={ this.state.variantSize }
           key={ productItem.id }
           product={ productItem }
           availability={ productItem.availableForSale }
@@ -38,8 +40,10 @@ class ProductPage extends Component {
           productItem = product;
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
-            <ProductDetail 
+            <ProductDetail
+              alert={ this.alert } 
               notification={ this.state.isNotification }
+              variantSize={ this.state.variantSize }
               key={ productItem.id}
               product={ productItem }  
               availability={ productItem.availableForSale }
@@ -61,8 +65,16 @@ class ProductPage extends Component {
     };  
   }
 
-  addVariantToCart = (product, variantId, quantity) => {
+  // alert = () => {
+  //   this.setState({
+  //     isNotification: false
+  //   })
+  // }
+
+  addVariantToCart = (variant, quantity) => {
     const state = store.getState();
+    let variantId = variant.id
+    let variantSize = variant.title
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
     // Checkout id is lost on productDetail component after refreshing screen...
     const checkoutId = state.checkout.id
@@ -70,7 +82,8 @@ class ProductPage extends Component {
       store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { checkout: res }});
       sessionStorage.setItem('cartItems', JSON.stringify(res))
       this.setState({
-        isNotification: true
+        isNotification: true,
+        variantSize
       })
     });
   }
