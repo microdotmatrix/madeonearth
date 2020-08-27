@@ -39,30 +39,6 @@ class Cart extends Component {
         </ul>
 
         <footer className='cartFooter'>
-          {/* <div className='cartInfo'>
-            <div className='cartTotal'>Subtotal</div>
-            { this.props.checkout && <div className='cartPricing'>
-              <span className='pricing'>$ { this.props.checkout.subtotalPrice }</span>
-            </div> }
-          </div>
-          <div className='cartInfo'>
-            <div className='cartTotal'>Taxes</div>
-            { this.props.checkout && <div className='cartPricing'>
-              <span className='pricing'>$ { this.props.checkout.totalTax }</span>
-            </div> }
-          </div>
-          <div className='cartInfo'>
-            <div className='cartTotal'>Total</div>
-            { this.props.checkout && <div className='cartPricing'>
-              <span className='pricing'>$ { this.props.checkout.totalPrice }</span>
-            </div> }
-          </div>
-          <div className='cartInfo'>
-            <div className='cartTotal'>Donation Amount</div>
-            { this.props.checkout && <div className='cartPricing'>
-              <span className='pricing'>~$ { (this.props.checkout.totalPrice * .35).toFixed(2) }</span>
-            </div> }
-          </div> */}
           <button className='cartCheckout button' onClick={this.openCheckout}>Checkout</button>
         </footer>
       </div>

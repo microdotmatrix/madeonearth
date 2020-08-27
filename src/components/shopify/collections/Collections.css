@@ -1,9 +1,23 @@
 .productWrapper {
   width: 75vw;
-  margin: 5% 1%;
+  margin: 0 1%;
   display: flex;
   align-items: center; 
   flex-direction: column;
+  padding: 1% 0;
+}
+
+a:link { 
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: yellow;
+}
+a:active {
+  color: black;
 }
 
 
@@ -25,8 +39,8 @@
 }
 @media screen and (max-width: 425px) {
   .productWrapper {
-    width: 100vw;
+    width: 95vw;
     margin: 0;
-    padding: 2%;
+    padding: 4px;
   }
 }

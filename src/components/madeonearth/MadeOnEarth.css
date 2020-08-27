@@ -1,13 +1,8 @@
-/* .app {
-  height: 100%;
-  width: 100%;
-  background-image: url('./asset/BackgroundIMG.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-} */
-
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* ===== NOTE TO SELF ===== */
 /* Display background image for screen width larger than mobile */
@@ -15,7 +10,7 @@
   .app {
     height: 100%;
     width: 100%;
-    background-image: url('./asset/BackgroundIMG.jpg');
+    background-image: url('../../asset/BackgroundIMG.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

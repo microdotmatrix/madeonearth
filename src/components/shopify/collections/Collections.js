@@ -2,31 +2,35 @@ import React, { Component }  from 'react';
 import './Collections.css';
 import Product from '../product/Product';
 
+import { connect } from 'react-redux';
+import store from '../../../store/Store';
+
 class Collections extends Component {
 
   render() {
-    let collections;
-    if (this.props.collections) {
-      collections = this.props.collections[0].products.map((product) => {
+    const state = store.getState()
+
+    let products;
+    if (state.collections) {
+      products = state.collections[0].products.map((product, i) => {
+        let id = product.id
         return (
           <Product 
             addVariantToCart={ this.props.addVariantToCart }
-            client={ this.props.client }
-            key={ product.id.toString() }
+            client={ state.client }
+            key={ id }
             product={ product }
           />
         )
       })
-    } 
-    else {
-      collections = <p>Loading...</p>
     }
+
     return (
       <div className='productWrapper'>
-        { collections }
+        { products }
       </div>
     )
   }
 }
 
-export default Collections; 
+export default connect((state) => state)(Collections); 
