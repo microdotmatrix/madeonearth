@@ -20,15 +20,22 @@
 }
 .imageContent {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: space-around; */
+  justify-content: center; 
+  align-items: center; 
   height: 80%;
   width: 50%;
-  outline: 2px solid yellow
+  outline: 2px solid yellow;
+}
+.imageContent .wThumbnails {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  height: 80%; 
+  width: 50%; 
+  outline: 2px solid yellow;
 }
 .imageContent img {
-  height: 60%;
+  height: 80%;
   width: auto;
 }
 .thumbnails {
@@ -127,7 +134,7 @@
 
 @media screen and (max-width: 992px) {
   .imageContent img {
-    height: 50%;
+    height: 60%;
   }
   .productTitle {
     font-weight: 700;

@@ -1,9 +1,11 @@
 import React from 'react'; 
 
-const Thumbnails = () => {
+const Thumbnails = ({ thumbnailImages,  }) => {
   return (
-    <div>
-
+    <div className='thumbnail'> 
+      <img 
+        src={ thumbnailImages }
+      />
     </div>
   )
 }

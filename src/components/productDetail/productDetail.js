@@ -14,17 +14,6 @@ class ProductDetail extends Component {
     };
   }
 
-  handleOptionChange = (event) => {
-    const target = event.target
-    let selectedOptions = this.state.selectedOptions;
-    selectedOptions[target.name] = target.value;
-    const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
-    this.setState({
-      selectedVariant: selectedVariant,
-      eventTargetValue: target.value
-    });
-  }
-
   handleCartNotification = () => {
     let notification = this.props.notification;
     let productTitle = this.props.product.title;
@@ -37,14 +26,34 @@ class ProductDetail extends Component {
     };
   }
 
+  handleThumbnailSelection = () => {
+    
+  }
+
+  handleOptionChange = (event) => {
+    const target = event.target
+    let selectedOptions = this.state.selectedOptions;
+    selectedOptions[target.name] = target.value;
+    const selectedVariant = this.props.client.product.helpers.variantForOptions(this.props.product, selectedOptions)
+    this.setState({
+      selectedVariant: selectedVariant,
+      eventTargetValue: target.value
+    });
+  }
+
+
+
+
+
   render() {
     console.log(this.props.product)
     let productImage = this.props.images[0]
     let thumbnailImages = this.props.images.map(thumbnails => {
       console.log(thumbnails)
+
       return (
         <Thumbnails 
-          thumbnails= { thumbnails }
+          thumbnailImages={ thumbnails.src }
           key={ thumbnails.id }
         />
       )
@@ -70,16 +79,23 @@ class ProductDetail extends Component {
       <section className='productPage'>
         { this.handleCartNotification() }
         <div className='productContainer'>
-          <div className='imageContent'>
-            <img 
-              src={ productImage.src } 
-              alt={ `${productTitle} product shot` } 
-              /> 
-            <div className='thumbnails'>
-
-            </div>
-          </div>
-
+          { this.props.images.length === 1 ?
+              <div className='imageContent'>
+                <img  
+                  src={ productImage.src } 
+                  alt={ `${productTitle} product shot` } 
+                />
+              </div>
+            : <div className='imageContent wThumbnails'>
+                <img 
+                  src={ productImage.src } 
+                  alt={ `${productTitle} product shot` } 
+                /> 
+                <div className='thumbnails'>
+                  { thumbnailImages }
+                </div>
+              </div>
+          }
           <div className='infoContent'>
             <h2 className='productTitle'>{ productTitle }</h2>
             <span className='productPrice'>
@@ -87,9 +103,11 @@ class ProductDetail extends Component {
               <p>${ Math.trunc(productPrice) }</p>
             </span>
             { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
+
             <div className='productBtn'>
               { variantSelectors }
             </div>
+
             { productAvailability === false ? 
                 <div className='btnDisable' >Sold Out</div>
                 : productVariant !== undefined ?
