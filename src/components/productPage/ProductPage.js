@@ -85,7 +85,7 @@ class ProductPage extends Component {
     console.log(this.state.isNotification)
     if (!this.state.isNotification) {
       console.log(this.state.isNotification)
-      let reset = setTimeout(() => {
+      setTimeout(() => {
         this.setState({
           isNotification: false
         })
@@ -122,7 +122,6 @@ class ProductPage extends Component {
   }
 
   render() { 
-    const state = store.getState();
     return (
       <>
       { this.renderingProductItem() }

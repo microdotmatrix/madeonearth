@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ProductDetail.css';
-import Thumbnails from '../thumbnails/Thumbnails';
+// import Thumbnails from '../thumbnails/Thumbnails';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
 import { connect } from 'react-redux';
@@ -47,18 +47,15 @@ class ProductDetail extends Component {
 
 
   render() {
-    console.log(this.props.product)
     let productImage = this.props.images[0]
-    let thumbnailImages = this.props.images.map(thumbnails => {
-      console.log(thumbnails)
-
-      return (
-        <Thumbnails 
-          thumbnailImages={ thumbnails.src }
-          key={ thumbnails.id }
-        />
-      )
-    })
+    // let thumbnailImages = this.props.images.map(thumbnails => {
+    //   return (
+    //     <Thumbnails 
+    //       thumbnailImages={ thumbnails.src }
+    //       key={ thumbnails.id }
+    //     />
+    //   )
+    // })
     let productTitle = this.props.product.title
     let productPrice = this.props.price
     let productDescription = this.props.description

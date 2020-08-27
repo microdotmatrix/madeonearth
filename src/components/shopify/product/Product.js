@@ -14,7 +14,7 @@ const Product = ({ product }) => {
         >
           <img 
             src={ variantImage.src }
-            alt={ `${product.title} product image` }
+            alt={ `${product.title} product` }
           />
         </Link>
 
