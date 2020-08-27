@@ -20,7 +20,6 @@ class ProductPage extends Component {
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
         <ProductDetail
-          alert={ this.alert } 
           notification={ this.state.isNotification }
           variantSize={ this.state.variantSize }
           key={ productItem.id }
@@ -41,7 +40,6 @@ class ProductPage extends Component {
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
             <ProductDetail
-              alert={ this.alert } 
               notification={ this.state.isNotification }
               variantSize={ this.state.variantSize }
               key={ productItem.id}
@@ -65,12 +63,6 @@ class ProductPage extends Component {
     };  
   }
 
-  // alert = () => {
-  //   this.setState({
-  //     isNotification: false
-  //   })
-  // }
-
   addVariantToCart = (variant, quantity) => {
     const state = store.getState();
     let variantId = variant.id
@@ -86,6 +78,19 @@ class ProductPage extends Component {
         variantSize
       })
     });
+    this.clearNotification();
+  }
+
+  clearNotification = () => {
+    console.log(this.state.isNotification)
+    if (!this.state.isNotification) {
+      console.log(this.state.isNotification)
+      let reset = setTimeout(() => {
+        this.setState({
+          isNotification: false
+        })
+      }, 3000)
+    };
   }
 
   updateQuantityInCart = (lineItemId, quantity) => {
