@@ -1,0 +1,10 @@
+.thumbnailContent {
+  display: flex; 
+  justify-items: space-evenly;
+  height: 50%; 
+  width: 50%; 
+}
+.thumbnailContent img {
+  height: 80%; 
+  width: auto;
+}

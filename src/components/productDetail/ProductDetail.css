@@ -16,7 +16,6 @@
   align-items: center;
   height: 90%; 
   width: 90%;
-  /* outline: 1px solid white; */
 }
 .imageContent {
   display: flex;
@@ -24,9 +23,13 @@
   align-items: center; 
   height: 80%;
   width: 50%;
-  /* outline: 2px solid yellow; */
+  outline: 2px solid yellow;
 }
-.imageContent .wThumbnails {
+.imageContent img {
+  height: 80%;
+  width: auto;
+}
+.imageContentThumbnails {
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -34,13 +37,14 @@
   width: 50%; 
   outline: 2px solid yellow;
 }
-.imageContent img {
-  height: 80%;
+.imageContentThumbnails img {
+  height: 60%;
   width: auto;
 }
 .thumbnails {
   height: 25%;
   width: 100%;
+  padding: 4px;
   outline: 1px solid red;
 }
 .infoContent {

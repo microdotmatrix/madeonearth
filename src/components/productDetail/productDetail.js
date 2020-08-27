@@ -50,11 +50,11 @@ class ProductDetail extends Component {
     let productImage = this.props.images[0]
     let thumbnailImages = this.props.images.map(thumbnails => {
       console.log(thumbnails)
-
       return (
         <Thumbnails 
-          thumbnailImages={ thumbnails.src }
           key={ thumbnails.id }
+          thumbnailImages={ thumbnails.src }
+          handleThumbnailSelection={ this.handleThumbnailSelection }
         />
       )
     })
@@ -86,16 +86,15 @@ class ProductDetail extends Component {
                   alt={ `${productTitle} product shot` } 
                 />
               </div>
-            : null 
-            // : <div className='imageContent wThumbnails'>
-            //     <img 
-            //       src={ productImage.src } 
-            //       alt={ `${productTitle} product shot` } 
-            //     /> 
-            //     <div className='thumbnails'>
-            //       { thumbnailImages }
-            //     </div>
-            //   </div>
+              : <div className='imageContentThumbnails'>
+                <img 
+                  src={ productImage.src } 
+                  alt={ `${productTitle} product shot` } 
+                /> 
+                <div className='thumbnails'>
+                  { thumbnailImages }
+                </div>
+              </div>
 
           }
           <div className='infoContent'>

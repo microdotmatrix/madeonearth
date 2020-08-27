@@ -1,10 +1,12 @@
 import React from 'react'; 
 
-const Thumbnails = ({ thumbnailImages,  }) => {
+
+const Thumbnails = ({ thumbnailImages, handleThumbnailSelection }) => {
   return (
-    <div className='thumbnail'> 
+    <div className='thumbnailContent'> 
       <img 
         src={ thumbnailImages }
+        alt={ `Product thumbnail` } 
       />
     </div>
   )
