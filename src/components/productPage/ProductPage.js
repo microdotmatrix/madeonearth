@@ -15,7 +15,6 @@ class ProductPage extends Component {
   }
 
   renderingProductItem = () => {
-    console.log(this.state.isNotification)
     if (!this.props.collections) {
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
@@ -25,7 +24,7 @@ class ProductPage extends Component {
           product={ productItem }
           availability={ productItem.availableForSale }
           description={ productItem.description }
-          images={ productItem.images[0] }
+          images={ productItem.images }
           price={ productItem.variants[0].price }
           addVariantToCart={ this.addVariantToCart }
           handleCartOpen={ this.handleCartOpen }
@@ -44,7 +43,7 @@ class ProductPage extends Component {
               product={ productItem }  
               availability={ productItem.availableForSale }
               description={ productItem.description }
-              images={ productItem.images[0] }
+              images={ productItem.images }
               price={ productItem.variants[0].price }
               addVariantToCart={ this.addVariantToCart }
               handleCartOpen={ this.handleCartOpen }
