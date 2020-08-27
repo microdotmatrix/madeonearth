@@ -86,15 +86,17 @@ class ProductDetail extends Component {
                   alt={ `${productTitle} product shot` } 
                 />
               </div>
-            : <div className='imageContent wThumbnails'>
-                <img 
-                  src={ productImage.src } 
-                  alt={ `${productTitle} product shot` } 
-                /> 
-                <div className='thumbnails'>
-                  { thumbnailImages }
-                </div>
-              </div>
+            : null 
+            // : <div className='imageContent wThumbnails'>
+            //     <img 
+            //       src={ productImage.src } 
+            //       alt={ `${productTitle} product shot` } 
+            //     /> 
+            //     <div className='thumbnails'>
+            //       { thumbnailImages }
+            //     </div>
+            //   </div>
+
           }
           <div className='infoContent'>
             <h2 className='productTitle'>{ productTitle }</h2>

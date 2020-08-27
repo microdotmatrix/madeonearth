@@ -16,7 +16,7 @@
   align-items: center;
   height: 90%; 
   width: 90%;
-  outline: 1px solid white;
+  /* outline: 1px solid white; */
 }
 .imageContent {
   display: flex;
@@ -24,7 +24,7 @@
   align-items: center; 
   height: 80%;
   width: 50%;
-  outline: 2px solid yellow;
+  /* outline: 2px solid yellow; */
 }
 .imageContent .wThumbnails {
   display: flex; 
