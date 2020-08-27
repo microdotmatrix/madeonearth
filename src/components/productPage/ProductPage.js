@@ -26,7 +26,7 @@ class ProductPage extends Component {
           product={ productItem }
           availability={ productItem.availableForSale }
           description={ productItem.description }
-          images={ productItem.images[0] }
+          images={ productItem.images }
           price={ productItem.variants[0].price }
           addVariantToCart={ this.addVariantToCart }
           handleCartOpen={ this.handleCartOpen }
@@ -46,7 +46,7 @@ class ProductPage extends Component {
               product={ productItem }  
               availability={ productItem.availableForSale }
               description={ productItem.description }
-              images={ productItem.images[0] }
+              images={ productItem.images }
               price={ productItem.variants[0].price }
               addVariantToCart={ this.addVariantToCart }
               handleCartOpen={ this.handleCartOpen }
