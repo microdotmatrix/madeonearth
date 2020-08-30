@@ -1,4 +1,5 @@
 import React from 'react'; 
+import './Thumbnails.css';
 
 
 const Thumbnails = ({ thumbnailImages, handleThumbnailSelection }) => {

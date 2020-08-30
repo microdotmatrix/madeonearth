@@ -37,6 +37,9 @@
   width: auto;
 }
 .thumbnails {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
   height: 25%;
   width: 100%;
   padding: 4px;
