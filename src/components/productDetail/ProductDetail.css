@@ -19,9 +19,25 @@
   height: 8%;
   width: 100%;
   animation: alert .9s ease 3;
+  position: fixed; 
+  top: 50px; 
+  z-index: 1;
 }
 .notify h3 {
   text-shadow: 2px 2px 4px #000000;
+}
+
+.returnHome {
+  width: 95vw;
+}
+.returnHome a {
+  text-decoration: none; 
+}
+.returnHome p {
+  padding-left: 5px;
+  text-shadow: 2px 2px 4px #000000;
+  font-weight: 600;
+  color: white;
 }
 
 .productContainer {

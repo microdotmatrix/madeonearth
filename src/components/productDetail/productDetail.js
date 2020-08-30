@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProductDetail.css';
+import { Link } from 'react-router-dom';
 // import Thumbnails from '../thumbnails/Thumbnails';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 
@@ -42,6 +43,11 @@ class ProductDetail extends Component {
     });
   }
 
+  // returnHome = () => {
+  //   return (
+
+  //   )
+  // }
 
 
 
@@ -76,6 +82,12 @@ class ProductDetail extends Component {
     return (
       <section className='productPage'>
         { this.handleCartNotification() }
+
+        <div className='returnHome'>
+          <Link to={{ pathname: '/' }}>
+            <p>Made On Earth</p>
+          </Link>
+        </div>
 
         <div className='productContainer'>
           { this.props.images.length === 1 ?
