@@ -76,15 +76,12 @@ class ProductDetail extends Component {
       <section className='productPage'>
         { this.handleCartNotification() }
 
-        <span className='fontAwesomeIcom' >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </span>
-
         <div className='returnHome'>
           <Link to={{ pathname: '/' }}>
-            <p>Made On Earth</p>
+            <p>[ Made On Earth ]</p>
           </Link>
         </div>
+
 
         <div className='productContainer'>
           { this.props.images.length === 1 ?
@@ -106,6 +103,14 @@ class ProductDetail extends Component {
             //   </div>
 
           }
+          
+          <div className='fontAwesomeIcon'>
+            <Link to={{ pathname: '/' }}> 
+              <FontAwesomeIcon icon={faChevronLeft} />
+              <p>BACK</p>
+            </Link>
+          </div>
+
           <div className='infoContent'>
             <h2 className='productTitle'>{ productTitle }</h2>
             <span className='productPrice'>
