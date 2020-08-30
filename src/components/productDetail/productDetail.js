@@ -3,6 +3,8 @@ import './ProductDetail.css';
 import { Link } from 'react-router-dom';
 // import Thumbnails from '../thumbnails/Thumbnails';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
 
@@ -43,15 +45,6 @@ class ProductDetail extends Component {
     });
   }
 
-  // returnHome = () => {
-  //   return (
-
-  //   )
-  // }
-
-
-
-
   render() {
     let productImage = this.props.images[0]
     // let thumbnailImages = this.props.images.map(thumbnails => {
@@ -82,6 +75,10 @@ class ProductDetail extends Component {
     return (
       <section className='productPage'>
         { this.handleCartNotification() }
+
+        <span className='fontAwesomeIcom' >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </span>
 
         <div className='returnHome'>
           <Link to={{ pathname: '/' }}>
