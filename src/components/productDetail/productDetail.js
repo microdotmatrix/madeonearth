@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './ProductDetail.css';
+import { Link } from 'react-router-dom';
 // import Thumbnails from '../thumbnails/Thumbnails';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
 
@@ -42,10 +45,6 @@ class ProductDetail extends Component {
     });
   }
 
-
-
-
-
   render() {
     let productImage = this.props.images[0]
     // let thumbnailImages = this.props.images.map(thumbnails => {
@@ -77,6 +76,13 @@ class ProductDetail extends Component {
       <section className='productPage'>
         { this.handleCartNotification() }
 
+        <div className='returnHome'>
+          <Link to={{ pathname: '/' }}>
+            <p>[ Made On Earth ]</p>
+          </Link>
+        </div>
+
+
         <div className='productContainer'>
           { this.props.images.length === 1 ?
               <div className='imageContent'>
@@ -97,6 +103,14 @@ class ProductDetail extends Component {
             //   </div>
 
           }
+          
+          <div className='fontAwesomeIcon'>
+            <Link to={{ pathname: '/' }}> 
+              <FontAwesomeIcon icon={faChevronLeft} />
+              <p>BACK</p>
+            </Link>
+          </div>
+
           <div className='infoContent'>
             <h2 className='productTitle'>{ productTitle }</h2>
             <span className='productPrice'>
