@@ -96,7 +96,7 @@ class MadeOnEarth extends Component {
   render() {
     const state = store.getState();
     return (
-      <div className="app">
+      <div className='app'>
         <Header handleCartOpen={ this.handleCartOpen } />
         <Cart
           checkout={ state.checkout }

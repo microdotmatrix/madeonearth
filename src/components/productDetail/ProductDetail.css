@@ -1,11 +1,6 @@
 .productPage {
   height: 100vh; 
   width: 100vw;
-  background-image: url('../../asset/BackgroundIMG.jpg');
-  background-size: cover; 
-  background-repeat: no-repeat;
-  background-position: center; 
-  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center; 
@@ -231,6 +226,7 @@
     width: auto;
   }
   .infoContent {
+    outline: 1px solid white;
     height: 75%;
     width: 100%;
   }
