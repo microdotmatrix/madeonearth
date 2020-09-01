@@ -86,7 +86,7 @@ class ProductDetail extends Component {
                   alt={ `${productTitle} product shot` } 
                 />
               </div>
-              : <div className='imageContentThumbnails'>
+              : <div className='imageWithThumbnails'>
                 <img 
                   src={ productImage.src } 
                   alt={ `${productTitle} product shot` } 

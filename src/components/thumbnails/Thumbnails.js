@@ -4,7 +4,7 @@ import './Thumbnails.css';
 
 const Thumbnails = ({ thumbnailImages, handleThumbnailSelection }) => {
   return (
-    <div className='thumbnailContent'> 
+    <div className='productThumbnails'> 
       <img 
         src={ thumbnailImages }
         alt={ `Product thumbnail` } 
