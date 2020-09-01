@@ -1,12 +1,12 @@
-.productThumbnails {
+.thumbnails{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50%;
   /* width: auto; */
 }
-.productThumbnails img {
-  height: 100%; 
-  width: auto;
+.thumbnails img {
+  height: auto; 
+  width: 100%;
 
 }
