@@ -2,8 +2,46 @@
   height: 100vh; 
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center; 
+}
+
+.notify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 100%;
+  animation: alert .9s ease 3;
+  position: fixed; 
+  top: 40px; 
+  z-index: 1;
+}
+.notify h3 {
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.fontAwesomeIcon {
+  display: none;
+}
+
+.returnHome {
+  display: flex; 
+  align-items: center; 
+  height: 8%;
+  width: 95vw;
+}
+.returnHome a {
+  text-decoration: none; 
+}
+.returnHome p {
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 120%;
+  font-weight: 600;
+  color: white;
+  margin: 8px 0;
+  padding: 0 5px;
 }
 .productContainer {
   display: flex; 
@@ -18,7 +56,6 @@
   align-items: center; 
   height: 80%;
   width: 50%;
-  /* outline: 2px solid yellow; */
 }
 .imageContent img {
   height: 80%;
@@ -44,7 +81,6 @@
   flex-wrap: wrap;
   height: auto;
   width: 100%;
-  padding: 4px;
   /* outline: 1px solid red; */
 }
 .infoContent {
@@ -129,6 +165,11 @@
   border: 2px solid white;
 }
 
+@keyframes alert {
+  0%{background-color:rgba(255, 255, 0, 0)}
+  50%{background-color:rgba(220, 220, 220, 0.5)}
+  100%{background-color:rgba(255, 255, 0, 0)}
+}
 
 @media (pointer:coarse) {
   .product {
@@ -137,6 +178,9 @@
 }
 
 @media screen and (max-width: 992px) {
+  .returnHome p {
+    font-size: 110%;
+  }
   .imageContent img {
     height: 60%;
   }
@@ -146,6 +190,12 @@
 }
 
 @media screen and (max-width: 800px) {
+  .notify h3{
+    font-size: 90%;
+  }
+  .returnHome p {
+    font-size: 95%
+  }
   .imageContent {
     height: 90%;
   }
@@ -186,6 +236,12 @@
 }
 
 @media screen and (max-width: 660px ) {
+  .productPage {
+    justify-content: space-evenly;
+  }
+  .returnHome p {
+    font-size: 85%;
+  }
   .productContainer {
     height: 80%;
   }
@@ -220,11 +276,58 @@
 }
 
 @media screen and (max-width: 425px) {
+  .productPage {
+    display: flex; 
+    flex-direction: row;
+
+  }
+  .fontAwesomeIcon {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    width: 100vw;
+    padding-left: 5px;
+    position: fixed;
+    top: 300px;
+    z-index: 1;
+  }
+  .fontAwesomeIcon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 12%;
+    text-decoration: none;
+  }
+  .fontAwesomeIcon a p {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 50%;
+    font-weight: 800;
+    color: white; 
+    margin: 0;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  .fontAwesomeIcon svg {
+    color: white; 
+    font-size: 200%;
+  }
+  .returnHome {
+    display: none;
+  }
   .productContainer {
     flex-direction: column;
     height: 100%;
     width: 100%;
     padding: 5px;
+  }
+  .notify {
+    position: fixed; 
+    top: 10px;
+    z-index: 1;
+  }
+  .notify h3 {
+    font-size: 55%;
   }
   .imageContent {
     height: 70%;

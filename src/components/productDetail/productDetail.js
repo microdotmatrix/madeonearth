@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './ProductDetail.css';
-import Thumbnails from '../thumbnails/Thumbnails';
+import { Link } from 'react-router-dom';
+// import Thumbnails from '../thumbnails/Thumbnails';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
 
@@ -18,10 +21,11 @@ class ProductDetail extends Component {
   handleCartNotification = () => {
     let notification = this.props.notification;
     let productTitle = this.props.product.title;
+    let productSize = this.props.variantSize;
     if (notification === true) {
       return (
-        <section>
-          <div>{ `${ productTitle } has been added to cart!` }</div>
+        <section className='notify'>
+          <h3>{ `${ productTitle }( ${ productSize } ), HAS BEEN ADDED TO CART!` }</h3>
         </section>
       )
     };
@@ -47,8 +51,6 @@ class ProductDetail extends Component {
       selectedColor: selectedColor
     });
   }
-
-
 
   render() {
     console.log(this.props.product)
@@ -83,6 +85,14 @@ class ProductDetail extends Component {
     return (
       <section className='productPage'>
         { this.handleCartNotification() }
+
+        <div className='returnHome'>
+          <Link to={{ pathname: '/' }}>
+            <p>[ Made On Earth ]</p>
+          </Link>
+        </div>
+
+
         <div className='productContainer'>
           { 
             this.props.images.length === 1 ?
@@ -112,6 +122,14 @@ class ProductDetail extends Component {
                 </div>
               </div>
           }
+          
+          <div className='fontAwesomeIcon'>
+            <Link to={{ pathname: '/' }}> 
+              <FontAwesomeIcon icon={faChevronLeft} />
+              <p>BACK</p>
+            </Link>
+          </div>
+
           <div className='infoContent'>
             <h2 className='productTitle'>{ productTitle }</h2>
             <span className='productPrice'>
@@ -127,7 +145,7 @@ class ProductDetail extends Component {
             { productAvailability === false ? 
                 <div className='btnDisable' >Sold Out</div>
                 : productVariant !== undefined ?
-                <button className='addToCart' onClick={ () => this.props.addVariantToCart(this.props.product, productVariant.id, variantQuantity) } >Add to Cart</button>
+                <button className='addToCart' onClick={ () => this.props.addVariantToCart(productVariant, variantQuantity) } >Add to Cart</button>
                 : <button className='addToCart'>Add to Cart</button>
               }
           </div>

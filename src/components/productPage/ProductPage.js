@@ -10,7 +10,8 @@ class ProductPage extends Component {
     this.state = { 
       showModal: false,
       product: {},
-      isNotification: false
+      isNotification: false,
+      variantSize: ''
     };
   }
 
@@ -23,8 +24,9 @@ class ProductPage extends Component {
       
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
       return (
-        <ProductDetail 
+        <ProductDetail
           notification={ this.state.isNotification }
+          variantSize={ this.state.variantSize }
           key={ productItem.id }
           product={ productItem }
           availability={ productItem.availableForSale }
@@ -48,8 +50,9 @@ class ProductPage extends Component {
           console.log(productItem)
           sessionStorage.setItem('selectedProduct', JSON.stringify(productItem));
           return ( 
-            <ProductDetail 
+            <ProductDetail
               notification={ this.state.isNotification }
+              variantSize={ this.state.variantSize }
               key={ productItem.id}
               product={ productItem }  
               availability={ productItem.availableForSale }
@@ -71,8 +74,10 @@ class ProductPage extends Component {
     };  
   }
 
-  addVariantToCart = (product, variantId, quantity) => {
+  addVariantToCart = (variant, quantity) => {
     const state = store.getState();
+    let variantId = variant.id
+    let variantSize = variant.title
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
     // Checkout id is lost on productDetail component after refreshing screen...
     const checkoutId = state.checkout.id
@@ -80,9 +85,23 @@ class ProductPage extends Component {
       store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { checkout: res }});
       sessionStorage.setItem('cartItems', JSON.stringify(res))
       this.setState({
-        isNotification: true
+        isNotification: true,
+        variantSize
       })
     });
+    this.clearNotification();
+  }
+
+  clearNotification = () => {
+    console.log(this.state.isNotification)
+    if (!this.state.isNotification) {
+      console.log(this.state.isNotification)
+      setTimeout(() => {
+        this.setState({
+          isNotification: false
+        })
+      }, 3000)
+    };
   }
 
   updateQuantityInCart = (lineItemId, quantity) => {
@@ -114,7 +133,6 @@ class ProductPage extends Component {
   }
 
   render() { 
-    const state = store.getState();
     return (
       <>
       { this.renderingProductItem() }

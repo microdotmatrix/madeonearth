@@ -36,6 +36,7 @@
 .strikeOut {
   line-height: 1em;
   position: relative;
+  text-shadow: 2px 2px 4px #000000;
 }
 .strikeOut::after {
   border-bottom: 0.2em solid red;
