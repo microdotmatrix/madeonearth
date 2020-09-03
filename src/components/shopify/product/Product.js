@@ -4,6 +4,7 @@ import './Product.css';
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
+
   let id = product.id
   let variantImage = product.images[0]
   return (

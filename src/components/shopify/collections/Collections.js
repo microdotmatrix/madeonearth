@@ -11,9 +11,16 @@ class Collections extends Component {
     const state = store.getState()
 
     let products;
-    if (state.collections) {
-      products = state.collections[0].products.map((product, i) => {
+    // if (state.collections) {
+    //   products = state.collections[0].products.map((product, i) => {
+    //     let id = product.id
+
+    // ============= DELETE ==================
+    if (state.products) {
+      products = state.products.map(product => {
         let id = product.id
+    // =======================================
+    
         return (
           <Product 
             addVariantToCart={ this.props.addVariantToCart }
