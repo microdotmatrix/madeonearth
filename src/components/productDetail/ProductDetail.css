@@ -18,7 +18,7 @@
   align-items: center; 
   height: 80%;
   width: 50%;
-  outline: 2px solid yellow;
+  /* outline: 2px solid yellow; */
 }
 .imageContent img {
   height: 80%;
@@ -31,7 +31,7 @@
   justify-content: space-around;
   height: 80%; 
   width: 50%; 
-  outline: 2px solid yellow;
+  /* outline: 2px solid yellow; */
 }
 .imageWithThumbnails img {
   height: 70%;
@@ -45,7 +45,7 @@
   height: auto;
   width: 100%;
   padding: 4px;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 .infoContent {
   display: flex;
@@ -243,7 +243,7 @@
     width: 100%;
   }
   .infoContent {
-    outline: 1px solid white;
+    /* outline: 1px solid white; */
     height: 60%;
     width: 100%;
   }
