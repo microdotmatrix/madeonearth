@@ -4,6 +4,22 @@
   align-items: center;
   margin: 4% 0;
 }
+
+.notify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 100%;
+  animation: alert .9s ease 4;
+  position: fixed; 
+  top: 40px; 
+  z-index: 1;
+}
+.notify h3 {
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .product img {
   width: 60%;
   height: auto;

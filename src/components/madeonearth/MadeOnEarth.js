@@ -66,15 +66,15 @@ class MadeOnEarth extends Component {
     });
   }
 
-  addVariantToCart = (variantId, quantity) => {
-    const state = store.getState();
-    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
-    const checkoutId = state.checkout.id
-    state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
-      store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
-      sessionStorage.setItem('cartItems', JSON.stringify(res))
-    });
-  }
+  // addVariantToCart = (variantId, quantity) => {
+  //   const state = store.getState();
+  //   const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+  //   const checkoutId = state.checkout.id
+  //   state.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
+  //     store.dispatch({type: 'ADD_VARIANT_TO_CART', payload: { isCartOpen: true, checkout: res }});
+  //     sessionStorage.setItem('cartItems', JSON.stringify(res))
+  //   });
+  // }
  
   updateQuantityInCart = (lineItemId, quantity) => {
     const state = store.getState();
@@ -115,7 +115,7 @@ class MadeOnEarth extends Component {
           updateQuantityInCart={ this.updateQuantityInCart }
           removeLineItemInCart={ this.removeLineItemInCart }
         />
-        <Collections addVariantToCart={ this.addVariantToCart} />
+        <Collections />
 
       </div>
     )

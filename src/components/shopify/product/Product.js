@@ -10,7 +10,7 @@ class Product extends Component {
     this.state = { 
       selectedOptions: {},
       eventTargetValue: null,
-      showModal: false
+      showModal: false,
     };
   }
 
@@ -36,6 +36,19 @@ class Product extends Component {
     })
   }
 
+  handleCartNotification = () => {
+    let notification = this.props.notification;
+    let productTitle = this.props.productName;
+    let productSize = this.props.variantSize;
+    if (notification === true) {
+      return (
+        <section className='notify'>
+          <h3>{ `${ productTitle }( ${ productSize } ), HAS BEEN ADDED TO CART!` }</h3>
+        </section>
+      )
+    };
+  }
+
   render() {
     let product = this.props.product
     let productAvailable = this.props.product.availableForSale
@@ -57,6 +70,7 @@ class Product extends Component {
 
     return (
       <div className='product'>
+        { this.handleCartNotification() }
         { this.state.showModal === true ?
             <Modal 
               open={ this.state.showModal } 
@@ -84,7 +98,7 @@ class Product extends Component {
         { productAvailable === false ? 
             <div className='btnDisable' >Sold Out</div>
           : this.state.selectedVariant !== undefined ?
-            <button className='addToCart' onClick={ () => this.props.addVariantToCart(variant.id, variantQuantity) } >Add to Cart</button>
+            <button className='addToCart' onClick={ () => this.props.addVariantToCart(product, variant, variantQuantity) } >Add to Cart</button>
           : <button className='addToCart'>Add to Cart</button>
         }
       </div>
