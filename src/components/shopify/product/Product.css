@@ -183,6 +183,9 @@
   .product {
     margin: 10% 0;
   }
+  .notify h3 {
+    font-size: 50%;
+  }
   .productTitle {
     font-size: 100%;
     width: 100%;
