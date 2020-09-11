@@ -74,7 +74,10 @@ class Product extends Component {
         }      
         <h3 className='productTitle'>{ this.props.product.title }</h3>
         { productDescription === "" ? null : <div className='productDescription'>{ productDescription }</div> }
-        <span className='productPrice'>${ Math.trunc(price) }</span>
+        <span className='productPrice'>
+          <p>$</p>
+          <p>{ Math.trunc(price) }</p>
+        </span>
         <div className='productBtn'>
           { variantSelectors }
         </div>
