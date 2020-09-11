@@ -189,7 +189,8 @@
   }
   .productDescription {
     text-align: center;
-    font-size: 100%;
+    font-size: 80%;
+    width: 100%;
   }
   .productBtn {
     height: 10%;
