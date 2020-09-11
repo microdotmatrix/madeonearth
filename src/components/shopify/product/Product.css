@@ -133,13 +133,15 @@
   }
   .productTitle {
     font-weight: 600;
-  }
-  .productPrice {
-    font-size: 85%;
+    font-size: 100%;
   }
   .productDescription {
     font-size: 80%;
     height: 15%;
+  }
+  .productPrice {
+    font-size: 80%;
+    width: 8%;
   }
   .productBtn {
     height: 8%;
@@ -158,22 +160,19 @@
   .product {
     margin: 7% 0;
   }
-
   .productTitle {
-    font-size: 130%;
+    font-size: 90%;
     font-weight: 500;
   }
-  .productPrice {
-    width: 30%; 
-  }
-  .productPrice {
-    font-size: 75%;    
-  }
   .productDescription {
-    font-size: 70%;
+    font-size: 75%;
+  }
+  .productPrice {
+    font-size: 75%;   
   }
   .addToCart {
     font-size: 90%;
+    width: 60%;
   }
   .btnDisable {
     font-size: 90%;
@@ -185,11 +184,8 @@
     margin: 10% 0;
   }
   .productTitle {
-    font-size: 125%;
+    font-size: 100%;
     width: 100%;
-  }
-  .productPrice {
-    width: 30%;
   }
   .productDescription {
     text-align: center;
