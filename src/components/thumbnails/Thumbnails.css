@@ -1,0 +1,43 @@
+.thumbnails{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 21%;
+}
+.thumbnails img {
+  height: auto; 
+  width: 75%;  
+
+}
+
+@media screen and (max-width: 992px) {
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 20%; */
+  }
+  .thumbnails img {
+    height: auto; 
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .thumbnails {
+    width: 25%;
+  }
+  .thumbnails img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .thumbnails {
+    width: 25%;
+  }
+  .thumbnails img {
+    width: 100%;
+  }
+}

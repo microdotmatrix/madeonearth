@@ -13,7 +13,8 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       selectedOptions: {},
-      eventTargetValue: null
+      eventTargetValue: null,
+      selectedColor: ''
     };
   }
 
@@ -30,9 +31,6 @@ class ProductDetail extends Component {
     };
   }
 
-  handleThumbnailSelection = () => {
-    
-  }
 
   handleOptionChange = (event) => {
     const target = event.target
@@ -45,27 +43,39 @@ class ProductDetail extends Component {
     });
   }
 
+  handleColorSelection = (event) => {
+    let target = event.target
+    let selectedColor = this.state.selectedColor;
+    selectedColor = target.src;
+    this.setState({
+      selectedColor: selectedColor
+    });
+  }
+
   render() {
+    console.log(this.props.product)
+    let product = this.props.product
     let productImage = this.props.images[0]
-    // let thumbnailImages = this.props.images.map(thumbnails => {
-    //   return (
-    //     <Thumbnails 
-    //       thumbnailImages={ thumbnails.src }
-    //       key={ thumbnails.id }
-    //     />
-    //   )
-    // })
+    let thumbnailColorSelections = product.images.map((variant) => {
+      return (
+        <Thumbnails   
+          handleColorSelection = { this.handleColorSelection }
+          key={ variant.id.toString() }
+          colorVariant={ variant }
+        />
+      )
+    })
     let productTitle = this.props.product.title
     let productPrice = this.props.price
     let productDescription = this.props.description
     let productAvailability = this.props.availability
     let productVariant = this.state.selectedVariant
     let variantQuantity = 1
-    let variantSelectors = this.props.product.variants.map((variantOptions) => {
+    let variantSelectors = product.variants.map((variantOptions) => {
       return (
         <VariantSelector 
           handleOptionChange={ this.handleOptionChange }
-          key={variantOptions.id.toString()}
+          key={ variantOptions.id.toString() }
           variantOptions={ variantOptions }
           eventTargetValue={ this.state.eventTargetValue }
         />
@@ -84,24 +94,33 @@ class ProductDetail extends Component {
 
 
         <div className='productContainer'>
-          { this.props.images.length === 1 ?
+          { 
+            this.props.images.length === 1 ?
               <div className='imageContent'>
                 <img  
                   src={ productImage.src } 
                   alt={ `${productTitle} product shot` } 
                 />
               </div>
-            : null 
-            // : <div className='imageContent wThumbnails'>
-            //     <img 
-            //       src={ productImage.src } 
-            //       alt={ `${productTitle} product shot` } 
-            //     /> 
-            //     <div className='thumbnails'>
-            //       { thumbnailImages }
-            //     </div>
-            //   </div>
-
+            : !this.state.selectedColor ?
+              <div className='imageWithThumbnails'>
+                <img 
+                  src={ productImage.src } 
+                  alt={ `${productTitle} product shot` } 
+                /> 
+                <div className='thumbnailContent'>
+                  { thumbnailColorSelections }
+                </div>
+              </div>
+            : <div className='imageWithThumbnails'>
+                <img 
+                  src={ this.state.selectedColor } 
+                  alt={ `${productTitle} product shot` } 
+                /> 
+                <div className='thumbnailContent'>
+                  { thumbnailColorSelections }
+                </div>
+              </div>
           }
           
           <div className='fontAwesomeIcon'>
