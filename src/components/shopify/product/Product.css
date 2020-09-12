@@ -4,113 +4,26 @@
   align-items: center;
   margin: 4% 0;
 }
-
-.notify {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8%;
-  width: 100%;
-  animation: alert .9s ease 4;
-  position: fixed; 
-  top: 40px; 
-  z-index: 1;
+.imageLink {
+  width: 40vw;
 }
-.notify h3 {
-  text-shadow: 2px 2px 4px #000000;
-}
-
 .product img {
-  width: 60%;
+  width: 100%;
   height: auto;
   padding: 3px;
+}
+.titleLink {
+  text-decoration: none;
 }
 .productTitle {
   display: flex;
   justify-content: center;
-  width: 60%;
   font-weight: 800;
-  font-size: 130%;
   margin-top: 1%;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
-.productDescription {
-  display: flex; 
-  justify-content: center;
-  width: 60%;
-  height: 20%;
-  margin: 1% 0;
-  font-size: 90%;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 2px 2px 4px #000000;
-  color: yellow;
-}
-.productPrice {
-  display: flex;
-  justify-content: space-around;
-  width: 10%;
-  /* margin: 2% 0; */
-  text-shadow: 2px 2px 4px #000000;
-}
-.productPrice p:first-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 100%;
-  font-weight: 400;
-  margin: 0;
-}
-.productPrice p:last-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  font-size: 120%;
-  margin: 0;
-}
-.productBtn {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 10%;
-  width: 60%;
-  margin: 2% 0;
-}
-.addToCart {
-  height: 2rem;
-  width: 45%;
-  font-size: 120%;
-  font-weight: 700;
-  color: white;
-  background-color: rgba(255, 255, 255, 0);
-  border: 2px solid white;
-  text-shadow: 2px 2px 4px #000000;
-}
-.addToCart:hover {
-  color: black;
-  border: 2px solid white;
-  background-color: white; 
-  transition: ease-in-out .2s;
-}
-.addToCart:active {
-  background-color: white; 
-}
-.btnDisable {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  height: 2rem;
-  width: 45%;
-  font-size: 120%;
-  font-weight: 700;
-  color: white; 
-  background-color: rgba(255, 255, 255, 0);
-  border: 2px solid white;
-}
-
 
 @media (pointer:coarse) {
   .product {
@@ -122,8 +35,8 @@
   .product {
     margin: 5% 0;
   }
-  .productTitle {
-    font-weight: 700;
+  .imageLink {
+    width: 50vw;
   }
 }
 
@@ -131,28 +44,8 @@
   .product {
     margin: 5% 0;
   }
-  .productTitle {
-    font-weight: 600;
-    font-size: 100%;
-  }
-  .productDescription {
-    font-size: 80%;
-    height: 15%;
-  }
-  .productPrice {
-    font-size: 80%;
-    width: 8%;
-  }
-  .productBtn {
-    height: 8%;
-  }
-  .addToCart {
-    font-size: 105%;
-    height: 8%;
-  }
-  .btnDisable {
-    font-size: 105%;
-    height: 8%;
+  .imageLink {
+    width: 60vw;
   }
 }
 
@@ -160,22 +53,8 @@
   .product {
     margin: 7% 0;
   }
-  .productTitle {
-    font-size: 90%;
-    font-weight: 500;
-  }
-  .productDescription {
-    font-size: 75%;
-  }
-  .productPrice {
-    font-size: 75%;   
-  }
-  .addToCart {
-    font-size: 90%;
-    width: 60%;
-  }
-  .btnDisable {
-    font-size: 90%;
+  .imageLink {
+    width: 70vw;
   }
 }
 
@@ -183,30 +62,7 @@
   .product {
     margin: 10% 0;
   }
-  .notify h3 {
-    font-size: 50%;
-  }
-  .productTitle {
-    font-size: 100%;
-    width: 100%;
-  }
-  .productDescription {
-    text-align: center;
-    font-size: 80%;
-    width: 100%;
-  }
-  .productBtn {
-    height: 10%;
-    width: 100%;
-  }
-  .addToCart {
-    height: 12%;
-    width: 90%;
-    font-size: 110%;
-  }
-  .btnDisable {
-    height: 12%;
-    width: 90%;
-    font-size: 110%;
+  .imageLink {
+    width: 100vw;
   }
 }

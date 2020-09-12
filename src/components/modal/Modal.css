@@ -27,20 +27,9 @@
   background-color: transparent;
 }
 
-@media screen and (max-width: 800px) {
-  .modal img {
-    height: 75%;
-  }
-}
-
-@media screen and (max-width: 660px) {
-  .modal img {
-    height: 60%;
-  }
-}
-
 @media screen and (max-width: 425px) {
   .modal img {
-    height: 50vh; 
+    height: 55vh; 
+    width: auto;
   }
 }

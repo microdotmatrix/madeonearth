@@ -3,12 +3,12 @@ import './Thumbnails.css';
 
 
 class Thumbnails extends Component {
-  constructor(props) {
-    super(props); 
-    this.state = {
+  // constructor(props) {
+  //   super(props); 
+  //   this.state = {
 
-    }
-  }
+  //   }
+  // }
 
   render() {
     let colorVariant = this.props.colorVariant;
