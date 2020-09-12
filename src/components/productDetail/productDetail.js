@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ProductDetail.css';
 import { Link } from 'react-router-dom';
-// import Thumbnails from '../thumbnails/Thumbnails';
+import Thumbnails from '../thumbnails/Thumbnails';
 import VariantSelector from '../shopify/variantSelector/VariantSelector';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
