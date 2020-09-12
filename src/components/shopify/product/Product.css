@@ -183,17 +183,13 @@
   .product {
     margin: 10% 0;
   }
-  .notify h3 {
-    font-size: 50%;
-  }
   .productTitle {
     font-size: 100%;
     width: 100%;
   }
   .productDescription {
     text-align: center;
-    font-size: 80%;
-    width: 100%;
+    font-size: 100%;
   }
   .productBtn {
     height: 10%;
