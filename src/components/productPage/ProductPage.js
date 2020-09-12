@@ -16,10 +16,10 @@ class ProductPage extends Component {
   }
 
   renderingProductItem = () => {
-    // if (!this.props.collections) {
+    if (!this.props.collections) {
 
       // ============ DELETE ============
-      if (!this.props.products) {
+      // if (!this.props.products) {
       //  ===============================
       
       let productItem = JSON.parse(sessionStorage.getItem('selectedProduct'));
@@ -38,10 +38,10 @@ class ProductPage extends Component {
         />
       )
     } else {
-      // let selectedProduct = this.props.collections[0].products.map((product) => {
+      let selectedProduct = this.props.collections[0].products.map((product) => {
 
         // ===================== DELETE ==============================
-        let selectedProduct = this.props.products.map(product => {
+        // let selectedProduct = this.props.products.map(product => {
         // ===========================================================
 
         let productItem; 
