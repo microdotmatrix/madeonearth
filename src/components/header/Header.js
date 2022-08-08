@@ -4,7 +4,7 @@ import './Header.css';
 import Cart from '../../asset/cart2.png';
 import Logo from '../../asset/Logo_nm.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 class Header extends Component {
   
@@ -20,6 +20,9 @@ class Header extends Component {
             target='_blank'
           >
             <span className='FAI' ><FontAwesomeIcon icon={faInstagram} /></span>
+          </a>
+          <a href="//facebook.com/slayleyart" className="fbIcon" title="Slayley Art on Facebook" rel="noopener noreferrer" target="_blank">
+            <span className="FAI"><FontAwesomeIcon icon={ faFacebook } /></span>
           </a>
           <button className='cartIcon' onClick={ this.props.handleCartOpen }>
             <img src={ Cart } alt='cart icon' />

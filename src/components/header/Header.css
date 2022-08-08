@@ -6,12 +6,12 @@
 }
 .iconBar {
   display: flex; 
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 100%; 
   padding: 3px 0;
 }
-.igIcon {
+.igIcon, .fbIcon {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -9,7 +9,7 @@ import store from './store/Store';
 import * as serviceWorker from './serviceWorker';
 
 const client = Client.buildClient({
-  domain: 'madeonearthapparel.myshopify.com/',
+  domain: 'slayley.myshopify.com/',
   storefrontAccessToken: `${process.env.REACT_APP_ACCESS_TOKEN}`
 });
 store.dispatch({ type: 'CLIENT_CREATED', payload: client })
